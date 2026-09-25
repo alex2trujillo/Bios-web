@@ -729,6 +729,211 @@ header {
   object-fit: contain;
 }
 
+/* BIOS editorial refresh: spacious hero, soft type reveals and a moving lab ticker. */
+body {
+  background: #f5f6f2;
+  color: #17242a;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(23, 36, 42, 0.1);
+}
+
+.top-banner {
+  background: #312d6f;
+  letter-spacing: .14em;
+}
+
+.site-header .nav {
+  min-height: 104px;
+}
+
+.brand > .site-logo {
+  width: 260px;
+  height: 92px;
+}
+
+.main-nav .menu {
+  gap: 24px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .76rem;
+}
+
+.header-contact,
+.cta-button {
+  background: #312d6f;
+  border-radius: 2px;
+  letter-spacing: .05em;
+}
+
+.hero {
+  position: relative;
+  min-height: 720px;
+  padding: 150px 0 110px;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  background: url("assets/hero-microscopio.jpg") center / cover no-repeat;
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(10, 28, 35, .62);
+}
+
+.hero-wrap,
+.hero-layout,
+.hero-grid {
+  width: 100%;
+}
+
+.hero-grid {
+  display: block;
+}
+
+.hero-copy {
+  max-width: 780px;
+}
+
+.hero-copy h1 {
+  max-width: 740px;
+  margin: 0 0 28px;
+  color: #fff;
+  font-size: clamp(3.4rem, 8vw, 7.8rem);
+  line-height: .9;
+  letter-spacing: -.07em;
+  animation: biosReveal .9s ease both;
+}
+
+.hero-copy > p {
+  max-width: 560px;
+  color: rgba(255, 255, 255, .86);
+  font-size: 1.15rem;
+  animation: biosReveal .9s .12s ease both;
+}
+
+.hero-actions {
+  animation: biosReveal .9s .22s ease both;
+}
+
+.hero-stats {
+  margin-top: 54px;
+  color: rgba(255, 255, 255, .9);
+  animation: biosReveal .9s .3s ease both;
+}
+
+.hero-specialties {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: max-content;
+  gap: 48px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, .28);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  animation: biosTicker 22s linear infinite;
+}
+
+.bios-description,
+.analysis-preview,
+.certifications,
+.team,
+.contact,
+.info {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.bios-description__grid,
+.analysis-preview__grid,
+.team-grid {
+  gap: 48px;
+}
+
+.section-head h2 {
+  max-width: 760px;
+  font-size: clamp(2.4rem, 5vw, 5.4rem);
+  line-height: .94;
+  letter-spacing: -.07em;
+}
+
+.section-badge {
+  background: #d9eee9;
+  color: #286e6b;
+  border-radius: 2px;
+  letter-spacing: .16em;
+}
+
+.analysis-preview__grid article,
+.cert-grid--full,
+.team-visual,
+.form-box {
+  border-radius: 2px;
+}
+
+.analysis-preview__grid article {
+  min-height: 220px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid rgba(23, 36, 42, .1);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.analysis-preview__grid article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 36px rgba(28, 47, 51, .12);
+}
+
+.team-slider__track {
+  min-height: 430px;
+}
+
+.team-slider__image {
+  object-fit: cover;
+}
+
+.cert-grid--full {
+  background: #fff;
+  padding: 30px;
+}
+
+@keyframes biosReveal {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes biosTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-32%); }
+}
+
+@media (max-width: 700px) {
+  .site-header .nav { min-height: 84px; }
+  .brand > .site-logo { width: 190px; height: 72px; }
+  .hero { min-height: 650px; padding-top: 120px; }
+  .hero-copy h1 { font-size: clamp(3rem, 15vw, 5rem); }
+  .hero-specialties { gap: 28px; font-size: .64rem; }
+  .bios-description,
+  .analysis-preview,
+  .certifications,
+  .team,
+  .contact,
+  .info { padding-top: 76px; padding-bottom: 76px; }
+}
+
 .quality {
   background: linear-gradient(135deg, rgba(45, 43, 109, 0.96), rgba(91, 45, 125, 0.96));
   color: white;
