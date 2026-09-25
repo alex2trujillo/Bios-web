@@ -269,8 +269,17 @@ function pushWhatsAppAdvisorAction() {
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
+function normalizeChatText(message) {
+  return message.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function handleBotReply(message) {
-  const lower = message.toLowerCase();
+  const lower = normalizeChatText(message);
+
+  if (/\b(hola|hey|buenas|buenos dias|buenas tardes|buenas noches|saludos)\b/.test(lower)) {
+    pushChatMessage('¡Hola! Soy el asistente virtual de BIOS. Puedo orientarte sobre nuestros servicios, análisis, ubicación, horarios y cotizaciones.', 'bot');
+    return;
+  }
 
   if (lower.includes('cotiz') || lower.includes('presupuesto') || lower.includes('precio')) {
     pushChatMessage('Claro. Pulsa el botón para enviar toda esta conversación a WhatsApp y solicitar tu cotización.', 'bot');
@@ -278,13 +287,23 @@ function handleBotReply(message) {
     return;
   }
 
-  if (lower.includes('ubic') || lower.includes('direc') || lower.includes('dónde') || lower.includes('donde')) {
+  if (lower.includes('ubic') || lower.includes('direc') || lower.includes('donde')) {
     pushChatMessage('Estamos en Calle 33 B 36-37, barrio Barzal, Villavicencio - Meta. Puedes llamarnos al 608 660 7400 o al 320 251 1640, escribir a info@biosaguasyalimentos.com y visitarnos de 8:00 a 17:00.', 'bot');
     return;
   }
 
   if (lower.includes('tel') || lower.includes('llamar') || lower.includes('correo') || lower.includes('email') || lower.includes('horario')) {
     pushChatMessage('Puedes llamarnos al 608 660 7400 o al 320 251 1640. También puedes escribir a info@biosaguasyalimentos.com. Atendemos de 8:00 a 17:00.', 'bot');
+    return;
+  }
+
+  if (lower.includes('agua')) {
+    pushChatMessage('Podemos ayudarte con análisis microbiológicos y fisicoquímicos de agua potable, residual y de procesos.', 'bot');
+    return;
+  }
+
+  if (lower.includes('alimento')) {
+    pushChatMessage('Contamos con análisis para alimentos, cumplimiento normativo y control de calidad en producción.', 'bot');
     return;
   }
 
@@ -303,18 +322,8 @@ function handleBotReply(message) {
     return;
   }
 
-  if (lower.includes('servicio') || lower.includes('hacen') || lower.includes('ofrecen') || lower.includes('qué hace') || lower.includes('que hace')) {
+  if (lower.includes('servicio') || lower.includes('hacen') || lower.includes('ofrecen') || lower.includes('que hace') || lower.includes('quienes son') || lower.includes('informacion')) {
     pushChatMessage('BIOS es un laboratorio de control de calidad especializado en análisis microbiológicos y fisicoquímicos de aguas y alimentos. Atendemos plantas y piscinas, centros penitenciarios y carcelarios, plantas de beneficio animal e industrias panificadoras.', 'bot');
-    return;
-  }
-
-  if (lower.includes('agua')) {
-    pushChatMessage('Podemos ayudarte con análisis microbiológicos y fisicoquímicos de agua potable, residual y de procesos.', 'bot');
-    return;
-  }
-
-  if (lower.includes('alimento')) {
-    pushChatMessage('Contamos con análisis para alimentos, cumplimiento normativo y control de calidad en producción.', 'bot');
     return;
   }
 
@@ -335,6 +344,12 @@ if (chatbotToggle && chatbot && chatbotClose && chatbotMessages && chatbotInput 
       chatbotInput.focus();
     }
   });
+
+  setTimeout(() => {
+    if (chatbot.classList.contains('open')) return;
+    chatbot.classList.add('open');
+    chatbotToggle.setAttribute('aria-expanded', 'true');
+  }, 1200);
 
   chatbotClose.addEventListener('click', () => {
     chatbot.classList.remove('open');
