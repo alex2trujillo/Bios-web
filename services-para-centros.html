@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIOS | Servicios para centros</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .detail-page { min-height: calc(100vh - 190px); padding: 70px 0; background: url("assets/servicios-bios.jpg") center top / cover fixed no-repeat; }
+    .detail-page__intro { max-width: 760px; margin: 0 auto 30px; text-align: center; color: var(--muted); }
+    .detail-page .service-detail { max-width: 980px; margin: 0 auto 24px; padding: 28px; border: 1px solid rgba(20,30,45,.08); border-radius: 22px; background: rgba(255,255,255,.88); box-shadow: 0 14px 30px rgba(19,31,45,.08); }
+    .detail-page .service-detail h2 { margin: 0 0 22px; color: var(--primary); font-size: clamp(1.5rem,3vw,2.2rem); }
+    .detail-page .service-detail__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+    .detail-page .service-detail h3 { margin: 0 0 8px; color: var(--primary-2); font-size: 1.08rem; }
+    .detail-page .service-detail ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.7; }
+    .detail-page__back { display: inline-flex; margin-top: 10px; padding: 12px 20px; border-radius: 999px; background: linear-gradient(135deg,var(--primary-2),var(--primary)); color: #fff; font-weight: 800; }
+    @media (max-width:700px) { .detail-page .service-detail__grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div><div class="container nav"><a class="brand" href="index.html#inicio" aria-label="BIOS"><span class="bios-wordmark" aria-hidden="true"><span class="bios-bi">BI</span><span class="bios-o"><span class="bios-liquid-core"></span></span><span class="bios-s">S</span></span><span class="bios-tagline">ANÁLISIS DE AGUAS Y ALIMENTOS</span></a><nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="index.html#nosotros">Nosotros</a></li><li><a href="index.html#contacto">Contacto</a></li></ul></nav><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+  <main class="detail-page"><div class="container"><div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Servicios para centros penitenciarios y carcelarios</h1></div><p class="detail-page__intro">Análisis de calidad para apoyar la seguridad de los alimentos y el agua.</p><section class="service-modern-hero"><div class="service-modern-hero__copy"><h2>ANÁLISIS DE ALIMENTOS Y AGUA</h2><p>Control microbiológico y fisicoquímico para establecimientos y servicios de alimentación.</p></div><img class="service-modern-hero__image" src="assets/servicios-bios.jpg" alt="Personal trabajando en un laboratorio" /></section><section class="service-modern-card"><h2>SERVICIOS PARA CENTROS</h2><div class="service-modern-grid"><article class="service-modern-item"><h3>Alimentos preparados en restaurantes</h3><ul><li>Análisis microbiológicos</li></ul></article><article class="service-modern-item"><h3>Ensaladas, jugos, quesos y leche en polvo</h3><ul><li>Análisis microbiológicos</li></ul></article><article class="service-modern-item"><h3>Agua potable</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis químicos</li></ul></article></div></section><a class="detail-page__back" href="services.html">Volver a servicios</a></div></main>
+  <footer><div class="container footer-row"><div>BIOS</div><div>info@biosaguasyalimentos.com</div><div>Bogotá · Colombia</div></div></footer><script src="script.js"></script>
+</body>
+</html>

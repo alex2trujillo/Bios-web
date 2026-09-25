@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIOS | Servicios</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .services-page {
+      min-height: calc(100vh - 190px);
+      padding: 70px 0;
+    }
+
+    .services-page__intro {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .services-page .section-badge {
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #fff;
+      padding: 10px 16px;
+      box-shadow: 0 10px 22px rgba(45, 43, 109, 0.22);
+    }
+
+    .services-page .services-modal__grid {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .services-page .services-modal__item:nth-child(3) {
+      grid-column: auto;
+    }
+
+    .services-page__back {
+      display: inline-flex;
+      margin-top: 30px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .services-directory {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 980px;
+      margin: 0 auto 34px;
+    }
+
+    .services-directory__card {
+      display: flex;
+      flex-direction: column;
+      min-height: 230px;
+      padding: 24px;
+      border: 1px solid rgba(20, 30, 45, 0.08);
+      border-radius: 22px;
+      background-image: linear-gradient(rgba(21, 27, 64, 0.72), rgba(21, 27, 64, 0.86)), var(--service-image);
+      background-position: center;
+      background-size: cover;
+      box-shadow: 0 14px 30px rgba(19, 31, 45, 0.08);
+      cursor: pointer;
+    }
+
+    .services-directory__card h2 {
+      margin: 14px 0 10px;
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    .services-directory__card .services-modal__icon,
+    .services-directory__card h2,
+    .services-directory__card p,
+    .services-directory__card a {
+      color: #fff;
+    }
+
+    .services-directory__card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .services-directory__link {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: auto;
+      padding-top: 18px;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .services-page--directory > .container > .service-detail {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .services-directory {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-directory {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-detail {
+      max-width: 980px;
+      margin: 0 auto 24px;
+      padding: 28px;
+      border: 1px solid rgba(20, 30, 45, 0.08);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 14px 30px rgba(19, 31, 45, 0.08);
+    }
+
+    .service-detail h2 {
+      margin: 0 0 22px;
+      color: var(--primary);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .service-detail__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .service-detail h3 {
+      margin: 0 0 8px;
+      color: var(--primary-2);
+      font-size: 1.08rem;
+    }
+
+    .service-detail ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .service-detail__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="BIOS, análisis de aguas y alimentos">
+        <img class="site-logo" src="bios.png" alt="BIOS Análisis de Aguas y Alimentos" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="services.html" aria-current="page">Servicios</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"><a class="header-phone" href="tel:+573202511640">320 251 1640</a><a class="header-contact" href="index.html#contacto">Contáctanos</a></div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="services-page services-page--directory">
+    <div class="container">
+      <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Análisis para cada necesidad.</h1></div>
+      <p class="services-page__intro">Llegamos a todos los rincones de Colombia con oportunidad y profesionalismo para cuidar la calidad de tus procesos.</p>
+      <div class="services-directory">
+        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">BIOS</span><h2>Todos nuestros servicios</h2><p>Análisis confiables para alimentos, aguas y procesos de calidad.</p><a class="services-directory__link" href="services-generales.html">Ver todos</a></article>
+        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">AGUAS</span><h2>Servicios para plantas y piscinas</h2><p>Análisis de aguas, plantas envasadoras, plantas de beneficio animal y piscinas.</p><a class="services-directory__link" href="services-para-plantas-y-piscinas.html">Ver servicio</a></article>
+        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">CENTROS</span><h2>Servicios para centros</h2><p>Análisis para centros penitenciarios y carcelarios, alimentos preparados y agua potable.</p><a class="services-directory__link" href="services-para-centros.html">Ver servicio</a></article>
+        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">INDUSTRIAS</span><h2>Servicios para industrias</h2><p>Análisis para industrias panificadoras, pan, galletas y bizcochos.</p><a class="services-directory__link" href="services-para-industriales.html">Ver servicio</a></article>
+      </div>
+      <section class="service-detail">
+        <h2>Análisis de calidad de aguas y plantas envasadoras</h2>
+        <div class="service-detail__grid">
+          <div><h3>Agua potable tratada envasada</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis químicos</li></ul></div>
+          <div><h3>Agua potable</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li></ul></div>
+          <div><h3>Verificación de buenas prácticas de higiene</h3><ul><li>Frotis de superficies</li><li>Frotis de manos</li><li>Ambientes</li></ul></div>
+          <div><h3>Análisis de empaque</h3><ul><li>Mesófilos</li><li>Coliformes totales</li><li>Staphylococcus aureus coagulasa positiva</li><li>Mohos</li><li>Levaduras</li></ul></div>
+          <div><h3>Agua de piscinas</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis de empaque</li><li>Índice de Langelier o cosmetológico</li></ul></div>
+        </div>
+      </section>
+
+      <section class="service-detail">
+        <h2>Servicios para centros penitenciarios, carcelarios y plantas de beneficio animal</h2>
+        <div class="service-detail__grid">
+          <div><h3>Bovinos, porcinos, bufalinos y aves de corral</h3><ul><li>Análisis microbiológicos</li></ul></div>
+          <div><h3>Para agua potable</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis químicos</li></ul></div>
+          <div><h3>Verificación de buenas prácticas de higiene</h3><ul><li>Frotis de superficies</li><li>Frotis de manos</li><li>Ambientes</li></ul></div>
+        </div>
+      </section>
+
+      <section class="service-detail">
+        <h2>Servicios para industrias panificadoras</h2>
+        <div class="service-detail__grid">
+          <div><h3>Pan</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li></ul></div>
+          <div><h3>Galletas y bizcochos</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis de empaque</li><li>Análisis de migración global y específica</li></ul></div>
+        </div>
+      </section>
+      <a class="services-page__back" href="index.html#inicio">Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer><div class="container footer-row"><div>BIOS</div><div>info@biosaguasyalimentos.com</div><div>Bogotá · Colombia</div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

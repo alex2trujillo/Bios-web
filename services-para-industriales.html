@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIOS | Servicios para industrias</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .detail-page { min-height: calc(100vh - 190px); padding: 70px 0; background: url("assets/hero-microscopio.jpg") center top / cover fixed no-repeat; }
+    .detail-page__intro { max-width: 760px; margin: 0 auto 30px; text-align: center; color: var(--muted); }
+    .detail-page .service-detail { max-width: 980px; margin: 0 auto 24px; padding: 28px; border: 1px solid rgba(20,30,45,.08); border-radius: 22px; background: rgba(255,255,255,.88); box-shadow: 0 14px 30px rgba(19,31,45,.08); }
+    .detail-page .service-detail h2 { margin: 0 0 22px; color: var(--primary); font-size: clamp(1.5rem,3vw,2.2rem); }
+    .detail-page .service-detail__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+    .detail-page .service-detail h3 { margin: 0 0 8px; color: var(--primary-2); font-size: 1.08rem; }
+    .detail-page .service-detail ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.7; }
+    .detail-page__back { display: inline-flex; margin-top: 10px; padding: 12px 20px; border-radius: 999px; background: linear-gradient(135deg,var(--primary-2),var(--primary)); color: #fff; font-weight: 800; }
+    .industrial-intro { max-width: 900px; margin: 0 auto 26px; padding: 26px 30px; border-left: 5px solid var(--accent); background: rgba(255,255,255,.86); color: var(--muted); line-height: 1.7; }
+    .sector-grid, .catalog-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .sector-card, .catalog-item { padding: 20px 16px; border: 1px solid rgba(20,30,45,.08); border-radius: 14px; background: rgba(255,255,255,.9); text-align: center; }
+    .sector-card__icon { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 12px; border: 2px solid var(--accent); border-radius: 50%; color: var(--primary); font-size: 1.35rem; font-weight: 900; }
+    .sector-card h3, .catalog-item h3 { margin: 0 0 6px; color: var(--primary); font-size: 1rem; }
+    .sector-card p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.45; }
+    .results-fast { margin: 28px auto; padding: 30px; border-radius: 18px; background: linear-gradient(135deg,#0d5966,#168f9b); color: #fff; }
+    .results-fast h2 { margin: 0 0 8px; color: #fff; }
+    .results-fast p { margin: 0 0 18px; color: rgba(255,255,255,.9); }
+    .results-fast__list { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px 24px; margin: 0; padding: 0; list-style: none; }
+    .results-fast__list li::before { content: "✓"; margin-right: 8px; color: #b9f8f4; font-weight: 900; }
+    .catalog-item { text-align: left; }
+    .catalog-item h3 { font-size: .96rem; }
+    .catalog-item h3::before { content: "•"; margin-right: 8px; color: var(--accent); }
+    .bakery-hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 26px; align-items: stretch; max-width: 980px; margin: 0 auto 28px; padding: 0; overflow: hidden; border-radius: 22px; background: rgba(255,255,255,.9); box-shadow: 0 14px 30px rgba(19,31,45,.08); }
+    .bakery-hero__copy { padding: 34px; }
+    .bakery-hero__copy h2 { margin: 0 0 12px; color: var(--primary); font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    .bakery-hero__copy p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .bakery-hero__image { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+    .bakery-card { max-width: 980px; margin: 0 auto 24px; padding: 28px; border: 1px solid rgba(20,30,45,.08); border-radius: 22px; background: rgba(255,255,255,.92); box-shadow: 0 14px 30px rgba(19,31,45,.08); }
+    .bakery-card h2 { margin: 0 0 20px; color: var(--primary); }
+    .bakery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .bakery-item { padding: 20px; border-left: 4px solid var(--accent); background: #f8fafc; }
+    .bakery-item h3 { margin: 0 0 10px; color: var(--primary-2); }
+    .bakery-item ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.7; }
+    @media (max-width:700px) { .bakery-hero, .bakery-grid { grid-template-columns: 1fr; } .bakery-hero__copy { padding: 26px; } }
+    @media (max-width:900px) { .sector-grid, .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .results-fast__list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width:600px) { .sector-grid, .catalog-grid, .results-fast__list { grid-template-columns: 1fr; } }
+    @media (max-width:700px) { .detail-page .service-detail__grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div><div class="container nav"><a class="brand" href="index.html#inicio" aria-label="BIOS"><span class="bios-wordmark" aria-hidden="true"><span class="bios-bi">BI</span><span class="bios-o"><span class="bios-liquid-core"></span></span><span class="bios-s">S</span></span><span class="bios-tagline">ANÁLISIS DE AGUAS Y ALIMENTOS</span></a><nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="index.html#nosotros">Nosotros</a></li><li><a href="index.html#contacto">Contacto</a></li></ul></nav><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+  <main class="detail-page"><div class="container"><div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Servicios para industrias panificadoras</h1></div><p class="detail-page__intro">Análisis de calidad para apoyar la seguridad y excelencia de tus productos de panificación.</p>
+    <section class="bakery-hero"><div class="bakery-hero__copy"><h2>ANÁLISIS MICROBIOLÓGICOS, FÍSICOS, EMPAQUE</h2><p>Evaluamos la calidad de productos panificados desde el análisis del producto hasta sus materiales de empaque.</p></div><img class="bakery-hero__image" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Pan artesanal recién horneado" /></section>
+    <section class="bakery-card"><h2>SERVICIOS PARA INDUSTRIAS PANIFICADORAS</h2><div class="bakery-grid"><article class="bakery-item"><h3>Pan</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li></ul></article><article class="bakery-item"><h3>Galletas y bizcochos</h3><ul><li>Análisis microbiológicos</li><li>Análisis físicos</li><li>Análisis de empaque</li><li>Análisis de migración global y específica</li></ul></article></div></section><a class="detail-page__back" href="services.html">Volver a servicios</a></div></main>
+  <footer><div class="container footer-row"><div>BIOS</div><div>info@biosaguasyalimentos.com</div><div>Bogotá · Colombia</div></div></footer><script src="script.js"></script>
+</body>
+</html>
