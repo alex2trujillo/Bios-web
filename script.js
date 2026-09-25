@@ -345,12 +345,6 @@ if (chatbotToggle && chatbot && chatbotClose && chatbotMessages && chatbotInput 
     }
   });
 
-  setTimeout(() => {
-    if (chatbot.classList.contains('open')) return;
-    chatbot.classList.add('open');
-    chatbotToggle.setAttribute('aria-expanded', 'true');
-  }, 1200);
-
   chatbotClose.addEventListener('click', () => {
     chatbot.classList.remove('open');
     chatbotToggle.setAttribute('aria-expanded', 'false');
