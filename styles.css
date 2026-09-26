@@ -826,8 +826,8 @@ body {
 
 .hero {
   position: relative;
-  min-height: 480px;
-  padding: 82px 0 70px;
+  min-height: 360px;
+  padding: 62px 0 52px;
   display: flex;
   align-items: center;
   isolation: isolate;
@@ -1052,7 +1052,7 @@ body {
 @media (max-width: 700px) {
   .site-header .nav { min-height: 84px; }
   .brand > .site-logo { width: 190px; height: 72px; }
-  .hero { min-height: 520px; padding-top: 96px; }
+  .hero { min-height: 400px; padding-top: 78px; }
   .hero-copy h1 { font-size: clamp(3rem, 15vw, 5rem); }
   .hero-specialties { gap: 28px; font-size: .64rem; }
   .bios-description,
