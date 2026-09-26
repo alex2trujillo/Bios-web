@@ -1757,12 +1757,12 @@ main .detail-page__intro {
 /* Service rows inspired by the official BIOS layout. */
 .index-page .analysis-preview__grid article {
   display: grid;
-  grid-template-columns: minmax(220px, 310px) minmax(180px, .9fr) minmax(240px, 1.3fr) 54px;
+  grid-template-columns: 310px minmax(230px, .9fr) minmax(320px, 1.35fr) 54px;
   gap: 28px;
   align-items: center;
-  min-height: 220px;
+  min-height: 240px;
   padding: 0 24px 0 340px;
-  background-size: 310px 100%;
+  background-size: 310px 206px;
   background-position: left center;
   border-bottom: 1px solid #cbd8de;
   border-radius: 0;
@@ -1770,7 +1770,9 @@ main .detail-page__intro {
 
 .index-page .analysis-preview__grid article::before {
   width: 310px;
-  height: 100%;
+  height: 206px;
+  top: 17px;
+  bottom: auto;
   background: linear-gradient(145deg, rgba(18, 35, 49, .16), rgba(18, 35, 49, .48));
 }
 
@@ -1816,10 +1818,10 @@ main .detail-page__intro {
     grid-template-columns: minmax(180px, 260px) 1fr 48px;
     padding-left: 285px;
     gap: 20px;
-    background-size: 260px 100%;
+    background-size: 260px 190px;
   }
 
-  .index-page .analysis-preview__grid article::before { width: 260px; }
+  .index-page .analysis-preview__grid article::before { width: 260px; height: 190px; top: 25px; }
   .index-page .analysis-preview__grid p { grid-column: 2 / 3; }
 }
 
