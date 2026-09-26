@@ -830,6 +830,27 @@ body {
   animation: biosReveal .9s .12s ease both;
 }
 
+.hero-copy > p,
+.hero-stats,
+.hero-specialties {
+  color: #fff;
+}
+
+.cta-button,
+.header-contact,
+.primary,
+.cta,
+.services-page__back,
+.detail-page__back,
+.general-page__back {
+  border-radius: 8px;
+  color: #fff;
+}
+
+.secondary {
+  border-radius: 8px;
+}
+
 .hero-actions {
   animation: biosReveal .9s .22s ease both;
 }
