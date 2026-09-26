@@ -843,6 +843,32 @@ body {
   border-bottom: 8px solid #7b0881;
 }
 
+#equipo .container {
+  display: grid;
+  grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: 42px;
+}
+
+#equipo .section-head {
+  grid-column: 1;
+  margin: 0;
+  text-align: left;
+}
+
+#equipo .section-head h2 {
+  font-size: clamp(2rem, 4vw, 4.4rem);
+}
+
+#equipo .team-grid {
+  display: block;
+  grid-column: 2;
+}
+
+#equipo .team-copy { display: none; }
+
+#equipo .team-visual { width: 100%; }
+
 #equipo .team-slider__track {
   display: flex;
   align-items: center;
@@ -1050,6 +1076,9 @@ body {
 }
 
 @media (max-width: 700px) {
+  #equipo .container { display: block; }
+  #equipo .section-head { margin-bottom: 28px; text-align: center; }
+
   .site-header .nav { min-height: 84px; }
   .brand > .site-logo { width: 190px; height: 72px; }
   .hero { min-height: 400px; padding-top: 78px; }
