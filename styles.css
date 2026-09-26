@@ -869,6 +869,19 @@ body {
 
 #equipo .team-visual { width: 100%; }
 
+#equipo .container {
+  display: block;
+}
+
+#equipo .section-head {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+#equipo .team-grid {
+  display: block;
+}
+
 #equipo .team-slider__track {
   display: flex;
   align-items: center;
