@@ -945,6 +945,22 @@ body {
   .info { padding-top: 76px; padding-bottom: 76px; }
 }
 
+/* Official BIOS palette from biosaguasyalimentos.com. */
+:root {
+  --bg: #eeeeee;
+  --primary: #7b0881;
+  --primary-2: #5f2e85;
+  --accent: #7b0881;
+  --text: #212226;
+  --muted: #666666;
+}
+
+body { background: #eeeeee; color: #212226; }
+.top-banner { background: #7b0881; }
+.header-contact, .cta-button { background: #7b0881; }
+.section-badge { background: rgba(123, 8, 129, .1); color: #7b0881; }
+.hero::before { background: rgba(0, 0, 0, .58); }
+
 .quality {
   background: linear-gradient(135deg, rgba(45, 43, 109, 0.96), rgba(91, 45, 125, 0.96));
   color: white;
