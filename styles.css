@@ -527,7 +527,7 @@ header {
 .hero-scroll {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  bottom: 52px;
   z-index: 2;
   width: 58px;
   height: 58px;
