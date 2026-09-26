@@ -17,6 +17,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 140px;
+}
+
+#inicio {
+  scroll-margin-top: 140px;
 }
 
 body {
