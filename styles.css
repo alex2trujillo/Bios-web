@@ -519,6 +519,50 @@ header {
   color: #fff;
 }
 
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #7b0881;
+  color: #fff;
+  transform: translateX(-50%);
+  animation: biosArrowBounce 1.8s ease-in-out infinite;
+}
+
+.hero-scroll::before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  border-right: 4px solid currentColor;
+  border-bottom: 4px solid currentColor;
+  transform: translateY(-4px) rotate(45deg);
+}
+
+.hero-scroll:hover { background: #5f2e85; }
+
+.section-head h2,
+.bios-description h2,
+.analysis-preview h2,
+.team-copy h3,
+.service-modern-card h2,
+.bakery-card h2 {
+  color: #416a82;
+}
+
+.section-head p,
+.bios-description p,
+.analysis-preview p,
+.detail-page__intro {
+  color: #5f7280;
+}
+
 .hero-specialties span {
   flex: 1 1 0;
   padding: 14px 12px;
@@ -952,6 +996,11 @@ body {
 @keyframes biosTicker {
   from { transform: translateX(0); }
   to { transform: translateX(-32%); }
+}
+
+@keyframes biosArrowBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
 }
 
 @media (max-width: 700px) {
