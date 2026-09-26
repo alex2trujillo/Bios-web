@@ -354,6 +354,15 @@ header {
   white-space: nowrap;
 }
 
+.header-phone::before {
+  content: "\260E";
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--primary);
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .header-contact {
   padding: 12px 18px;
   border-radius: 999px;
@@ -1122,14 +1131,16 @@ body {
 }
 
 .index-quote-banner__panel {
-  width: min(460px, 100%);
-  padding: 40px 34px;
+  width: min(300px, 100%);
+  justify-self: end;
+  margin-right: 8%;
+  padding: 22px 20px;
   background: #fff;
   text-align: center;
   box-shadow: 0 18px 38px rgba(18, 31, 43, .18);
 }
 
-.index-quote-banner__panel h2 { margin: 0 0 14px; color: #416a82 !important; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.05; }
+.index-quote-banner__panel h2 { margin: 0 0 12px; color: #416a82 !important; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.05; }
 .index-quote-banner__panel p { margin: 0 0 24px; color: #6a7e89; line-height: 1.6; }
 .index-quote-banner__panel a { display: inline-flex; padding: 14px 30px; border-radius: 8px; background: #7b0881; color: #fff; font-weight: 800; }
 
@@ -1141,6 +1152,7 @@ body {
 .bios-footer__legal { max-width: 1200px; margin: 42px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); text-align: center; color: rgba(255,255,255,.7); font-size: .78rem; }
 
 @media (max-width: 800px) {
+  .index-quote-banner__panel { justify-self: center; margin-right: 0; }
   .bios-footer__grid { grid-template-columns: repeat(2, 1fr); }
   .bios-footer__brand { grid-column: 1 / -1; }
 }

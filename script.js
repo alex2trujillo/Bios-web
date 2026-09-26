@@ -203,7 +203,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   });
 
   const excludedSources = document.querySelector('#equipo')
-    ? ['fondo%20(3).jpg', 'IMG_7182.jpg', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'assets/muestra 2.jpg', 'IMG_7153.jpg', 'IMG_7170.jpg', 'IMG_7269.jpg']
+    ? ['fondo%20(3).jpg', 'IMG_7182.jpg', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'IMG_7153.jpg', 'IMG_7170.jpg', 'IMG_7269.jpg']
     : ['fondo%20(3).jpg', 'IMG_7182.jpg', 'nueva1.jpg', 'IMG_7269.jpg'];
   const allTeamSlides = [...track.querySelectorAll('.team-slider__image')];
   allTeamSlides
