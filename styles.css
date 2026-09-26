@@ -1044,6 +1044,26 @@ body { background: #eeeeee; color: #212226; }
 .section-badge { background: rgba(123, 8, 129, .1); color: #7b0881; }
 .hero::before { background: rgba(0, 0, 0, .58); }
 
+main h2,
+main h3,
+main h4,
+.section-head h2,
+.bios-description h2,
+.analysis-preview h2,
+.team-copy h3,
+.contact h2,
+.service-modern-card h2,
+.bakery-card h2 {
+  color: #416a82 !important;
+}
+
+main .section-head p,
+main .bios-description p,
+main .analysis-preview p,
+main .detail-page__intro {
+  color: #5f7280 !important;
+}
+
 .quality {
   background: linear-gradient(135deg, rgba(45, 43, 109, 0.96), rgba(91, 45, 125, 0.96));
   color: white;
