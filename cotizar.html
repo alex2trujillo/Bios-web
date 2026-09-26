@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIOS | Cotizar análisis</title>
+  <link rel="stylesheet" href="styles.css?v=20260926-2600" />
+  <style>
+    .quote-page { min-height: calc(100vh - 190px); padding: 78px 0 40px; }
+    .quote-page__intro { max-width: 720px; margin: 0 auto 42px; text-align: center; color: var(--muted); }
+    .quote-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 34px; align-items: start; }
+    .quote-info, .quote-form { padding: 30px; background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 30px rgba(19,31,45,.08); }
+    .quote-info h2, .quote-form h2 { margin: 0 0 24px; color: #416a82; }
+    .quote-info__item { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .quote-info__item:last-child { border-bottom: 0; }
+    .quote-info__item strong { display: block; margin-bottom: 7px; color: #7b0881; text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
+    .quote-info__item p, .quote-info__item a { margin: 0; color: var(--muted); line-height: 1.6; }
+    .quote-form .field input, .quote-form .field textarea { border-radius: 8px; }
+    .quote-map { margin-top: 34px; }
+    .quote-map iframe { display: block; width: 100%; min-height: 300px; border: 0; }
+    .quote-back { display: inline-flex; margin-top: 32px; padding: 12px 20px; border-radius: 8px; background: #7b0881; color: #fff; font-weight: 800; }
+    @media (max-width: 800px) { .quote-grid { grid-template-columns: 1fr; } .quote-info, .quote-form { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="BIOS, análisis de aguas y alimentos"><img class="site-logo" src="bios.png" alt="BIOS Análisis de Aguas y Alimentos" /></a>
+      <nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="index.html#contacto">Contacto</a></li></ul></nav>
+      <div class="header-actions"><a class="header-phone" href="tel:+573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="quote-page"><div class="container">
+    <div class="section-head"><span class="section-badge">Cotizar</span><h1>Hablemos de tu próximo análisis.</h1></div>
+    <p class="quote-page__intro">Cuéntanos qué necesitas analizar y nuestro equipo te orientará con una propuesta adecuada.</p>
+    <div class="quote-grid">
+      <section class="quote-info"><h2>Contáctanos</h2><div class="quote-info__item"><strong>Ubicación</strong><p>Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.</p></div><div class="quote-info__item"><strong>Horario</strong><p>Lunes a viernes<br />8:00 a 17:00</p></div><div class="quote-info__item"><strong>Teléfonos</strong><p><a href="tel:+576086607400">608 660 7400</a><br /><a href="tel:+573202511640">320 251 1640</a></p></div><div class="quote-info__item"><strong>Correo</strong><p><a href="mailto:info@biosaguasyalimentos.com">info@biosaguasyalimentos.com</a></p></div></section>
+      <section class="quote-form"><h2>Solicita tu cotización</h2><form id="contactForm" action="https://formsubmit.co/alexjuniortrujillopardo@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva solicitud de cotización desde BIOS" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_captcha" value="true" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey" /><div class="form-grid"><label class="field">Nombre<input name="name" required /></label><label class="field">Correo<input type="email" name="email" required /></label><label class="field">Teléfono<input name="phone" required /></label><label class="field full">Mensaje<textarea name="message" rows="6" required></textarea></label></div><button class="pqr submit" type="submit">Enviar solicitud</button></form></section>
+    </div>
+    <div class="quote-map"><iframe title="Ubicación de BIOS en Villavicencio" src="https://www.google.com/maps?q=Calle%2033%20B%2036-37%2C%20Barzal%2C%20Villavicencio%2C%20Meta&output=embed" loading="lazy"></iframe></div>
+    <a class="quote-back" href="index.html#inicio">Volver al inicio</a>
+  </div></main>
+
+  <footer><div class="container footer-row"><div>BIOS</div><div>info@biosaguasyalimentos.com</div><div>Bogotá · Colombia</div></div></footer>
+  <script src="script.js?v=20260926-2570"></script>
+</body>
+</html>

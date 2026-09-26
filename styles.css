@@ -1109,6 +1109,8 @@ body {
 .index-page > .team { order: 5; }
 .index-page > .contact { order: 6; }
 .index-page > .info { order: 7; }
+.index-page > .contact,
+.index-page > .info { display: none; }
 
 @keyframes biosReveal {
   from { opacity: 0; transform: translateY(26px); }
