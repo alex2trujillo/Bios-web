@@ -100,6 +100,17 @@ body {
 img {
   max-width: 100%;
   display: block;
+  image-rendering: auto;
+}
+
+.hero-visual-card img,
+.about-img img,
+.team-slider__image,
+.mv-visual img,
+.service-page-hero__image,
+.service-reference__image,
+.analysis-preview__image {
+  filter: contrast(1.04) saturate(1.04);
 }
 
 a {
@@ -348,18 +359,19 @@ header {
 .header-phone {
   color: var(--primary-2);
   font-weight: 800;
-  font-size: .78rem;
+  font-size: 1rem;
   letter-spacing: .02em;
   padding: 10px 8px;
   white-space: nowrap;
 }
 
 .header-phone::before {
-  content: "\260E";
+  content: "\1F4DE";
   display: inline-block;
-  margin-right: 7px;
+  margin-right: 9px;
   color: var(--primary);
-  font-size: 1rem;
+  font-family: "Segoe UI Symbol", sans-serif;
+  font-size: .95rem;
   line-height: 1;
 }
 
@@ -542,24 +554,31 @@ header {
   height: 58px;
   display: grid;
   place-items: center;
-  border: 2px solid #fff;
+  border: 1px solid rgba(255,255,255,.78);
   border-radius: 50%;
-  background: #7b0881;
+  background: rgba(123,8,129,.72);
   color: #fff;
   transform: translateX(-50%);
   animation: biosArrowBounce 1.8s ease-in-out infinite;
+  box-shadow: 0 10px 24px rgba(18, 13, 54, .28), inset 0 0 0 5px rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
 .hero-scroll::before {
   content: "";
-  width: 17px;
-  height: 17px;
-  border-right: 4px solid currentColor;
-  border-bottom: 4px solid currentColor;
-  transform: translateY(-4px) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  border-right: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
 }
 
-.hero-scroll:hover { background: #5f2e85; }
+.hero-scroll:hover {
+  background: rgba(95,46,133,.92);
+  box-shadow: 0 14px 30px rgba(18, 13, 54, .36), inset 0 0 0 5px rgba(255,255,255,.12);
+  transform: translateX(-50%) translateY(-3px);
+}
 
 .section-head h2,
 .bios-description h2,
@@ -2773,6 +2792,51 @@ body.modal-open {
 }
 
 .centers-hero__image, .service-page-hero__image { object-fit: cover; object-position: center 45%; }
+.service-page-hero--bakery .service-page-hero__image {
+  image-rendering: auto;
+  object-position: center 52%;
+  filter: contrast(1.06) saturate(1.08);
+}
+
+.service-page-hero--bakery { min-height: 380px; }
+
+.bios-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+  margin-top: 10px;
+  font-size: 0;
+}
+
+.bios-footer__social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bios-footer__social a::before {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bios-footer__social a[href*="instagram"]::before {
+  content: "";
+  background-image: url("OIP.webp");
+  mix-blend-mode: normal;
+  border-radius: 8px;
+}
+
+.bios-footer__social a[href*="facebook"]::before {
+  content: "";
+  background-image: url("62c5f7a0-b74d-4b7d-8a29-12c43124af4a.png");
+}
 .centers-hero__shade, .service-page-hero__shade { background: linear-gradient(90deg, rgba(13, 26, 35, .76), rgba(13, 26, 35, .12)); }
 .centers-hero__content, .service-page-hero__content { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0; }
 .centers-hero__content > p, .service-page-hero__content > p { margin: 0 0 18px; color: #fff; font-size: 1rem; font-weight: 700; }
@@ -2837,6 +2901,221 @@ body.modal-open {
   .detail-page--water .service-detail__grid { grid-template-columns: 1fr; }
   .detail-page--bakery .bakery-card,
   .detail-page--water .service-detail { padding: 24px; }
+}
+
+/* Each service concept uses its own image element only once. */
+.index-page .analysis-preview__grid article {
+  background-image: none !important;
+}
+
+.index-page .analysis-preview__grid article::before {
+  display: none !important;
+}
+
+.index-page .analysis-preview__grid .analysis-preview__image {
+  width: 100% !important;
+  height: 190px !important;
+  object-fit: cover !important;
+}
+
+.detail-page .service-detail--panel,
+.detail-page .service-detail--plain,
+.detail-page .bakery-hero.service-detail--panel,
+.detail-page .service-modern-item--panel,
+.detail-page .service-modern-item--plain,
+.detail-page .bakery-card.service-detail--panel {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1120px;
+  min-height: 224px;
+  margin: 0 auto 24px;
+  padding: 17px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.detail-page .service-detail--panel,
+.detail-page .bakery-hero.service-detail--panel,
+.detail-page .service-modern-item--panel { background: #2874b8; }
+.detail-page .service-detail--plain,
+.detail-page .bakery-card.service-detail--plain,
+.detail-page .service-modern-item--plain { background: #fff; }
+
+.detail-page--bakery .bakery-hero.service-detail--panel { display: grid; }
+.detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__copy { grid-column: 2; grid-row: 1; padding: 18px; }
+.detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__image { grid-column: 1; grid-row: 1; }
+
+.detail-page .service-block__image {
+  width: 280px;
+  height: 190px;
+  align-self: center;
+  object-fit: cover;
+}
+
+.detail-page .service-block__content {
+  align-self: center;
+  min-width: 0;
+}
+
+.detail-page .service-detail--panel h2,
+.detail-page .service-detail--panel h3,
+.detail-page .service-modern-item--panel h3,
+.detail-page .service-detail--panel p,
+.detail-page .service-detail--panel li { color: #fff; }
+
+.detail-page .service-detail--plain h2,
+.detail-page .service-detail--plain h3,
+.detail-page .service-modern-item--plain h3 { color: #416a82; }
+
+.detail-page .service-detail--plain li,
+.detail-page .service-modern-item--plain li { color: #7893a5; }
+
+.detail-page .service-detail--panel .service-detail__grid,
+.detail-page .service-detail--plain .service-detail__grid,
+.detail-page .bakery-card.service-detail--panel .bakery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.detail-page .service-detail--panel .service-detail__grid > div,
+.detail-page .service-detail--panel .bakery-item { padding: 18px; border: 0; background: rgba(255,255,255,.12); }
+.detail-page .service-detail--plain .service-detail__grid > div { padding: 18px; border: 1px solid #d9e3e8; background: #f7fafb; }
+
+.detail-page .service-modern-grid { align-items: stretch; }
+.detail-page .service-modern-item--panel,
+.detail-page .service-modern-item--plain { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 18px; min-height: 224px; padding: 17px; }
+.detail-page .service-modern-item--panel .service-block__image,
+.detail-page .service-modern-item--plain .service-block__image { width: 280px; height: 190px; }
+.detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__image { width: 280px; height: 190px; min-height: 190px; }
+
+.detail-page .service-reference-layout {
+  display: grid;
+  grid-template-columns: 280px 300px minmax(320px, 1fr);
+  gap: 22px;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto 28px;
+}
+
+.service-reference__panels {
+  display: grid;
+  grid-template-rows: 190px minmax(220px, 1fr);
+  gap: 22px;
+}
+
+.service-reference__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  color: #fff;
+}
+
+.service-reference__panel--top { background: #2fbfc5; }
+.service-reference__panel--bottom { background: #2874b8; }
+.service-reference__panel strong { color: #fff; font-size: 1.25rem; line-height: 1.15; }
+.service-reference__panel p { margin: 12px 0 0; color: rgba(255,255,255,.94); line-height: 1.4; }
+
+.detail-page--water .service-reference__panels {
+  grid-template-rows: 190px 230px;
+  align-content: start;
+}
+
+.detail-page--water .service-reference__panel--bottom {
+  padding: 18px 24px;
+}
+
+.service-reference__image {
+  width: 300px;
+  height: 190px;
+  align-self: start;
+  object-fit: cover;
+}
+
+.detail-page--bakery .service-reference__image {
+  content: url("pan.jpg");
+}
+
+.service-reference__content {
+  min-width: 0;
+  padding: 8px 0;
+  color: #7893a5;
+}
+
+.service-reference__content h2 {
+  margin: 0 0 16px;
+  color: #111b79;
+  font-size: clamp(2rem, 3.1vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.service-reference__content h3 { margin: 26px 0 8px; color: #111b79; font-size: 1.15rem; }
+.service-reference__content h4 { margin: 16px 0 4px; color: #416a82; font-size: 1rem; }
+.service-reference__content p { margin: 0 0 16px; color: #111b79; line-height: 1.5; }
+.service-reference__content ul { margin: 0 0 12px; padding-left: 20px; line-height: 1.65; }
+
+@keyframes serviceTitleReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-page-hero__content h1,
+.centers-hero__content h1,
+.service-reference__content h2 {
+  animation: serviceTitleReveal .7s ease-out both;
+}
+
+.service-reference__content > p,
+.service-reference__content > h3,
+.service-reference__content > h4,
+.service-reference__content > ul {
+  animation: serviceTitleReveal .65s ease-out both;
+}
+
+.service-reference__content > p { animation-delay: .12s; }
+.service-reference__content > h3 { animation-delay: .2s; }
+.service-reference__content > h4,
+.service-reference__content > ul { animation-delay: .28s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .service-page-hero__content h1,
+  .centers-hero__content h1,
+  .service-reference__content h2,
+  .service-reference__content > p,
+  .service-reference__content > h3,
+  .service-reference__content > h4,
+  .service-reference__content > ul { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .detail-page .service-reference-layout { grid-template-columns: 240px 260px minmax(260px, 1fr); }
+  .service-reference__image { width: 260px; }
+}
+
+@media (max-width: 700px) {
+  .detail-page .service-detail--panel,
+  .detail-page .service-detail--plain,
+  .detail-page .bakery-hero.service-detail--panel,
+  .detail-page .service-modern-item--panel,
+  .detail-page .service-modern-item--plain,
+  .detail-page .bakery-card.service-detail--panel { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
+  .detail-page .service-block__image,
+  .detail-page .service-modern-item--panel .service-block__image,
+  .detail-page .service-modern-item--plain .service-block__image { width: 100%; height: 190px; }
+  .detail-page .service-detail--panel .service-detail__grid,
+  .detail-page .service-detail--plain .service-detail__grid,
+  .detail-page .bakery-card.service-detail--panel .bakery-grid { grid-template-columns: 1fr; }
+  .detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__copy,
+  .detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__image { grid-column: 1; }
+  .detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__copy { grid-row: 2; }
+  .detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__image { grid-row: 1; }
+
+  .detail-page .service-reference-layout { grid-template-columns: 1fr; gap: 18px; }
+  .service-reference__panels { grid-template-rows: 175px 175px; gap: 14px; }
+  .detail-page--water .service-reference__panels { grid-template-rows: 175px 210px; }
+  .service-reference__image { width: 100%; height: 190px; order: 2; }
+  .service-reference__content { order: 3; padding: 0; }
 }
 
 footer {
