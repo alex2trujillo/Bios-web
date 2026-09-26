@@ -1118,7 +1118,7 @@ body {
   display: grid;
   place-items: center;
   padding: 50px 20px;
-  background: linear-gradient(rgba(21, 30, 42, .2), rgba(21, 30, 42, .2)), url("assets/hero-microscopio.jpg") center / cover no-repeat;
+  background: linear-gradient(rgba(21, 30, 42, .2), rgba(21, 30, 42, .2)), url("assets/muestra.jpg") center / cover no-repeat;
 }
 
 .index-quote-banner__panel {
