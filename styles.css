@@ -1706,6 +1706,12 @@ main .detail-page__intro {
   background-color: #fff;
 }
 
+.index-page .analysis-preview__grid {
+  grid-template-columns: 1fr;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
 .index-page .analysis-preview__grid article::before {
   content: "";
   position: absolute;
