@@ -556,6 +556,12 @@ header {
   color: #416a82;
 }
 
+h2,
+h3,
+h4 {
+  color: #416a82;
+}
+
 .section-head p,
 .bios-description p,
 .analysis-preview p,
@@ -820,7 +826,7 @@ body {
   display: flex;
   align-items: center;
   isolation: isolate;
-  background: url("fondo.jpg") center / cover no-repeat;
+  background: url("assets/fondo-hero.jpg") center / cover no-repeat;
   color: #fff;
 }
 
