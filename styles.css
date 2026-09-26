@@ -1069,6 +1069,114 @@ body {
   }
 }
 
+/* Exact service-row proportions from the requested reference. */
+.index-page .analysis-preview__grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  width: min(1148px, calc(100% - 32px)) !important;
+  max-width: 1148px !important;
+  margin: 0 auto !important;
+  gap: 0 !important;
+}
+
+.index-page .analysis-preview__grid article {
+  display: grid !important;
+  grid-template-columns: 310px 320px minmax(280px, 1fr) 54px !important;
+  align-items: center !important;
+  column-gap: 28px !important;
+  width: 100% !important;
+  min-height: 240px !important;
+  padding: 17px 0 !important;
+  overflow: visible !important;
+  background-size: 310px 206px !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #d9e3e8 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.index-page .analysis-preview__grid article::before {
+  inset: 17px auto 17px 0 !important;
+  width: 310px !important;
+  height: 206px !important;
+  z-index: 0 !important;
+  background: rgba(15, 34, 48, .24) !important;
+}
+
+.index-page .analysis-preview__grid article strong,
+.index-page .analysis-preview__grid article p {
+  position: relative !important;
+  inset: auto !important;
+  grid-column: auto !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  background: transparent !important;
+}
+
+.index-page .analysis-preview__grid article strong {
+  grid-column: 2 !important;
+  color: #416a82 !important;
+  font-size: 1.8rem !important;
+  line-height: 1.08 !important;
+}
+
+.index-page .analysis-preview__grid article p {
+  grid-column: 3 !important;
+  color: #7893a5 !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+}
+
+.index-page .analysis-preview__grid article::after {
+  grid-column: 4 !important;
+  grid-row: 1 !important;
+  position: relative !important;
+  inset: auto !important;
+  width: 52px !important;
+  height: 52px !important;
+  border: 1px solid #d9e3e8 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: #416a82 !important;
+  transform: none !important;
+}
+
+@media (max-width: 900px) {
+  .index-page .analysis-preview__grid article {
+    grid-template-columns: 260px 1fr 50px !important;
+    column-gap: 20px !important;
+    background-size: 260px 190px !important;
+  }
+
+  .index-page .analysis-preview__grid article::before { width: 260px !important; height: 190px !important; }
+  .index-page .analysis-preview__grid article strong { grid-column: 2 !important; }
+  .index-page .analysis-preview__grid article p { grid-column: 2 !important; grid-row: 2 !important; }
+  .index-page .analysis-preview__grid article::after { grid-column: 3 !important; grid-row: 1 / span 2 !important; }
+}
+
+@media (max-width: 600px) {
+  .index-page .analysis-preview__grid article {
+    grid-template-columns: 1fr !important;
+    min-height: 340px !important;
+    padding: 190px 18px 24px !important;
+    background-size: 100% 175px !important;
+    background-position: top center !important;
+  }
+
+  .index-page .analysis-preview__grid article::before { inset: 0 0 auto !important; width: 100% !important; height: 175px !important; }
+  .index-page .analysis-preview__grid article strong,
+  .index-page .analysis-preview__grid article p { grid-column: 1 !important; grid-row: auto !important; }
+  .index-page .analysis-preview__grid article strong { color: #416a82 !important; }
+  .index-page .analysis-preview__grid article::after { display: none !important; }
+}
+
 /* Official BIOS palette from biosaguasyalimentos.com. */
 :root {
   --bg: #eeeeee;
