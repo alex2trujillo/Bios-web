@@ -1754,6 +1754,95 @@ main .detail-page__intro {
   line-height: 1.6;
 }
 
+/* Service rows inspired by the official BIOS layout. */
+.index-page .analysis-preview__grid article {
+  display: grid;
+  grid-template-columns: minmax(220px, 310px) minmax(180px, .9fr) minmax(240px, 1.3fr) 54px;
+  gap: 28px;
+  align-items: center;
+  min-height: 220px;
+  padding: 0 24px 0 340px;
+  background-size: 310px 100%;
+  background-position: left center;
+  border-bottom: 1px solid #cbd8de;
+  border-radius: 0;
+}
+
+.index-page .analysis-preview__grid article::before {
+  width: 310px;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(18, 35, 49, .16), rgba(18, 35, 49, .48));
+}
+
+.index-page .analysis-preview__grid strong,
+.index-page .analysis-preview__grid p {
+  position: relative;
+  inset: auto;
+  max-width: none;
+}
+
+.index-page .analysis-preview__grid strong {
+  color: #416a82;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.08;
+}
+
+.index-page .analysis-preview__grid p {
+  color: #6a7e89;
+  font-size: .96rem;
+}
+
+.index-page .analysis-preview__grid article::after {
+  content: "→";
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #cbd8de;
+  border-radius: 50%;
+  color: #416a82;
+  font-size: 1.8rem;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+.index-page .analysis-preview__grid article:hover::after {
+  background: #7b0881;
+  color: #fff;
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .index-page .analysis-preview__grid article {
+    grid-template-columns: minmax(180px, 260px) 1fr 48px;
+    padding-left: 285px;
+    gap: 20px;
+    background-size: 260px 100%;
+  }
+
+  .index-page .analysis-preview__grid article::before { width: 260px; }
+  .index-page .analysis-preview__grid p { grid-column: 2 / 3; }
+}
+
+@media (max-width: 700px) {
+  .index-page .analysis-preview__grid article {
+    grid-template-columns: 1fr 44px;
+    gap: 14px;
+    min-height: 340px;
+    padding: 190px 18px 22px;
+    background-size: 100% 175px;
+    background-position: top center;
+  }
+
+  .index-page .analysis-preview__grid article::before {
+    width: 100%;
+    height: 175px;
+  }
+
+  .index-page .analysis-preview__grid strong,
+  .index-page .analysis-preview__grid p { grid-column: 1 / 2; }
+  .index-page .analysis-preview__grid article::after { grid-column: 2 / 3; grid-row: 1 / span 2; }
+}
+
 @media (max-width: 700px) {
   .index-page .analysis-preview__grid article {
     min-height: 330px;
