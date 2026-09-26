@@ -742,7 +742,7 @@ body {
 }
 
 .top-banner {
-  background: #312d6f;
+  background: var(--dark);
   letter-spacing: .14em;
 }
 
@@ -764,7 +764,7 @@ body {
 
 .header-contact,
 .cta-button {
-  background: #312d6f;
+  background: var(--accent);
   border-radius: 2px;
   letter-spacing: .05em;
 }
@@ -782,8 +782,8 @@ body {
 
 .hero-wrap {
   min-height: 0;
-  background: transparent;
-  border-bottom: 0;
+  background: none !important;
+  border-bottom: 0 !important;
   padding: 0;
 }
 
@@ -796,7 +796,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(10, 28, 35, .62);
+  background: rgba(11, 30, 45, .72);
 }
 
 .hero-wrap,
