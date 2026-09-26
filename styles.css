@@ -876,6 +876,13 @@ body {
 #equipo .section-head {
   margin-bottom: 28px;
   text-align: center;
+  width: 100%;
+}
+
+#equipo .section-head h2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 #equipo .team-grid {
