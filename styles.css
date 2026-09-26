@@ -2046,7 +2046,7 @@ main .detail-page__intro {
 .index-page .analysis-preview__grid article:hover::after {
   background: #7b0881;
   color: #fff;
-  transform: translate(6px, -4px) rotate(-8deg);
+  transform: translate(6px, -4px) rotate(-8deg) !important;
 }
 
 .index-page .analysis-preview__grid article { cursor: pointer; }
@@ -2069,7 +2069,7 @@ main .detail-page__intro {
 
 .services-directory__card:hover::after {
   background: #7b0881;
-  transform: translate(5px, -5px) rotate(-8deg);
+  transform: translate(5px, -5px) rotate(-8deg) !important;
 }
 
 @media (max-width: 900px) {
