@@ -5,6 +5,36 @@ const welcomeAlertClose = document.getElementById('welcomeAlertClose');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+document.querySelectorAll('.services-directory__card').forEach((card) => {
+  const link = card.querySelector('.services-directory__link');
+  if (!link) return;
+  card.setAttribute('role', 'link');
+  card.setAttribute('tabindex', '0');
+  const openService = () => { window.location.href = link.href; };
+  card.addEventListener('click', (event) => { if (!event.target.closest('a')) openService(); });
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openService(); }
+  });
+});
+
+const servicePreviewLinks = [
+  'services-para-plantas-y-piscinas.html',
+  'services-para-centros.html',
+  'services-para-industriales.html',
+];
+
+document.querySelectorAll('.index-page .analysis-preview__grid article').forEach((card, index) => {
+  const href = servicePreviewLinks[index];
+  if (!href) return;
+  card.setAttribute('role', 'link');
+  card.setAttribute('tabindex', '0');
+  const openService = () => { window.location.href = href; };
+  card.addEventListener('click', openService);
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openService(); }
+  });
+});
+
 document.querySelectorAll('img:not(.site-logo):not(.chatbot-bee)').forEach((image) => {
   image.loading = 'lazy';
   image.decoding = 'async';
