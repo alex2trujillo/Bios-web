@@ -1081,14 +1081,14 @@ body {
 
 .index-page .analysis-preview__grid article {
   display: grid !important;
-  grid-template-columns: 310px 320px minmax(280px, 1fr) 54px !important;
+  grid-template-columns: 280px 300px minmax(280px, 1fr) 54px !important;
   align-items: center !important;
   column-gap: 28px !important;
   width: 100% !important;
-  min-height: 240px !important;
+  min-height: 224px !important;
   padding: 17px 0 !important;
   overflow: visible !important;
-  background-size: 310px 206px !important;
+  background-size: 280px 190px !important;
   background-position: left center !important;
   background-repeat: no-repeat !important;
   background-color: transparent !important;
@@ -1102,8 +1102,8 @@ body {
 
 .index-page .analysis-preview__grid article::before {
   inset: 17px auto 17px 0 !important;
-  width: 310px !important;
-  height: 206px !important;
+  width: 280px !important;
+  height: 190px !important;
   z-index: 0 !important;
   background: rgba(15, 34, 48, .24) !important;
 }
