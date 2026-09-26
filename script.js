@@ -219,6 +219,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
     { src: 'assets/fondo.jpg', alt: 'Personal de BIOS realizando un análisis' },
     { src: 'IMG_7258.jpg', alt: 'Personal de BIOS en el laboratorio' },
   { src: 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', alt: 'Personal de BIOS en el laboratorio' },
+    { src: 'assets/laboratirio.jpg', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva1.jpg', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva2.jpg', alt: 'Personal de BIOS realizando un análisis' },
   ];
@@ -242,7 +243,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const teamSlides = allTeamSlides.filter((slide) => !excludedSources.includes(slide.getAttribute('src')));
   if (teamSlides.length < 2) return;
 
-  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.jpg', 'IMG_7258.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'nueva1.jpg', 'IMG_7186.jpg', 'nueva2.jpg', 'IMG_7182.jpg'].includes(slide.getAttribute('src')));
+  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.jpg', 'IMG_7258.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'assets/laboratirio.jpg', 'nueva1.jpg', 'IMG_7186.jpg', 'nueva2.jpg', 'IMG_7182.jpg'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
   orderedSlides.forEach((slide, index) => {
