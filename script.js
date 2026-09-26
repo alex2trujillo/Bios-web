@@ -211,7 +211,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const teamSlides = allTeamSlides.filter((slide) => !excludedSources.includes(slide.getAttribute('src')));
   if (teamSlides.length < 2) return;
 
-  const preferredSlides = teamSlides.filter((slide) => ['nueva1.jpg', 'IMG_7186.jpg', 'nueva2.jpg', 'IMG_7182.jpg'].includes(slide.getAttribute('src')));
+  const preferredSlides = teamSlides.filter((slide) => ['fondo.jpg', 'IMG_7258.jpg', 'nueva1.jpg', 'IMG_7186.jpg', 'nueva2.jpg', 'IMG_7182.jpg'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
   orderedSlides.forEach((slide, index) => {
