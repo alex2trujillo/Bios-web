@@ -2731,8 +2731,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-.detail-page--centers .service-modern-card,
-.detail-page--water .service-detail {
+.detail-page--centers .service-modern-card {
   position: relative;
   min-height: 240px;
   padding-left: 38%;
@@ -2743,20 +2742,17 @@ body.modal-open {
 }
 
 .detail-page--centers .service-modern-card { background-image: url("assets/laboratirio.jpg") !important; }
-.detail-page--water .service-detail:nth-of-type(2) { background-image: url("assets/servicios-bios.jpg") !important; }
-.detail-page--water .service-detail:nth-of-type(3) { background-image: url("assets/hero-microscopio.jpg") !important; }
-.detail-page--water .service-detail:nth-of-type(4) { background-image: url("assets/fondo.jpg") !important; }
 
 @media (max-width: 700px) {
-  .detail-page--centers .service-modern-card,
-  .detail-page--water .service-detail {
+  .detail-page--centers .service-modern-card {
     padding: 210px 24px 26px;
     background-position: top 18px center !important;
     background-size: calc(100% - 48px) 165px !important;
   }
 }
 
-.centers-hero {
+.centers-hero,
+.service-page-hero {
   position: relative;
   display: flex;
   min-height: 420px;
@@ -2767,20 +2763,22 @@ body.modal-open {
 }
 
 .centers-hero__image,
-.centers-hero__shade {
+.centers-hero__shade,
+.service-page-hero__image,
+.service-page-hero__shade {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.centers-hero__image { object-fit: cover; object-position: center 45%; }
-.centers-hero__shade { background: linear-gradient(90deg, rgba(13, 26, 35, .76), rgba(13, 26, 35, .12)); }
-.centers-hero__content { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0; }
-.centers-hero__content > p { margin: 0 0 18px; color: #fff; font-size: 1rem; font-weight: 700; }
-.centers-hero__content h1 { max-width: 840px; margin: 0 0 30px; color: #fff; font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 500; line-height: 1.08; }
-.centers-hero__content a { display: inline-flex; align-items: center; gap: 14px; color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; }
-.centers-hero__content a span { color: #20c8c3; font-size: 1.5rem; }
+.centers-hero__image, .service-page-hero__image { object-fit: cover; object-position: center 45%; }
+.centers-hero__shade, .service-page-hero__shade { background: linear-gradient(90deg, rgba(13, 26, 35, .76), rgba(13, 26, 35, .12)); }
+.centers-hero__content, .service-page-hero__content { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0; }
+.centers-hero__content > p, .service-page-hero__content > p { margin: 0 0 18px; color: #fff; font-size: 1rem; font-weight: 700; }
+.centers-hero__content h1, .service-page-hero__content h1 { max-width: 840px; margin: 0 0 30px; color: #fff; font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 500; line-height: 1.08; }
+.centers-hero__content a, .service-page-hero__content a { display: inline-flex; align-items: center; gap: 14px; color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; }
+.centers-hero__content a span, .service-page-hero__content a span { color: #20c8c3; font-size: 1.5rem; }
 .detail-page--centers { min-height: auto; padding: 54px 0; background: #eef5f7; }
 .detail-page--centers .service-modern-hero { max-width: 1120px; min-height: 330px; grid-template-columns: 1fr 1fr; border-radius: 0; background: #fff; box-shadow: none; }
 .detail-page--centers .service-modern-hero__copy { align-self: center; padding: 42px; }
@@ -2791,13 +2789,54 @@ body.modal-open {
 .detail-page--centers .service-modern-card { min-height: 0; max-width: 1120px; padding: 34px; background: #fff !important; background-image: none !important; border: 0; border-radius: 0; box-shadow: none; }
 
 @media (max-width: 700px) {
-  .centers-hero { min-height: 360px; }
+  .centers-hero, .service-page-hero { min-height: 360px; }
   .centers-hero__content { width: calc(100% - 40px); }
   .centers-hero__content h1 { font-size: 2.6rem; }
+  .service-page-hero__content { width: calc(100% - 40px); }
+  .service-page-hero__content h1 { font-size: 2.6rem; }
   .detail-page--centers { padding: 30px 0; }
   .detail-page--centers .service-modern-hero { grid-template-columns: 1fr; }
   .detail-page--centers .service-modern-hero__copy { padding: 28px; }
   .detail-page--centers .service-modern-hero__image { min-height: 230px; max-height: 260px; }
+}
+
+.detail-page--bakery,
+.detail-page--water { min-height: auto; padding: 54px 0; background: #eef5f7; }
+.detail-page--bakery > .container > .section-head,
+.detail-page--bakery > .container > .detail-page__intro,
+.detail-page--bakery .bakery-hero,
+.detail-page--water > .container > .section-head,
+.detail-page--water > .container > .detail-page__intro,
+.detail-page--water .service-modern-hero { display: none; }
+.detail-page--bakery .bakery-card,
+.detail-page--water .service-detail { max-width: 1120px; margin: 0 auto 24px; padding: 34px; border: 0; border-radius: 0; background: #fff; box-shadow: none; }
+.detail-page--bakery .bakery-card h2,
+.detail-page--water .service-detail h2 { margin-bottom: 24px; color: #111b79; font-size: 1.8rem; }
+.detail-page--bakery .bakery-grid,
+.detail-page--water .service-detail__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.detail-page--bakery .bakery-item,
+.detail-page--water .service-detail__grid > div { min-height: 150px; padding: 24px; border: 0; border-radius: 0; color: #fff; }
+.detail-page--bakery .bakery-item:nth-child(4n + 1),
+.detail-page--water .service-detail__grid > div:nth-child(4n + 1) { background: #2874b8; }
+.detail-page--bakery .bakery-item:nth-child(4n + 2),
+.detail-page--water .service-detail__grid > div:nth-child(4n + 2) { background: #76247d; }
+.detail-page--water .service-detail__grid > div:nth-child(4n + 3) { background: #078b91; }
+.detail-page--water .service-detail__grid > div:nth-child(4n + 4) { background: #185d78; }
+.detail-page--bakery .bakery-item h3,
+.detail-page--water .service-detail__grid > div h3 { color: #fff; }
+.detail-page--bakery .bakery-item ul,
+.detail-page--water .service-detail__grid > div ul { padding-left: 20px; color: rgba(255,255,255,.94); }
+.detail-page--water .service-detail > ul { padding: 24px 24px 24px 44px; background: #078b91; color: #fff; line-height: 1.9; }
+.detail-page--bakery .detail-page__back,
+.detail-page--water .detail-page__back { margin-top: 10px; }
+
+@media (max-width: 700px) {
+  .detail-page--bakery,
+  .detail-page--water { padding: 30px 0; }
+  .detail-page--bakery .bakery-grid,
+  .detail-page--water .service-detail__grid { grid-template-columns: 1fr; }
+  .detail-page--bakery .bakery-card,
+  .detail-page--water .service-detail { padding: 24px; }
 }
 
 footer {
