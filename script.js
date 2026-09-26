@@ -220,6 +220,16 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   orderedSlides.forEach((slide) => slide.classList.remove('is-active'));
   orderedSlides[0].classList.add('is-active');
 
+  if (document.querySelector('#equipo') && !track.dataset.trainCloned) {
+    orderedSlides.forEach((slide) => {
+      const clone = slide.cloneNode(true);
+      clone.classList.remove('is-active');
+      clone.loading = 'lazy';
+      track.appendChild(clone);
+    });
+    track.dataset.trainCloned = 'true';
+  }
+
   let currentSlide = 0;
 
   setInterval(() => {
