@@ -904,6 +904,13 @@ body {
 
 #equipo .team-slider__track:hover { animation-play-state: paused; }
 
+.team-slider__image[src="IMG_7119.jpg"],
+.team-slider__image[src="IMG_7124.jpg"],
+.team-slider__image[src="IMG_7258.jpg"],
+.team-slider__image[src="IMG_7260.jpg"] {
+  display: none !important;
+}
+
 @keyframes biosPhotoTrain {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
