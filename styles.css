@@ -815,12 +815,12 @@ body {
 
 .hero {
   position: relative;
-  min-height: 720px;
-  padding: 150px 0 110px;
+  min-height: 560px;
+  padding: 110px 0 90px;
   display: flex;
   align-items: center;
   isolation: isolate;
-  background: url("assets/hero-microscopio.jpg") center / cover no-repeat;
+  background: url("fondo.jpg") center / cover no-repeat;
   color: #fff;
 }
 
