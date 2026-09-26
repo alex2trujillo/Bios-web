@@ -5,6 +5,12 @@ const welcomeAlertClose = document.getElementById('welcomeAlertClose');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+document.querySelectorAll('img:not(.site-logo):not(.chatbot-bee)').forEach((image) => {
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.fetchPriority = 'low';
+});
+
 document.querySelectorAll('.services-directory__card').forEach((card) => {
   const link = card.querySelector('.services-directory__link');
   if (!link) return;
@@ -206,6 +212,11 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const preferredSlides = teamSlides.filter((slide) => ['IMG_7182.jpg', 'IMG_7186.jpg', 'nueva1.jpg', 'nueva2.jpg'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
+  orderedSlides.forEach((slide, index) => {
+    slide.loading = index === 0 ? 'eager' : 'lazy';
+    slide.decoding = 'async';
+    slide.fetchPriority = index === 0 ? 'high' : 'low';
+  });
   orderedSlides.forEach((slide) => slide.classList.remove('is-active'));
   orderedSlides[0].classList.add('is-active');
 

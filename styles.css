@@ -866,6 +866,8 @@ body {
 .info {
   padding-top: 110px;
   padding-bottom: 110px;
+  content-visibility: auto;
+  contain-intrinsic-size: 520px;
 }
 
 .bios-description__grid,
