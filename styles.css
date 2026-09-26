@@ -826,8 +826,8 @@ body {
 
 .hero {
   position: relative;
-  min-height: 360px;
-  padding: 62px 0 52px;
+  min-height: 300px;
+  padding: 48px 0 42px;
   display: flex;
   align-items: center;
   isolation: isolate;
@@ -953,7 +953,7 @@ body {
   max-width: 740px;
   margin: 0 0 28px;
   color: #fff;
-  font-size: clamp(3.4rem, 8vw, 7.8rem);
+  font-size: clamp(3rem, 7vw, 5.8rem);
   line-height: .9;
   letter-spacing: -.07em;
   animation: biosReveal .9s ease both;
@@ -1101,7 +1101,7 @@ body {
 
   .site-header .nav { min-height: 84px; }
   .brand > .site-logo { width: 190px; height: 72px; }
-  .hero { min-height: 400px; padding-top: 78px; }
+  .hero { min-height: 350px; padding-top: 66px; }
   .hero-copy h1 { font-size: clamp(3rem, 15vw, 5rem); }
   .hero-specialties { gap: 28px; font-size: .64rem; }
   .bios-description,
