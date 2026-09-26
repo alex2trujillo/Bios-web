@@ -780,6 +780,17 @@ body {
   color: #fff;
 }
 
+.hero-wrap {
+  min-height: 0;
+  background: transparent;
+  border-bottom: 0;
+  padding: 0;
+}
+
+.hero-layout {
+  min-height: 0;
+}
+
 .hero::before {
   content: "";
   position: absolute;
