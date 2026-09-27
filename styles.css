@@ -2900,9 +2900,11 @@ body.modal-open {
   background-size: contain;
 }
 
-.bios-footer__social a[href*="instagram"]::before {
-  content: "";
-  background-image: url("instagram-icon.png");
+.bios-footer__social-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
 
 .bios-footer__social a[href*="facebook"]::before {
