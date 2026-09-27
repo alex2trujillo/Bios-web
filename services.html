@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BIOS | Servicios</title>
-  <link rel="stylesheet" href="styles.css?v=20260925-2250" />
+  <link rel="stylesheet" href="styles.css?v=20260926-services-layout" />
   <style>
     .services-page {
       min-height: calc(100vh - 190px);
@@ -47,8 +47,8 @@
     .services-directory {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      max-width: 980px;
+      gap: 42px;
+      max-width: 1150px;
       margin: 0 auto 34px;
     }
 
@@ -56,45 +56,73 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      min-height: 230px;
-      padding: 24px;
-      border: 1px solid rgba(20, 30, 45, 0.08);
-      border-radius: 22px;
-      background-image: linear-gradient(rgba(21, 27, 64, 0.72), rgba(21, 27, 64, 0.86)), var(--service-image);
-      background-position: center;
-      background-size: cover;
+      min-height: 455px;
+      overflow: hidden;
+      border: 1px solid rgba(29, 42, 92, 0.08);
+      border-radius: 18px;
+      background: #fff;
       box-shadow: 0 14px 30px rgba(19, 31, 45, 0.08);
       cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .services-directory__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 36px rgba(19, 31, 45, 0.14);
+    }
+
+    .services-directory__image-wrap {
+      position: relative;
+      height: 205px;
+      flex: 0 0 205px;
+      overflow: hidden;
+    }
+
+    .services-directory__image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 38% 0 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0), #fff 88%);
+    }
+
+    .services-directory__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .services-directory__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 22px 24px;
+      text-align: center;
+      margin-top: -8px;
     }
 
     .services-directory__card h2 {
-      margin: 14px 0 10px;
-      color: #fff;
-      font-size: 1.3rem;
-    }
-
-    .services-directory__card--no-image {
-      background-image: linear-gradient(135deg, #312d6f, #7b0881);
-    }
-
-    .services-directory__card .services-modal__icon,
-    .services-directory__card h2,
-    .services-directory__card p,
-    .services-directory__card a {
-      color: #fff;
+      margin: 0 0 12px;
+      color: #111b79;
+      font-size: 1.18rem;
+      line-height: 1.15;
     }
 
     .services-directory__card p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.88);
+      color: #7893a5;
+      line-height: 1.55;
     }
 
     .services-directory__link {
       display: inline-flex;
-      align-self: flex-start;
+      align-self: center;
       margin-top: auto;
-      padding-top: 18px;
-      color: #fff;
+      padding-top: 16px;
+      color: #416a82;
       font-weight: 800;
     }
 
@@ -105,13 +133,17 @@
     @media (max-width: 900px) {
       .services-directory {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
       }
     }
 
     @media (max-width: 600px) {
       .services-directory {
         grid-template-columns: 1fr;
+        max-width: 360px;
       }
+
+      .services-directory__card { min-height: 420px; }
     }
 
     .service-detail {
@@ -167,7 +199,7 @@
         <ul class="menu">
           <li><a href="index.html#inicio">Inicio</a></li>
           <li><a href="services.html" aria-current="page">Servicios</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros.html">Quiénes somos</a></li>
           <li><a href="cotizar.html">Contáctanos</a></li>
         </ul>
       </nav>
@@ -181,10 +213,10 @@
       <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Análisis para cada necesidad.</h1></div>
       <p class="services-page__intro">Llegamos a todos los rincones de Colombia con oportunidad y profesionalismo para cuidar la calidad de tus procesos.</p>
       <div class="services-directory">
-        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">BIOS</span><h2>Todos nuestros servicios</h2><p>Análisis confiables para alimentos, aguas y procesos de calidad.</p><a class="services-directory__link" href="services-generales.html">Ver todos</a></article>
-        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">AGUAS</span><h2>Servicios para plantas y piscinas</h2><p>Análisis de aguas, plantas envasadoras, plantas de beneficio animal y piscinas.</p><a class="services-directory__link" href="services-para-plantas-y-piscinas.html">Ver servicio</a></article>
-        <article class="services-directory__card" style="--service-image: url('assets/laboratirio.jpg?v=20260926-2800');"><span class="services-modal__icon">CENTROS</span><h2>Servicios para centros</h2><p>Análisis para centros penitenciarios y carcelarios, alimentos preparados y agua potable.</p><a class="services-directory__link" href="services-para-centros.html">Ver servicio</a></article>
-        <article class="services-directory__card" style="--service-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85');"><span class="services-modal__icon">INDUSTRIAS</span><h2>Servicios para industrias</h2><p>Análisis para industrias panificadoras, pan, galletas y bizcochos.</p><a class="services-directory__link" href="services-para-industriales.html">Ver servicio</a></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Análisis de laboratorio" /></div><div class="services-directory__content"><h2>Todos nuestros servicios</h2><p>Análisis confiables para alimentos, aguas y procesos de calidad.</p><a class="services-directory__link" href="services-generales.html">Ver todos</a></div></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Agua de piscina" /></div><div class="services-directory__content"><h2>Servicios para plantas y piscinas</h2><p>Análisis de aguas, plantas envasadoras, plantas de beneficio animal y piscinas.</p><a class="services-directory__link" href="services-para-plantas-y-piscinas.html">Ver servicio</a></div></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="assets/laboratirio.jpg?v=20260926-2800" alt="Personal trabajando en un laboratorio" /></div><div class="services-directory__content"><h2>Servicios para centros</h2><p>Análisis para centros penitenciarios y carcelarios, alimentos preparados y agua potable.</p><a class="services-directory__link" href="services-para-centros.html">Ver servicio</a></div></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="alimento.jpg" alt="Alimentos para análisis de laboratorio" /></div><div class="services-directory__content"><h2>Servicios para industrias</h2><p>Análisis para industrias panificadoras, pan, galletas y bizcochos.</p><a class="services-directory__link" href="services-para-industriales.html">Ver servicio</a></div></article>
       </div>
       <section class="service-detail">
         <h2>Análisis de calidad de aguas y plantas envasadoras</h2>

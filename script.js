@@ -215,6 +215,8 @@ if (contactForm) {
 }
 
 document.querySelectorAll('main .team-slider__track').forEach((track) => {
+  if (track.hasAttribute('data-manual-train')) return;
+
   const requestedSlides = [
     { src: 'assets/fondo.jpg', alt: 'Personal de BIOS realizando un análisis' },
     { src: 'IMG_7258.jpg', alt: 'Personal de BIOS en el laboratorio' },
@@ -257,6 +259,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
     orderedSlides.forEach((slide) => {
       const clone = slide.cloneNode(true);
       clone.classList.remove('is-active');
+      clone.classList.add('team-slider__image--clone');
       clone.loading = 'lazy';
       track.appendChild(clone);
     });
