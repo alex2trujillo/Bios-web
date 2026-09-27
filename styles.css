@@ -2459,6 +2459,33 @@ main .detail-page__intro {
   mix-blend-mode: normal;
 }
 
+.floating-back-btn {
+  position: fixed;
+  left: 22px;
+  top: 140px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-2), var(--primary));
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(20, 30, 45, 0.22);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.floating-back-btn:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 14px 30px rgba(20, 30, 45, 0.28);
+}
+@media (max-width: 700px) {
+  .floating-back-btn { left: 12px; top: 104px; width: 44px; height: 44px; font-size: 1.15rem; }
+}
+
 .service-modern-hero {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
