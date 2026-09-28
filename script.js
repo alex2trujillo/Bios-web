@@ -5,6 +5,18 @@ const welcomeAlertClose = document.getElementById('welcomeAlertClose');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+function resumeLogoAnimation() {
+  if (document.visibilityState !== 'visible') return;
+  document.querySelectorAll('img[src^="definitivo.gif"]').forEach((logo) => {
+    const source = logo.getAttribute('src');
+    logo.setAttribute('src', '');
+    logo.setAttribute('src', source);
+  });
+}
+
+window.addEventListener('pageshow', resumeLogoAnimation);
+document.addEventListener('visibilitychange', resumeLogoAnimation);
+
 document.querySelectorAll('.services-directory__card').forEach((card) => {
   const link = card.querySelector('.services-directory__link');
   if (!link) return;
