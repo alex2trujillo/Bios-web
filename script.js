@@ -36,10 +36,30 @@ document.querySelectorAll('.index-page .analysis-preview__grid article').forEach
 });
 
 document.querySelectorAll('img:not(.site-logo):not(.chatbot-bee)').forEach((image) => {
-  image.loading = 'lazy';
+  const imageBounds = image.getBoundingClientRect();
+  const nearInitialViewport = imageBounds.top < window.innerHeight * 1.25 && imageBounds.bottom > -100;
+  image.loading = nearInitialViewport ? 'eager' : 'lazy';
   image.decoding = 'async';
-  image.fetchPriority = 'low';
+  image.fetchPriority = nearInitialViewport ? 'high' : 'low';
 });
+
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  const textElements = document.querySelectorAll('h1, h2, h3, h4, p, li, a, button, label, strong, small, span');
+  const textRevealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('text-revealed');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+
+  textElements.forEach((element, index) => {
+    if (!element.textContent.trim()) return;
+    element.classList.add('text-reveal');
+    element.style.setProperty('--text-reveal-delay', `${(index % 4) * 35}ms`);
+    textRevealObserver.observe(element);
+  });
+}
 
 document.querySelectorAll('.services-directory__card').forEach((card) => {
   const link = card.querySelector('.services-directory__link');
@@ -218,8 +238,8 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   if (track.hasAttribute('data-manual-train')) return;
 
   const requestedSlides = [
-    { src: 'assets/fondo.jpg', alt: 'Personal de BIOS realizando un análisis' },
-    { src: 'IMG_7258.jpg', alt: 'Personal de BIOS en el laboratorio' },
+    { src: 'assets/fondo.webp', alt: 'Personal de BIOS realizando un análisis' },
+    { src: 'IMG_7258.webp', alt: 'Personal de BIOS en el laboratorio' },
   { src: 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva1.jpg', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva2.jpg', alt: 'Personal de BIOS realizando un análisis' },
@@ -235,8 +255,8 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   });
 
   const excludedSources = document.querySelector('#equipo')
-    ? ['fondo%20(3).jpg', 'IMG_7182.jpg', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'IMG_7153.jpg', 'IMG_7170.jpg', 'IMG_7269.jpg']
-    : ['fondo%20(3).jpg', 'IMG_7182.jpg', 'nueva1.jpg', 'IMG_7269.jpg'];
+    ? ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'IMG_7153.webp', 'IMG_7170.webp', 'IMG_7269.webp']
+    : ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'IMG_7269.webp'];
   const allTeamSlides = [...track.querySelectorAll('.team-slider__image')];
   allTeamSlides
     .filter((slide) => excludedSources.includes(slide.getAttribute('src')))
@@ -244,7 +264,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const teamSlides = allTeamSlides.filter((slide) => !excludedSources.includes(slide.getAttribute('src')));
   if (teamSlides.length < 2) return;
 
-  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.jpg', 'IMG_7258.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'nueva1.jpg', 'IMG_7186.jpg', 'nueva2.jpg', 'IMG_7182.jpg'].includes(slide.getAttribute('src')));
+  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.webp', 'IMG_7258.webp', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'nueva1.jpg', 'IMG_7186.webp', 'nueva2.jpg', 'IMG_7182.webp'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
   orderedSlides.forEach((slide, index) => {

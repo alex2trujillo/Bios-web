@@ -103,6 +103,30 @@ img {
   image-rendering: auto;
 }
 
+.text-reveal:not(.text-revealed) {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.text-reveal.text-revealed {
+  animation: biosTextReveal .48s ease-out both;
+  animation-delay: var(--text-reveal-delay, 0ms);
+}
+
+@keyframes biosTextReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-reveal,
+  .text-reveal.text-revealed {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 .hero-visual-card img,
 .about-img img,
 .team-slider__image,
@@ -978,9 +1002,9 @@ body {
 #equipo .team-slider__track:hover { animation-play-state: paused; }
 
 .team-slider__image[src="IMG_7119.jpg"],
-.team-slider__image[src="IMG_7124.jpg"],
-.team-slider__image[src="IMG_7258.jpg"],
-.team-slider__image[src="IMG_7260.jpg"] {
+.team-slider__image[src="IMG_7124.webp"],
+.team-slider__image[src="IMG_7258.webp"],
+.team-slider__image[src="IMG_7260.webp"] {
   display: none !important;
 }
 
@@ -1603,7 +1627,7 @@ main .detail-page__intro {
   filter: none;
 }
 
-.team-slider__image[src="IMG_7269.jpg"] {
+.team-slider__image[src="IMG_7269.webp"] {
   display: none;
 }
 
@@ -2257,7 +2281,7 @@ main .detail-page__intro {
 .services-page--directory {
   background:
     linear-gradient(rgba(243, 246, 249, 0.88), rgba(243, 246, 249, 0.96)),
-    url("assets/servicios-bios-microscopio.jpg") center top / cover fixed no-repeat;
+    url("assets/servicios-bios-microscopio.webp") center top / cover fixed no-repeat;
 }
 
 .index-page .bios-description__grid,
@@ -3254,9 +3278,9 @@ body.modal-open {
   transform: none !important;
 }
 
-.index-quote-banner #equipo .team-slider__image[src="22.jpg"],
-.index-quote-banner #equipo .team-slider__image[src="23.jpg"],
-.index-quote-banner #equipo .team-slider__image[src="IMG_7254.jpg"] {
+.index-quote-banner #equipo .team-slider__image[src="22.webp"],
+.index-quote-banner #equipo .team-slider__image[src="23.webp"],
+.index-quote-banner #equipo .team-slider__image[src="IMG_7254.webp"] {
   flex-basis: 300px;
   width: 300px;
   height: 180px;
