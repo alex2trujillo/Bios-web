@@ -1,3 +1,5 @@
+.index-page.index-page .hero-copy h1 { color: var(--primary) !important; }
+.index-page.index-page .hero-copy h1 em { color: #d35dde !important; }
 .index-page.index-page .hero-wrap { background-image: url("fondo2.png") !important; background-color: transparent !important; background-position: left center !important; background-size: 45% 100% !important; }
 .index-page.index-page .hero-wrap {
   background-color: #fff !important;
