@@ -1,3 +1,15 @@
+.index-page.index-page .hero-wrap { background-image: url("fondo2.png") !important; background-color: transparent !important; background-position: left center !important; background-size: 45% 100% !important; }
+.index-page.index-page .hero-wrap {
+  background-color: #fff !important;
+  background-image: url("fondo2.png") !important;
+  background-position: left center !important;
+  background-size: 45% 100% !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: screen !important;
+}
+.index-page.index-page .analysis-preview__grid article.analysis-preview__service::before { background: rgba(45, 43, 109, .28) !important; }
+.index-page .analysis-preview__grid article::before { background: rgba(45, 43, 109, .28) !important; }
+.index-page .hero-copy::before { display: none !important; content: none !important; }
 :root {
   --bg: #f3f6f9;
   --surface: #ffffff;
@@ -1468,6 +1480,14 @@ body {
   content: none !important;
 }
 
+.index-page .analysis-preview__grid article .analysis-preview__image {
+  opacity: 1 !important;
+}
+
+.index-page .analysis-preview__grid article::before {
+  background: rgba(45, 43, 109, .34) !important;
+}
+
 .services-page--directory .services-directory {
   counter-reset: service-row;
 }
@@ -1661,6 +1681,7 @@ body {
 .index-page .hero-copy::before {
   margin-bottom: 16px;
   color: #d95fe4;
+  display: none;
 }
 
 .index-page .hero-copy h1 {
@@ -2051,6 +2072,11 @@ body {
   display: none !important;
 }
 
+.index-page .hero-copy::before {
+  display: none !important;
+  content: none !important;
+}
+
 .services-page--directory .services-directory__card::before,
 .services-page--directory .services-directory__card::after {
   display: none !important;
@@ -2088,6 +2114,8 @@ body {
   width: 38px;
   height: 38px;
   color: var(--primary);
+  overflow: visible;
+  flex: 0 0 38px;
 }
 
 .bios-line-icon::before,
@@ -2098,29 +2126,29 @@ body {
 }
 
 .bios-line-icon--drop::before {
-  top: 3px;
-  left: 9px;
-  width: 20px;
-  height: 27px;
+  top: 6px;
+  left: 11px;
+  width: 16px;
+  height: 23px;
   border: 2px solid currentColor;
-  border-radius: 55% 55% 60% 60%;
-  transform: rotate(45deg) scale(.72);
+  border-radius: 60% 60% 58% 58%;
+  transform: rotate(45deg);
 }
 
 .bios-line-icon--shield::before {
-  top: 3px;
+  top: 5px;
   left: 8px;
   width: 22px;
-  height: 27px;
+  height: 26px;
   border: 2px solid currentColor;
-  clip-path: polygon(50% 0, 100% 17%, 91% 68%, 50% 100%, 9% 68%, 0 17%);
+  border-radius: 9px 9px 12px 12px;
 }
 
 .bios-line-icon--shield::after {
-  top: 14px;
-  left: 14px;
+  top: 13px;
+  left: 13px;
   width: 10px;
-  height: 5px;
+  height: 6px;
   border-left: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(-45deg);
@@ -4704,7 +4732,7 @@ body {
 }
 
 .header-contact {
-  border-radius: 2px;
+  border-radius: 999px !important;
   background: var(--primary);
   letter-spacing: .1em;
 }
@@ -5258,11 +5286,11 @@ body {
 
 @media (min-width: 801px) {
   .index-page .hero-wrap::after {
-    width: 60%;
+    width: 55%;
   }
 
   .index-page .hero-grid {
-    width: 40%;
+    width: 45%;
   }
 
   .index-page .hero-copy h1 {
@@ -5283,7 +5311,8 @@ body {
   }
 
   .index-page .hero-copy h1 {
-    font-size: clamp(2.8rem, 4.8vw, 5.1rem);
+    font-size: clamp(3.2rem, 5.2vw, 6rem);
+    line-height: .88;
   }
 }
 
