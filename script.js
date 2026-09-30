@@ -239,10 +239,38 @@ if (institutionModal) {
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', () => {
+  const formStatus = document.createElement('p');
+  formStatus.className = 'contact-form-status';
+  formStatus.setAttribute('role', 'status');
+  formStatus.setAttribute('aria-live', 'polite');
+  contactForm.append(formStatus);
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
     const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.textContent;
     submitButton.disabled = true;
     submitButton.textContent = 'Enviando...';
+    formStatus.textContent = '';
+    formStatus.className = 'contact-form-status';
+
+    try {
+      const response = await fetch(contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error('No se pudo enviar la solicitud.');
+      contactForm.reset();
+      formStatus.textContent = 'Solicitud enviada. Te contactaremos pronto.';
+      formStatus.classList.add('is-success');
+    } catch (error) {
+      formStatus.textContent = 'No pudimos enviar la solicitud. Intenta nuevamente.';
+      formStatus.classList.add('is-error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+    }
   });
 }
 
