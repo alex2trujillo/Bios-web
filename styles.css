@@ -1,3 +1,42 @@
+@media (max-width: 700px) {
+  .site-header .main-nav:not(.open) { opacity: 0 !important; visibility: hidden !important; transform: translateY(-6px) !important; }
+  .chatbot-toggle.chatbot-toggle { width: 72px !important; height: 72px !important; right: 12px !important; bottom: 12px !important; }
+  .chatbot-bee.chatbot-bee { width: 64px !important; height: 64px !important; }
+}
+.index-page .hero-copy > p { max-width: 100%; }
+
+@media (max-width: 700px) {
+  .site-header .main-nav {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-6px) !important;
+  }
+
+  .site-header .main-nav.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  .chatbot-toggle {
+    width: 72px !important;
+    height: 72px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  .chatbot-bee {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .chatbot-hint {
+    right: 78px !important;
+    bottom: 26px !important;
+    padding: 7px 10px !important;
+    font-size: .7rem !important;
+  }
+}
 .index-page.index-page .hero-copy { display: flex !important; flex-direction: column !important; height: 470px !important; }
 .index-page.index-page .hero-title-frame { flex: 1 1 auto !important; align-items: flex-start !important; }
 .index-page.index-page .hero-copy > p { margin-top: auto !important; margin-bottom: 32px !important; }
