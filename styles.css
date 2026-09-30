@@ -1,13 +1,75 @@
+.index-page.index-page .hero-copy { display: flex !important; flex-direction: column !important; height: 470px !important; }
+.index-page.index-page .hero-title-frame { flex: 1 1 auto !important; align-items: flex-start !important; }
+.index-page.index-page .hero-copy > p { margin-top: auto !important; margin-bottom: 32px !important; }
+.index-page.index-page .analysis-preview__grid { gap: 18px !important; }
+.index-page .analysis-preview__grid { gap: 18px !important; }
+@media (min-width: 801px) { .index-page.index-page .hero-title-frame h1 { font-size: clamp(4rem, 7vw, 7rem) !important; line-height: .82 !important; } }
+.index-page.index-page .hero-title-frame h1 { font-size: clamp(4.8rem, 7.5vw, 8rem) !important; line-height: .8 !important; }
+.index-page.index-page .hero-copy > p { margin-top: 28px !important; font-size: .8rem !important; line-height: 1.45 !important; }
+.index-page.index-page .hero-copy > p { font-size: .88rem !important; line-height: 1.5 !important; margin-top: 16px !important; }
+.index-page.index-page .hero-title-frame { background-image: none !important; background-color: transparent !important; }
+.bios-footer__brand > .site-logo { width: 200px; height: auto; padding: 0; background: transparent; object-fit: contain; }
+.logo-liquid-wrap > .site-logo { display: block; width: 100%; height: auto; }
+.index-page.index-page .hero-title-frame h1 {
+  font-size: clamp(3.6rem, 6vw, 6.8rem) !important;
+  line-height: .86 !important;
+}
+.index-page.index-page .hero-copy { width: 100% !important; }
+.index-page.index-page .hero-title-frame { width: 100% !important; }
+.hero-title-frame {
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding: 18px 30px 12px;
+  background-color: rgba(255,255,255,.015);
+  background-image: url("fondo2.png");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: screen;
+  border: 1px solid rgba(123, 8, 129, .07);
+}
+
+.hero-title-frame h1 {
+  margin: 0 !important;
+}
+
+.index-page .hero-copy > p {
+  margin-top: 16px;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.hero-title-accent {
+  color: var(--primary) !important;
+}
+
+@media (max-width: 800px) {
+  .hero-title-frame {
+    width: 100%;
+    min-height: 0;
+    padding: 22px 20px 24px;
+  }
+}
 .index-page.index-page .hero-copy h1 { color: var(--primary) !important; }
 .index-page.index-page .hero-copy h1 em { color: #d35dde !important; }
 .index-page.index-page .hero-wrap { background-image: url("fondo2.png") !important; background-color: transparent !important; background-position: left center !important; background-size: 45% 100% !important; }
 .index-page.index-page .hero-wrap {
-  background-color: #fff !important;
-  background-image: url("fondo2.png") !important;
-  background-position: left center !important;
-  background-size: 45% 100% !important;
-  background-repeat: no-repeat !important;
-  background-blend-mode: screen !important;
+  background: #fff !important;
+  background-image: none !important;
+}
+
+.index-page.index-page .hero-wrap::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 auto 0 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+  width: 45% !important;
+  background: url("fondo2.png") center / cover no-repeat !important;
+  opacity: .1 !important;
+  pointer-events: none !important;
 }
 .index-page.index-page .analysis-preview__grid article.analysis-preview__service::before { background: rgba(45, 43, 109, .28) !important; }
 .index-page .analysis-preview__grid article::before { background: rgba(45, 43, 109, .28) !important; }
@@ -1558,7 +1620,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background-image: url("principal.png");
+  background-image: url("principal2.png");
 }
 
 .index-page .contact__layout {
@@ -1646,7 +1708,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background-image: url("principal.png");
+  background-image: url("principal2.png");
 }
 
 .centers-hero__shade,
@@ -1662,8 +1724,8 @@ body {
 
 .index-page .hero-wrap::after {
   width: 53%;
-  background: url("principal.png") center center / cover no-repeat !important;
-  background-image: url("principal.png") !important;
+  background: url("principal2.png") center center / cover no-repeat !important;
+  background-image: url("principal2.png") !important;
   filter: saturate(.9) contrast(1.05);
 }
 
@@ -2061,7 +2123,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background: url("principal.png") center / cover no-repeat !important;
+  background: url("principal2.png") center / cover no-repeat !important;
 }
 
 .index-page .hero,
@@ -2118,6 +2180,23 @@ body {
   color: var(--primary);
   overflow: visible;
   flex: 0 0 38px;
+}
+
+.bios-line-icon::before,
+.bios-line-icon::after {
+  display: none !important;
+  content: none !important;
+}
+
+.bios-line-icon svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .bios-line-icon::before,
@@ -4759,7 +4838,7 @@ body {
   right: 0;
   bottom: 0;
   width: 43%;
-  background: url("principal.png") center / cover no-repeat;
+  background: url("principal2.png") center / cover no-repeat;
   filter: saturate(.84) contrast(1.04);
 }
 
@@ -5204,7 +5283,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 42%;
-    background: url("principal.png") center / cover no-repeat;
+    background: url("principal2.png") center / cover no-repeat;
   }
 
   .index-page .hero-copy {

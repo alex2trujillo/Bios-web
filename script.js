@@ -5,6 +5,24 @@ const welcomeAlertClose = document.getElementById('welcomeAlertClose');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+const lineIconPaths = {
+  drop: '<path d="M12 3.5S6 10 6 14a6 6 0 0 0 12 0c0-4-6-10.5-6-10.5Z"/><path d="M9.5 15.5a2.8 2.8 0 0 0 2.5 2"/>',
+  shield: '<path d="M12 3 19 6v5c0 4.5-2.8 8-7 10-4.2-2-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/>',
+  people: '<circle cx="12" cy="8" r="3"/><path d="M5 20c.5-3.2 2.8-5 7-5s6.5 1.8 7 5"/><path d="M5 11a2.5 2.5 0 0 0-2 2.5M19 11a2.5 2.5 0 0 1 2 2.5"/>',
+  lab: '<path d="M9 3h6M10 3v6l-5 8.5A2 2 0 0 0 6.7 21h10.6a2 2 0 0 0 1.7-3.5L14 9V3"/><path d="M8 15h8"/>',
+  team: '<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.5-3.5 2.5-5 5.5-5s5 1.5 5.5 5M15 15c2.8 0 4.5 1.3 5 4"/>',
+  report: '<path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/>',
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/>',
+  care: '<path d="m12 20-6.5-6.5a4.2 4.2 0 0 1 6-6L12 8l.5-.5a4.2 4.2 0 0 1 6 6z"/><path d="M8 13h2l1-2 2 4 1-2h2"/>',
+  food: '<path d="M5 3v7M8 3v7M5 7h3M6.5 10v11M17 3v18M17 3c3 2 3 7 0 8"/>',
+};
+
+document.querySelectorAll('.bios-line-icon').forEach((icon) => {
+  const iconName = [...icon.classList].find((className) => className.startsWith('bios-line-icon--'))?.replace('bios-line-icon--', '');
+  if (!lineIconPaths[iconName]) return;
+  icon.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${lineIconPaths[iconName]}</svg>`;
+});
+
 function resumeLogoAnimation() {
   if (document.visibilityState !== 'visible') return;
   document.querySelectorAll('img[src^="definitivo.gif"]').forEach((logo) => {
