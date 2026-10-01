@@ -5764,3 +5764,22 @@ body {
   .service-detail--info .service-detail__grid { grid-template-columns: 1fr; }
 }
 
+/* ==========================================================================
+   Correccion del titulo del hero en moviles (desbordaba por font-size fijo)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .index-page.index-page .hero-title-frame h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(2.1rem, 11vw, 3rem) !important;
+    line-height: .95 !important;
+  }
+  .index-page.index-page .hero-title-frame p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: .85rem !important;
+    line-height: 1.4 !important;
+  }
+  .index-page.index-page .hero-copy { height: auto !important; }
+}
+
