@@ -5765,8 +5765,37 @@ body {
 }
 
 /* ==========================================================================
-   Correccion del titulo del hero en moviles (desbordaba por font-size fijo)
+   Correccion del layout del hero en moviles (se desbordaba y se solapaba con la imagen)
    ========================================================================== */
+@media (max-width: 800px) {
+  .index-page.index-page.index-page.index-page .hero-wrap,
+  .index-page.index-page.index-page.index-page .hero-layout {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .index-page.index-page.index-page.index-page .hero-wrap::before {
+    display: none !important;
+  }
+  .index-page.index-page.index-page.index-page .hero-wrap::after {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: 230px !important;
+    margin: 20px 0 0 !important;
+    inset: auto !important;
+  }
+  .index-page.index-page.index-page.index-page .hero-grid {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .index-page.index-page.index-page.index-page .hero-copy {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 32px 0 24px !important;
+  }
+}
+
 @media (max-width: 640px) {
   .index-page.index-page.index-page.index-page .hero-title-frame {
     width: 100% !important;
