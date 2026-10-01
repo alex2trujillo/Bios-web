@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de análisis de laboratorio para alimentos, aguas y otros productos." />
+  <title>BIOS | Catálogo de análisis</title>
+  <link rel="stylesheet" href="styles.css?v=20260929-visible" />
+  <style>
+    .analysis-catalog-page {
+      min-height: calc(100vh - 190px);
+      padding: 70px 0;
+      position: relative;
+      background-color: #ffffff;
+    }
+
+    .analysis-catalog-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("todox.png") center center / cover no-repeat;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .analysis-catalog-page > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .analysis-catalog-page__intro {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .analysis-catalog-page .section-badge {
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #fff;
+      padding: 10px 16px;
+      box-shadow: 0 10px 22px rgba(45, 43, 109, 0.22);
+    }
+
+    .analysis-catalog__heading {
+      margin: 0 0 24px;
+      color: var(--primary);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .analysis-catalog__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px;
+    }
+
+    .analysis-catalog__group {
+      padding: 24px;
+      border-top: 3px solid var(--primary);
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(19, 31, 45, 0.06);
+      backdrop-filter: blur(6px);
+    }
+
+    .analysis-catalog__group h3 {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 1.15rem;
+    }
+
+    .analysis-catalog__group ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .analysis-catalog__group li {
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(29, 42, 92, .1);
+      color: var(--text);
+      line-height: 1.45;
+      transition: background-color .18s ease, color .18s ease, padding .18s ease;
+    }
+
+    .analysis-catalog__group li:hover {
+      padding-left: 10px;
+      background: rgba(123, 8, 129, .08);
+      color: var(--primary);
+    }
+
+    .analysis-catalog-page__back {
+      display: inline-flex;
+      margin-top: 30px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #fff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .analysis-catalog__grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="BIOS, análisis de aguas y alimentos">
+        <video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="services.html">Servicios</a></li>
+          <li><a href="capacitaciones.html">Capacitaciones</a></li>
+          <li><a href="catalogo-analisis.html" aria-current="page">Catálogo de análisis</a></li>
+          <li><a href="nosotros.html">Quiénes somos</a></li>
+          <li><a href="cotizar.html">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="analysis-catalog-page">
+    <div class="container">
+      <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Catálogo de análisis</h1></div>
+      <p class="analysis-catalog-page__intro">Consulta los análisis de alimentos, aguas y otras pruebas disponibles. Selecciona uno para ver su alcance.</p>
+      <section aria-labelledby="analysis-catalog-heading">
+        <h2 class="analysis-catalog__heading" id="analysis-catalog-heading">Análisis disponibles</h2>
+        <div class="analysis-catalog__grid">
+          <section class="analysis-catalog__group" aria-labelledby="analysis-food-heading">
+            <h3 id="analysis-food-heading">Análisis de alimentos</h3>
+            <ul>
+              <li><a href="analisis.html?item=analisis-microbiologico-alimentos">Análisis microbiológico de alimentos</a></li>
+              <li><a href="analisis.html?item=analisis-fisicoquimico-alimentos">Análisis fisicoquímico de alimentos</a></li>
+              <li><a href="analisis.html?item=ambientes-areas">Análisis de ambientes de áreas</a></li>
+              <li><a href="analisis.html?item=frotis-manos">Frotis de manos</a></li>
+              <li><a href="analisis.html?item=frotis-superficies">Frotis de superficies</a></li>
+              <li><a href="analisis.html?item=vida-util-alimentos">Estudio de vida útil de alimentos</a></li>
+            </ul>
+          </section>
+          <section class="analysis-catalog__group" aria-labelledby="analysis-water-heading">
+            <h3 id="analysis-water-heading">Análisis de aguas</h3>
+            <ul>
+              <li><a href="analisis.html?item=analisis-microbiologico-aguas">Análisis microbiológico de aguas</a></li>
+              <li><a href="analisis.html?item=aguas-suministro">Análisis de aguas de suministro</a></li>
+              <li><a href="analisis.html?item=aguas-piscinas">Análisis de aguas de piscinas</a></li>
+              <li><a href="analisis.html?item=agua-uso-agricola">Agua para uso agrícola</a></li>
+              <li><a href="analisis.html?item=agua-uso-recreativo">Agua para uso recreativo</a></li>
+              <li><a href="analisis.html?item=aguas-embotelladas">Análisis de aguas embotelladas</a></li>
+              <li><a href="analisis.html?item=analisis-fisicoquimico-aguas">Análisis fisicoquímico de aguas</a></li>
+            </ul>
+          </section>
+          <section class="analysis-catalog__group" aria-labelledby="analysis-other-heading">
+            <h3 id="analysis-other-heading">Otros análisis</h3>
+            <ul>
+              <li><a href="analisis.html?item=toma-item-ensayo">Toma de ítem de ensayo y muestreo</a></li>
+              <li><a href="analisis.html?item=esterilidad-comercial">Esterilidad comercial</a></li>
+              <li><a href="analisis.html?item=ambientes-por-impacto">Ambientes por impacto</a></li>
+              <li><a href="analisis.html?item=prueba-kelsey-maurer">Prueba de Kelsey-Maurer</a></li>
+              <li><a href="analisis.html?item=pcr-patogenos">Reacción en cadena de la polimerasa (PCR)</a></li>
+              <li><a href="analisis.html?item=e-coli-stec">E. coli STEC</a></li>
+              <li><a href="analisis.html?item=campylobacter-spp">Campylobacter spp.</a></li>
+              <li><a href="analisis.html?item=listeria-monocytogenes">Listeria monocytogenes</a></li>
+              <li><a href="analisis.html?item=salmonella-spp">Salmonella spp.</a></li>
+              <li><a href="analisis.html?item=analisis-cosmeticos">Análisis de cosméticos</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+      <a class="analysis-catalog-page__back" href="services.html">Volver a servicios</a>
+    </div>
+  </main>
+
+  <footer class="bios-footer"><div class="container bios-footer__grid"><div class="bios-footer__brand"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></div><div><strong>Ubicación</strong><p>Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.</p></div><div><strong>Contacto</strong><p>608 660 7400<br />320 251 1640<br />info@biosaguasyalimentos.com</p></div><div class="bios-footer__social"><strong>Síguenos</strong><a href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS"><img class="bios-footer__social-icon" src="instagram-icon.png" alt="" width="38" height="38" /></a><a href="https://www.facebook.com/profile.php?id=61564469023274">Facebook</a></div></div><div class="bios-footer__legal">© BIOS Análisis de Aguas y Alimentos</div></footer>
+  <script src="script.js?v=20260929-redesign"></script>
+</body>
+</html>

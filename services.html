@@ -4,8 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BIOS | Servicios</title>
-  <link rel="stylesheet" href="styles.css?v=20260929-visible" />
+  <link rel="stylesheet" href="styles.css?v=20260930-cleannophotogradient" />
   <style>
+    .services-page--directory,
+    .services-page--directory .services-directory__card {
+      background: #ffffff !important;
+      background-image: none !important;
+    }
     .services-page {
       min-height: calc(100vh - 190px);
       padding: 70px 0;
@@ -79,10 +84,8 @@
     }
 
     .services-directory__image-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 38% 0 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0), #fff 88%);
+      display: none !important;
+      content: none !important;
     }
 
     .services-directory__image {
@@ -126,6 +129,21 @@
       font-weight: 800;
     }
 
+    .training-promo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 auto 38px;
+      padding: 24px 28px;
+      border-left: 4px solid var(--primary);
+      background: #f2f6f7;
+    }
+
+    .training-promo h2 { margin: 0 0 6px; color: var(--primary); font-size: 1.35rem; }
+    .training-promo p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .training-promo a { flex: 0 0 auto; padding: 12px 18px; border-radius: 6px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; }
+
     .services-page--directory > .container > .service-detail {
       display: none;
     }
@@ -144,6 +162,7 @@
       }
 
       .services-directory__card { min-height: 420px; }
+      .training-promo { align-items: flex-start; flex-direction: column; }
     }
 
     .service-detail {
@@ -199,6 +218,8 @@
         <ul class="menu">
           <li><a href="index.html#inicio">Inicio</a></li>
           <li><a href="services.html" aria-current="page">Servicios</a></li>
+          <li><a href="capacitaciones.html">Capacitaciones</a></li>
+          <li><a href="catalogo-analisis.html">Catálogo de análisis</a></li>
           <li><a href="nosotros.html">Quiénes somos</a></li>
           <li><a href="cotizar.html">Contáctanos</a></li>
         </ul>
@@ -213,11 +234,12 @@
       <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Análisis para cada necesidad.</h1></div>
       <p class="services-page__intro">Llegamos a todos los rincones de Colombia con oportunidad y profesionalismo para cuidar la calidad de tus procesos.</p>
       <div class="services-directory">
-        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="tdservicios.png" alt="Análisis de laboratorio" /></div><div class="services-directory__content"><h2>Todos nuestros servicios</h2><p>Análisis confiables para alimentos, aguas y procesos de calidad.</p><a class="services-directory__link" href="services-generales.html">Ver todos</a></div></article>
-        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="piscina.png" alt="Agua de piscina" /></div><div class="services-directory__content"><h2>Servicios para plantas y piscinas</h2><p>Análisis de aguas, plantas envasadoras, plantas de beneficio animal y piscinas.</p><a class="services-directory__link" href="services-para-plantas-y-piscinas.html">Ver servicio</a></div></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="envasadora.png" alt="Plantas envasadoras y de beneficio animal" /></div><div class="services-directory__content"><h2>Servicios para plantas</h2><p>Plantas envasadoras y plantas de beneficio animal.</p><a class="services-directory__link" href="services-para-plantas.html">Ver servicio</a></div></article>
+        <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="piscina.png" alt="Agua y piscina" /></div><div class="services-directory__content"><h2>Servicios para agua y piscina</h2><p>Análisis de aguas y piscinas.</p><a class="services-directory__link" href="services-para-plantas-y-piscinas.html">Ver servicio</a></div></article>
         <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="centro.png" alt="Personal trabajando en un laboratorio" /></div><div class="services-directory__content"><h2>Servicios para centros</h2><p>Análisis para centros penitenciarios y carcelarios, alimentos preparados y agua potable.</p><a class="services-directory__link" href="services-para-centros.html">Ver servicio</a></div></article>
         <article class="services-directory__card"><div class="services-directory__image-wrap"><img class="services-directory__image" src="industria.png" alt="Alimentos para análisis de laboratorio" /></div><div class="services-directory__content"><h2>Servicios para industrias</h2><p>Análisis para industrias panificadoras, pan, galletas y bizcochos.</p><a class="services-directory__link" href="services-para-industriales.html">Ver servicio</a></div></article>
       </div>
+
       <section class="service-detail">
         <h2>Análisis de calidad de aguas y plantas envasadoras</h2>
         <div class="service-detail__grid">

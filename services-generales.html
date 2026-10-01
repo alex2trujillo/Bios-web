@@ -13,12 +13,12 @@
     .sector-grid, .catalog-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
     .catalog-item { padding: 18px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
     .sector-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
-    .sector-card__media { position: relative; height: 100px; overflow: hidden; }
-    .sector-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .85; }
-    .sector-card__media::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.97) 85%); }
-    .sector-card__body { padding: 14px 16px 18px; }
-    .sector-card h3, .catalog-item h3 { margin: 0 0 7px; color: var(--primary); font-size: 1rem; }
-    .sector-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.45; }
+    .sector-card__media { position: relative; height: 100px; overflow: hidden; background: #fff; }
+    .sector-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1; }
+    .sector-card__media::after { display: none; content: none; }
+    .sector-card__body { padding: 14px 16px 18px; background: #fff; }
+    .sector-card h3, .catalog-item h3 { margin: 0 0 7px; color: #7b0881 !important; font-size: 1rem; }
+    .sector-card p { margin: 0; color: #7b0881 !important; font-size: .88rem; line-height: 1.45; }
     .results-fast { max-width: 1080px; margin: 0 auto 28px; padding: 30px; border-radius: 20px; background: linear-gradient(135deg,#0d5966,#168f9b); color: #fff; }
     .results-fast h2 { margin: 0 0 8px; color: #fff !important; }
     .results-fast p { margin: 0 0 18px; color: rgba(255,255,255,.9); }
@@ -31,7 +31,7 @@
 </head>
 <body>
   <a class="floating-back-btn" href="services.html" aria-label="Volver a servicios" title="Volver a servicios">&#8592;</a>
-  <header class="site-header"><div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div><div class="container nav"><a class="brand" href="index.html#inicio" aria-label="BIOS"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></a><nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="nosotros.html">Quiénes somos</a></li><li><a href="cotizar.html">Contáctanos</a></li></ul></nav><div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+  <header class="site-header"><div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div><div class="container nav"><a class="brand" href="index.html#inicio" aria-label="BIOS"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></a><nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="capacitaciones.html">Capacitaciones</a></li><li><a href="catalogo-analisis.html">Catálogo de análisis</a></li><li><a href="nosotros.html">Quiénes somos</a></li><li><a href="cotizar.html">Contáctanos</a></li></ul></nav><div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
   <main class="general-page"><div class="container"><div class="section-head"><span class="section-badge">Nuestros servicios</span><h1>Calidad para toda la industria alimentaria</h1></div><p class="general-page__intro"><strong>Sirviendo a la industria alimentaria con análisis de calidad en todo el territorio nacional.</strong><br />Ofrecemos servicios especializados y soporte integral para distintos sectores, desde la materia prima hasta el producto final.</p>
     <section class="general-block"><h2>Sectores industriales que atendemos</h2><div class="sector-grid">
       <article class="sector-card"><div class="sector-card__media"><img src="bebida.webp" alt="Bebidas" loading="lazy" /></div><div class="sector-card__body"><h3>Bebidas</h3><p>Industria cervecera y de gaseosas.</p></div></article>

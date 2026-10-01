@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Información sobre análisis de laboratorio para alimentos, aguas y otros productos." />
+  <title>BIOS | Detalle del análisis</title>
+  <link rel="stylesheet" href="styles.css?v=20260929-visible" />
+  <style>
+    .analysis-detail-page {
+      min-height: 65vh;
+      padding: 58px 0 72px;
+      position: relative;
+      background-color: #ffffff;
+    }
+    .analysis-detail-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("todox.png") center center / cover no-repeat;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .analysis-detail-page > .container {
+      position: relative;
+      z-index: 1;
+    }
+    .analysis-detail { max-width: 880px; margin: 0 auto; padding: 34px 38px; background: rgba(255, 255, 255, 0.92); border-top: 4px solid var(--primary); border-radius: 12px; box-shadow: 0 10px 30px rgba(19, 31, 45, 0.08); backdrop-filter: blur(6px); }
+    .analysis-detail__back { display: inline-block; margin-bottom: 30px; color: var(--primary); font-weight: 700; text-decoration: none; }
+    .analysis-detail__category { margin: 0 0 10px; color: var(--primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .analysis-detail h1 { margin: 0; color: #263a46; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; }
+    .analysis-detail__intro { margin: 20px 0 30px; color: #536c78; font-size: 1.08rem; line-height: 1.7; }
+    .analysis-detail__section { margin-top: 28px; }
+    .analysis-detail__section h2 { margin: 0 0 10px; color: var(--primary); font-size: 1.25rem; }
+    .analysis-detail__section p { margin: 0; color: #536c78; line-height: 1.7; }
+    .analysis-detail__section ul { margin: 0; padding-left: 22px; color: #536c78; line-height: 1.8; }
+    .analysis-detail__note { margin-top: 32px; padding: 14px 16px; border-left: 3px solid #2aa8b5; background: #f0f7f8; color: #405c68; line-height: 1.55; }
+    .analysis-detail__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .analysis-detail__actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 6px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; }
+    .analysis-detail__actions a:last-child { border: 1px solid #d5dfe2; background: #fff; color: var(--primary); }
+    .analysis-detail__source { margin-top: 28px; color: #72838a; font-size: .82rem; }
+    .analysis-detail__source a { color: var(--primary); }
+    @media (max-width: 600px) {
+      .analysis-detail-page { padding: 34px 0 48px; }
+      .analysis-detail { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="BIOS, análisis de aguas y alimentos"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></a>
+      <nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="capacitaciones.html">Capacitaciones</a></li><li><a href="catalogo-analisis.html" aria-current="page">Catálogo de análisis</a></li><li><a href="nosotros.html">Quiénes somos</a></li><li><a href="cotizar.html">Contáctanos</a></li></ul></nav>
+      <div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="analysis-detail-page">
+    <div class="container">
+      <article class="analysis-detail" id="analysisDetail" aria-live="polite">
+        <a class="analysis-detail__back" href="catalogo-analisis.html">&larr; Volver al catálogo</a>
+        <p class="analysis-detail__category" id="analysisCategory"></p>
+        <h1 id="analysisTitle">Análisis de laboratorio</h1>
+        <p class="analysis-detail__intro" id="analysisIntro"></p>
+        <section class="analysis-detail__section"><h2>¿Qué evalúa?</h2><p id="analysisPurpose"></p></section>
+        <section class="analysis-detail__section"><h2>Alcance de la ficha</h2><ul id="analysisScope"></ul></section>
+        <p class="analysis-detail__note">La matriz, los parámetros, la cantidad de muestra, el método y los tiempos se confirman con BIOS al solicitar la cotización.</p>
+        <div class="analysis-detail__actions"><a href="cotizar.html">Solicitar cotización</a><a href="catalogo-analisis.html">Ver todos los análisis</a></div>
+        <p class="analysis-detail__source">Ficha informativa basada en la clasificación pública de <a href="https://calidadmicrobiologica.com.co/analisis-microbiologico" target="_blank" rel="noopener noreferrer">Calidad Microbiológica</a> y adaptada para consulta con BIOS.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bios-footer"><div class="container bios-footer__grid"><div class="bios-footer__brand"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></div><div><strong>Ubicación</strong><p>Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.</p></div><div><strong>Contacto</strong><p>608 660 7400<br />320 251 1640<br />info@biosaguasyalimentos.com</p></div><div class="bios-footer__social"><strong>Síguenos</strong><a href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS"><img class="bios-footer__social-icon" src="instagram-icon.png" alt="" width="38" height="38" /></a><a href="https://www.facebook.com/profile.php?id=61564469023274">Facebook</a></div></div><div class="bios-footer__legal">© BIOS Análisis de Aguas y Alimentos</div></footer>
+  <script>
+    const analyses = {
+      "analisis-microbiologico-alimentos": { category: "Análisis de alimentos", title: "Análisis microbiológico de alimentos", intro: "Evaluación microbiológica de alimentos para apoyar controles de calidad y decisiones sobre el producto.", purpose: "Permite revisar microorganismos indicadores y patógenos relevantes para la matriz y el uso previsto del alimento.", scope: ["Control microbiológico de materias primas y productos terminados.", "Indicadores de higiene, como coliformes, aerobios mesófilos, mohos y levaduras, según el alcance solicitado.", "Búsqueda de microorganismos de interés como Salmonella spp., Listeria monocytogenes o Escherichia coli, de acuerdo con el producto."] },
+      "analisis-fisicoquimico-alimentos": { category: "Análisis de alimentos", title: "Análisis fisicoquímico de alimentos", intro: "Caracterización de propiedades fisicoquímicas del alimento según su tipo, formulación y especificación de calidad.", purpose: "Apoya la verificación de características del producto y el seguimiento de procesos de fabricación o conservación.", scope: ["Los parámetros se definen según el alimento y el objetivo del cliente.", "La ficha técnica del producto orienta la selección de variables y criterios de comparación.", "Consulta con BIOS los requisitos de muestra y el alcance disponible para cada matriz."] },
+      "ambientes-areas": { category: "Análisis de alimentos", title: "Análisis de ambientes de áreas", intro: "Monitoreo microbiológico de ambientes en áreas donde se elaboran, manipulan o almacenan alimentos.", purpose: "Ayuda a observar la carga microbiana ambiental y a revisar las condiciones de higiene del área como parte de un plan de control.", scope: ["Identificación de puntos de muestreo según áreas y proceso.", "Evaluación de microorganismos ambientales definidos para el plan.", "Interpretación de resultados dentro del programa de limpieza y desinfección del establecimiento."] },
+      "frotis-manos": { category: "Análisis de alimentos", title: "Frotis de manos", intro: "Muestreo microbiológico de manos de manipuladores para revisar prácticas de higiene relacionadas con el manejo de alimentos.", purpose: "Permite identificar señales de contaminación en manos y orientar acciones de higiene y capacitación.", scope: ["Muestreo de manos y zonas definidas en el protocolo acordado.", "Evaluación de microorganismos indicadores según el análisis solicitado.", "Los resultados se interpretan junto con las prácticas de lavado y desinfección del establecimiento."] },
+      "frotis-superficies": { category: "Análisis de alimentos", title: "Frotis de superficies", intro: "Muestreo microbiológico de superficies, utensilios o equipos que entran en contacto con alimentos.", purpose: "Ayuda a verificar condiciones de limpieza y desinfección y a detectar posibles reservorios de contaminación.", scope: ["Selección de superficies de acuerdo con el proceso y el plan de muestreo.", "Evaluación de microorganismos indicadores definidos para el control.", "Los resultados pueden apoyar ajustes a las rutinas de higiene."] },
+      "vida-util-alimentos": { category: "Análisis de alimentos", title: "Estudio de vida útil de alimentos", intro: "Seguimiento de la estabilidad de un alimento durante el periodo de almacenamiento definido para el estudio.", purpose: "Busca estimar cuánto tiempo el producto conserva condiciones aceptables de calidad e inocuidad bajo condiciones acordadas.", scope: ["Muestras evaluadas en puntos de tiempo definidos.", "Combinación de análisis microbiológicos y fisicoquímicos de acuerdo con el producto.", "El diseño requiere información de formulación, empaque y condiciones de almacenamiento."] },
+      "analisis-microbiologico-aguas": { category: "Análisis de aguas", title: "Análisis microbiológico de aguas", intro: "Evaluación de indicadores microbiológicos en agua según su fuente y uso final.", purpose: "Aporta información sobre la calidad biológica del agua y ayuda a determinar si requiere acciones de control o tratamiento.", scope: ["Puede incluir coliformes totales y fecales, Escherichia coli, Pseudomonas aeruginosa y recuento de aerobios mesófilos, según el uso.", "Aplicable a agua potable, embotellada, agrícola, de piscinas y recreativa.", "Los criterios de interpretación dependen de la matriz y de los requisitos vigentes aplicables."] },
+      "aguas-suministro": { category: "Análisis de aguas", title: "Análisis de aguas de suministro", intro: "Evaluación de agua procedente de redes, pozos u otras fuentes utilizadas en instalaciones y procesos.", purpose: "Ayuda a revisar características relevantes para el consumo, el uso doméstico o el procesamiento de alimentos.", scope: ["El alcance puede integrar variables físicas, químicas y microbiológicas.", "La fuente y el uso previsto determinan los parámetros a solicitar.", "La comparación con requisitos normativos se define para el uso y jurisdicción correspondientes."] },
+      "aguas-piscinas": { category: "Análisis de aguas", title: "Análisis de aguas de piscinas", intro: "Evaluación de la calidad del agua de piscinas y estructuras similares de recirculación.", purpose: "Apoya el control de condiciones microbiológicas y fisicoquímicas que pueden variar con el uso, el tratamiento y el mantenimiento.", scope: ["Puede incluir pH, turbidez, desinfectante residual y otros parámetros fisicoquímicos.", "La evaluación microbiológica puede considerar heterótrofos, Escherichia coli, Pseudomonas y coliformes.", "El panel y los criterios se confirman según el tipo de piscina y las disposiciones aplicables."] },
+      "agua-uso-agricola": { category: "Análisis de aguas", title: "Análisis de agua para uso agrícola", intro: "Evaluación de agua utilizada para riego y actividades relacionadas con la producción agrícola.", purpose: "Permite conocer características que pueden influir en cultivos, suelos y exposición a contaminantes biológicos o químicos.", scope: ["Los análisis pueden incluir indicadores microbiológicos como coliformes totales y fecales.", "Los parámetros fisicoquímicos se seleccionan según la fuente y el uso agrícola.", "El plan debe considerar el cultivo, el sistema de riego y el origen del agua."] },
+      "agua-uso-recreativo": { category: "Análisis de aguas", title: "Análisis de agua para uso recreativo", intro: "Evaluación de agua destinada a actividades recreativas con contacto primario o secundario.", purpose: "Aporta información para el seguimiento sanitario y el control de las características del agua usada por los visitantes.", scope: ["Considera el uso recreativo y la frecuencia de exposición.", "Puede integrar parámetros microbiológicos y fisicoquímicos.", "El alcance se define de acuerdo con el cuerpo de agua y la regulación aplicable."] },
+      "aguas-embotelladas": { category: "Análisis de aguas", title: "Análisis de aguas embotelladas", intro: "Evaluación de agua tratada y envasada para verificar características de calidad del producto final.", purpose: "Apoya el seguimiento del tratamiento, el envasado y el control del producto durante su comercialización.", scope: ["Puede considerar parámetros microbiológicos y fisicoquímicos.", "El panel se define según el tipo de agua y el proceso de tratamiento.", "La selección de requisitos debe corresponder a la normativa vigente para el producto."] },
+      "analisis-fisicoquimico-aguas": { category: "Análisis de aguas", title: "Análisis fisicoquímico de aguas", intro: "Determinación de propiedades físicas y químicas del agua de acuerdo con su procedencia y uso.", purpose: "Ayuda a caracterizar el agua y a revisar su compatibilidad con el uso previsto o con un proceso de tratamiento.", scope: ["Los parámetros dependen de la fuente: suministro, piscina, agua embotellada o riego.", "El uso esperado define cuáles variables se deben solicitar.", "Los criterios de aceptación se acuerdan según la regulación que aplique a cada matriz."] },
+      "toma-item-ensayo": { category: "Otros análisis", title: "Toma de ítem de ensayo y muestreo", intro: "Organización de la toma y el registro de muestras para facilitar su identificación y evaluación en el laboratorio.", purpose: "Una muestra representativa y correctamente identificada ayuda a relacionar el resultado con el producto, proceso y condiciones de origen.", scope: ["Definición del punto de toma y los datos necesarios para identificar la muestra.", "Recomendaciones de recipiente, conservación y transporte se confirman para cada análisis.", "Consulta con BIOS la disponibilidad de toma en sitio y las condiciones de recepción."] },
+      "esterilidad-comercial": { category: "Otros análisis", title: "Esterilidad comercial", intro: "Evaluación microbiológica de productos procesados y envasados para verificar su estabilidad bajo las condiciones previstas de conservación.", purpose: "Ayuda a identificar crecimiento microbiano que pueda comprometer la estabilidad del producto o del proceso térmico aplicado.", scope: ["La muestra y el plan de ensayo dependen del alimento y del tipo de envase.", "Los microorganismos y métodos se establecen según el producto.", "Confirma con BIOS las condiciones de recepción y los tiempos estimados."] },
+      "ambientes-por-impacto": { category: "Otros análisis", title: "Ambientes por impacto", intro: "Monitoreo microbiológico del aire mediante captura activa en puntos seleccionados de un área.", purpose: "Permite estimar la carga de microorganismos suspendidos y ubicar zonas que requieren revisión de higiene o ventilación.", scope: ["Selección de áreas y puntos de muestreo según el uso del espacio.", "Evaluación de microorganismos ambientales definidos en el plan.", "Los resultados pueden apoyar decisiones sobre limpieza, flujo de aire y frecuencia de monitoreo."] },
+      "prueba-kelsey-maurer": { category: "Otros análisis", title: "Prueba de Kelsey-Maurer", intro: "Evaluación de la actividad bactericida y fungicida de desinfectantes en condiciones de ensayo controladas.", purpose: "Ayuda a comparar la acción de un producto desinfectante considerando concentración y tiempo de contacto definidos.", scope: ["Puede incluir cepas de referencia y microorganismos propios del área cuando se acuerde su evaluación.", "El diseño considera el desinfectante, la concentración y las condiciones de uso.", "Los resultados corresponden a las condiciones ensayadas; solicita a BIOS el alcance disponible."] },
+      "pcr-patogenos": { category: "Otros análisis", title: "Reacción en cadena de la polimerasa (PCR)", intro: "Técnica molecular que detecta secuencias genéticas específicas de microorganismos de interés.", purpose: "Se utiliza para buscar patógenos definidos en muestras de alimentos u otras matrices compatibles con el método.", scope: ["La selección del microorganismo objetivo depende de la muestra y del propósito del análisis.", "Entre los objetivos posibles descritos en el portafolio de referencia están E. coli STEC, Campylobacter y Listeria monocytogenes.", "La disponibilidad, método y tiempo se confirman con BIOS antes de remitir la muestra."] },
+      "e-coli-stec": { category: "Otros análisis", title: "E. coli STEC", intro: "Búsqueda de cepas de Escherichia coli productoras de toxina Shiga, incluido el serotipo O157:H7.", purpose: "Apoya la evaluación microbiológica de alimentos y materias primas frente a este grupo de patógenos.", scope: ["Puede ser relevante en carnes, vegetales, agua y productos sin pasteurizar según el proceso.", "La técnica de detección se determina de acuerdo con la matriz y el alcance solicitado.", "La interpretación del resultado debe considerar el plan de muestreo y los criterios aplicables."] },
+      "campylobacter-spp": { category: "Otros análisis", title: "Campylobacter spp.", intro: "Detección de bacterias del género Campylobacter en matrices definidas para control microbiológico.", purpose: "Ayuda a investigar la presencia de este microorganismo asociado principalmente a alimentos y agua contaminados.", scope: ["Puede ser pertinente en aves, carnes, leche no pasteurizada y agua, de acuerdo con la evaluación solicitada.", "La matriz determina el procedimiento y la técnica disponible.", "Consulta con BIOS cantidad de muestra, conservación y tiempo estimado."] },
+      "listeria-monocytogenes": { category: "Otros análisis", title: "Listeria monocytogenes", intro: "Búsqueda de Listeria monocytogenes en alimentos o ambientes asociados a su producción.", purpose: "Permite revisar un patógeno de interés para la inocuidad, especialmente en productos listos para consumo y áreas de procesamiento.", scope: ["La muestra puede corresponder al producto, una superficie o un punto ambiental definido.", "El método se selecciona de acuerdo con la matriz y el objetivo del cliente.", "Los requisitos de muestreo y tiempos se confirman con BIOS."] },
+      "salmonella-spp": { category: "Otros análisis", title: "Salmonella spp.", intro: "Detección de bacterias del género Salmonella en alimentos y matrices de interés sanitario.", purpose: "Apoya la vigilancia microbiológica y el control de contaminación en materias primas, productos y procesos.", scope: ["Puede ser pertinente para carnes, aves, huevos, lácteos, vegetales y superficies según el plan.", "La técnica y el tamaño de muestra se definen por matriz y objetivo.", "La interpretación se realiza frente a los requisitos aplicables al producto."] },
+      "analisis-cosmeticos": { category: "Otros análisis", title: "Análisis microbiológico de cosméticos", intro: "Evaluación microbiológica de materias primas y productos cosméticos terminados.", purpose: "Ayuda a revisar la carga microbiana y la presencia de microorganismos no deseados durante la fabricación y conservación.", scope: ["Puede considerar recuentos de microorganismos aerobios, mohos y levaduras.", "Los microorganismos de interés pueden incluir Escherichia coli, Staphylococcus aureus, Pseudomonas aeruginosa y Candida albicans.", "El plan depende del tipo de producto, zona de aplicación y categoría correspondiente."] }
+    };
+
+    const itemId = new URLSearchParams(window.location.search).get('item');
+    const analysis = analyses[itemId];
+    const detail = document.getElementById('analysisDetail');
+
+    if (!analysis) {
+      detail.innerHTML = '<a class="analysis-detail__back" href="catalogo-analisis.html">&larr; Volver al catálogo</a><h1>Análisis no encontrado</h1><p class="analysis-detail__intro">Selecciona un análisis del catálogo.</p><div class="analysis-detail__actions"><a href="catalogo-analisis.html">Ver catálogo</a></div>';
+    } else {
+      document.title = `BIOS | ${analysis.title}`;
+      document.getElementById('analysisCategory').textContent = analysis.category;
+      document.getElementById('analysisTitle').textContent = analysis.title;
+      document.getElementById('analysisIntro').textContent = analysis.intro;
+      document.getElementById('analysisPurpose').textContent = analysis.purpose;
+      const scope = document.getElementById('analysisScope');
+      analysis.scope.forEach((item) => {
+        const entry = document.createElement('li');
+        entry.textContent = item;
+        scope.append(entry);
+      });
+    }
+  </script>
+  <script src="script.js?v=20260929-redesign"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Capacitaciones en manipulación de alimentos, BPM, HACCP, gestión de calidad y temas de inocuidad." />
+  <title>BIOS | Capacitaciones</title>
+  <link rel="stylesheet" href="styles.css?v=20260929-visible" />
+  <style>
+    .training-page { min-height: 65vh; padding: 54px 0 72px; background: #f4f6f7; }
+    .training-hero { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(260px,.9fr); gap: 34px; align-items: center; margin-bottom: 42px; }
+    .training-hero__copy { padding: 12px 0; }
+    .training-hero__eyebrow { margin: 0 0 10px; color: var(--primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .training-hero h1 { margin: 0; color: #263a46; font-size: clamp(2rem,4vw,3.4rem); line-height: 1.08; }
+    .training-hero__copy > p:last-child { max-width: 640px; margin: 18px 0 0; color: #536c78; font-size: 1rem; line-height: 1.65; }
+    .training-hero img { display: block; width: 100%; height: 230px; object-fit: cover; }
+    .training-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .training-card { min-height: 190px; padding: 22px; border: 1px solid #dce4e7; border-top: 3px solid var(--primary); background: #fff; }
+    .training-card h2 { margin: 0 0 10px; color: var(--primary); font-size: 1.12rem; line-height: 1.3; }
+    .training-card p { margin: 0; color: #536c78; font-size: .94rem; line-height: 1.6; }
+    .training-note { margin: 28px 0 0; padding: 16px 18px; border-left: 3px solid #2aa8b5; background: #eaf4f5; color: #405c68; line-height: 1.55; }
+    .training-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .training-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 6px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; }
+    .training-actions a:last-child { border: 1px solid #d5dfe2; background: #fff; color: var(--primary); }
+    @media (max-width: 900px) { .training-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 650px) { .training-page { padding: 34px 0 48px; } .training-hero { grid-template-columns: 1fr; gap: 20px; } .training-hero img { height: 190px; } .training-grid { grid-template-columns: 1fr; } .training-card { min-height: auto; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="BIOS, análisis de aguas y alimentos"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></a>
+      <nav class="main-nav" aria-label="Navegación principal"><ul class="menu"><li><a href="index.html#inicio">Inicio</a></li><li><a href="services.html">Servicios</a></li><li><a href="capacitaciones.html" aria-current="page">Capacitaciones</a></li><li><a href="catalogo-analisis.html">Catálogo de análisis</a></li><li><a href="nosotros.html">Quiénes somos</a></li><li><a href="cotizar.html">Contáctanos</a></li></ul></nav>
+      <div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="training-page">
+    <div class="container">
+      <section class="training-hero" aria-labelledby="training-title">
+        <div class="training-hero__copy"><p class="training-hero__eyebrow">Formación para equipos</p><h1 id="training-title">Capacitaciones para fortalecer la calidad e inocuidad</h1><p>Temas para equipos que trabajan con alimentos, agua y procesos de calidad. El contenido y la modalidad se pueden definir según las necesidades de cada organización.</p></div>
+        <img src="assets/servicios-bios.webp" alt="Trabajo de análisis en laboratorio" />
+      </section>
+
+      <section class="training-grid" aria-label="Temas de capacitación">
+        <article class="training-card"><h2>Manipulación de alimentos</h2><p>Higiene alimentaria, prácticas seguras y medidas para reducir riesgos durante la elaboración, almacenamiento y distribución.</p></article>
+        <article class="training-card"><h2>Buenas Prácticas de Manufactura (BPM)</h2><p>Principios de higiene y control aplicados a las operaciones y espacios donde se procesan alimentos.</p></article>
+        <article class="training-card"><h2>HACCP</h2><p>Fundamentos del sistema de análisis de peligros y puntos críticos de control, articulados con los programas prerrequisito.</p></article>
+        <article class="training-card"><h2>Capacitación en puesto de trabajo</h2><p>Almacenamiento, prevención de contaminación cruzada, trazabilidad y verificación de termómetros.</p></article>
+        <article class="training-card"><h2>Acciones correctivas y mejora</h2><p>Identificación de causas, gestión de planes de acción y seguimiento de oportunidades de mejora.</p></article>
+        <article class="training-card"><h2>Sistema de gestión de inocuidad ISO 22000</h2><p>Conceptos y aplicación de requisitos para organizar la gestión de inocuidad en la cadena alimentaria.</p></article>
+        <article class="training-card"><h2>Sistemas de gestión de calidad ISO 9000</h2><p>Principios de gestión de calidad, enfoque por procesos y mejora continua.</p></article>
+        <article class="training-card"><h2>Vigilancia epidemiológica de ETAs</h2><p>Microorganismos asociados, vigilancia, investigación de campo, análisis de variables y elaboración de informes.</p></article>
+        <article class="training-card"><h2>Planes de capacitación personalizados</h2><p>Temarios definidos a partir del sector, el equipo participante, los objetivos y los procesos de la organización.</p></article>
+      </section>
+
+      <p class="training-note">Los temas, la modalidad y la disponibilidad se confirman con BIOS antes de programar la capacitación.</p>
+      <div class="training-actions"><a href="cotizar.html">Consultar disponibilidad</a><a href="services.html">Volver a servicios</a></div>
+    </div>
+  </main>
+
+  <footer class="bios-footer"><div class="container bios-footer__grid"><div class="bios-footer__brand"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></div><div><strong>Ubicación</strong><p>Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.</p></div><div><strong>Contacto</strong><p>608 660 7400<br />320 251 1640<br />info@biosaguasyalimentos.com</p></div><div class="bios-footer__social"><strong>Síguenos</strong><a href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS"><img class="bios-footer__social-icon" src="instagram-icon.png" alt="" width="38" height="38" /></a><a href="https://www.facebook.com/profile.php?id=61564469023274">Facebook</a></div></div><div class="bios-footer__legal">© BIOS Análisis de Aguas y Alimentos</div></footer>
+  <script src="script.js?v=20260929-redesign"></script>
+</body>
+</html>
