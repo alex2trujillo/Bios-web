@@ -408,11 +408,12 @@
       .cta-box{display:grid}
     }
   </style>
-  <link rel="stylesheet" href="styles.css?v=20261001-herofix4" />
+  <link rel="stylesheet" href="styles.css?v=20261002-certs-row-spread" />
 </head>
 <body>
+  <!-- Inicio: navegación, hero, secciones corporativas, modales, chatbot, galería y pie. -->
   <header class="site-header">
-    <div class="top-banner"><span>BIOS - UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD</span><span class="top-banner__social"><a href="https://www.facebook.com/profile.php?id=61564469023274" aria-label="Facebook BIOS">f</a><a href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS">◎</a><a href="https://www.linkedin.com" aria-label="LinkedIn BIOS">in</a></span></div>
+    <div class="top-banner"><span>BIOS - UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD</span></div>
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="BIOS, análisis de aguas y alimentos">
         <video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video>
@@ -424,15 +425,16 @@
           <li><a href="capacitaciones.html">Capacitaciones</a></li>
           <li><a href="catalogo-analisis.html">Catálogo de análisis</a></li>
           <li><a href="nosotros.html">Quiénes somos</a></li>
-          <li><a href="cotizar.html">Contáctanos</a></li>
+          <li><a href="https://wa.me/573202511640">Contáctanos</a></li>
         </ul>
       </nav>
-      <div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="cotizar.html">Cotizar</a></div>
+      <div class="header-actions"><a class="header-phone" href="https://wa.me/573202511640">320 251 1640</a><a class="header-contact" href="https://wa.me/573202511640">Cotizar</a></div>
       <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main class="index-page">
+    <!-- Hero principal con acceso a los servicios. -->
     <section class="hero" id="inicio">
       <div class="hero-wrap">
         <div class="container hero-layout">
@@ -446,26 +448,32 @@
       </div>
     </section>
 
+    <!-- Presentación de BIOS y sus atributos principales. -->
     <section class="bios-description bios-about-section" id="calidad">
       <div class="container bios-about-section__grid"><div class="bios-about-section__copy"><span class="section-badge">Quiénes somos</span><h2>Laboratorio <em>BIOS</em></h2><p>Somos un laboratorio colombiano especializado en el análisis de aguas y alimentos. Trabajamos con rigor técnico, atención cercana y resultados confiables para apoyar decisiones más seguras.</p><a class="text-link" href="nosotros.html">Conoce más <span aria-hidden="true">↗</span></a></div><div class="bios-about-section__features"><article><strong class="bios-line-icon bios-line-icon--drop" aria-hidden="true"></strong><h3>Precisión</h3><p>Resultados confiables y exactos.</p></article><article><strong class="bios-line-icon bios-line-icon--shield" aria-hidden="true"></strong><h3>Calidad</h3><p>Procesos con altos estándares.</p></article><article><strong class="bios-line-icon bios-line-icon--people" aria-hidden="true"></strong><h3>Confianza</h3><p>Acompañamiento personalizado.</p></article></div></div>
     </section>
 
+    <!-- Pasos de recepción, análisis y entrega de resultados. -->
     <section class="bios-process" aria-labelledby="bios-process-title">
       <div class="container bios-process__grid"><div class="bios-process__intro"><span class="section-badge">Nuestro proceso</span><h2 id="bios-process-title">¿Cómo trabajamos?</h2></div><ol class="bios-process__steps"><li><strong>Recepción de muestra</strong><span>Registro y verificación de la muestra.</span></li><li><strong>Análisis en laboratorio</strong><span>Procesos con equipos especializados.</span></li><li><strong>Resultados</strong><span>Informes precisos y confiables.</span></li><li><strong>Acompañamiento</strong><span>Asesoría y soporte según tu necesidad.</span></li></ol></div>
     </section>
 
+    <!-- Diferenciales del laboratorio. -->
     <section class="bios-differences" aria-labelledby="bios-differences-title">
       <div class="container"><div class="section-head"><span class="section-badge">¿Por qué elegirnos?</span><h2 id="bios-differences-title">Nuestros <em>diferenciales</em></h2></div><div class="bios-differences__grid"><article><strong class="bios-line-icon bios-line-icon--lab" aria-hidden="true"></strong><h3>Tecnología especializada</h3></article><article><strong class="bios-line-icon bios-line-icon--team" aria-hidden="true"></strong><h3>Equipo profesional</h3></article><article><strong class="bios-line-icon bios-line-icon--report" aria-hidden="true"></strong><h3>Resultados confiables</h3></article><article><strong class="bios-line-icon bios-line-icon--clock" aria-hidden="true"></strong><h3>Tiempos eficientes</h3></article><article><strong class="bios-line-icon bios-line-icon--care" aria-hidden="true"></strong><h3>Atención personalizada</h3></article></div></div>
     </section>
 
+    <!-- Certificaciones y asociaciones. -->
     <section class="certifications" id="certificaciones">
       <div class="container"><div class="section-head"><span class="section-badge">Confianza y respaldo</span><h2>Certificaciones y Asociaciones</h2></div><div class="cert-grid cert-grid--full"><img src="assets/iso-cert.jpg" alt="Certificación ISO" /><img src="assets/invima-cert.png" alt="INVIMA" /><img src="assets/lgc-cert.png" alt="LGC" /><img src="assets/meta-cert.jpg" alt="Asociación Meta" /><img src="assets/ins-cert.jpg" alt="Instituto Nacional de Salud" /><img src="assets/extra-cert.jpg" alt="Certificación de laboratorio" /><img src="assets/bureau-new.webp" alt="Bureau Veritas" /></div></div>
     </section>
 
+    <!-- Formulario de contacto y datos para cotizar. -->
     <section class="contact" id="contacto">
       <div class="container contact__layout"><div class="contact__intro"><span class="section-badge">Contáctanos</span><h2>Solicita tu análisis</h2><p>Diligencia el formulario y nuestro equipo se comunicará contigo para brindarte una cotización.</p></div><div class="form-box"><form id="contactForm" action="https://formsubmit.co/alexjuniortrujillopardo@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva consulta desde la página BIOS" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_captcha" value="true" /><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey" /><div class="form-grid"><label class="field">Nombre completo<input name="name" placeholder="Nombre completo" required /></label><label class="field">Correo electrónico<input type="email" name="email" placeholder="Correo electrónico" required /></label><label class="field">Teléfono<input name="phone" placeholder="Teléfono" required /></label><label class="field">Tipo de servicio<select name="service" required><option value="">Tipo de servicio</option><option>Agua</option><option>Alimentos</option><option>Industria</option></select></label><label class="field full">Mensaje<textarea name="message" rows="4" placeholder="Mensaje (opcional)"></textarea></label></div><button class="pqr submit" type="submit">Enviar solicitud <span aria-hidden="true">→</span></button></form></div><div class="contact__details"><strong>320 251 1640</strong><a href="mailto:info@biosaguasyalimentos.com">info@biosaguasyalimentos.com</a><span>Villavicencio, Meta</span><span>Lun - Vie / 8:00 a.m. - 5:00 p.m.</span></div></div>
     </section>
 
+    <!-- Mapa, dirección y contacto. -->
     <section class="info" id="ubicacion">
       <div class="location-map"><iframe class="map-frame" title="Ubicación de BIOS en Villavicencio" src="https://www.google.com/maps?q=Calle%2033%20B%2036-37%2C%20Barzal%2C%20Villavicencio%2C%20Meta&output=embed" loading="lazy"></iframe></div><div class="location-bar"><div class="location-social"><a class="location-social__instagram" href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS"></a><a class="location-social__facebook" href="https://www.facebook.com/profile.php?id=61564469023274" aria-label="Facebook BIOS">f</a></div><div><h4>Ubicación</h4><p>Dirección: Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.<br />De 8:00 a 17:00 hs.</p></div><div><h4>Contacto</h4><p>Teléfono: 608 660 7400<br />Celular: 320 251 1640</p></div></div>
     </section>
@@ -480,6 +488,7 @@
 
   <section class="index-quote-banner"><section class="team" id="equipo"><div class="container"><div class="team-visual"><div class="team-slider__track" data-manual-train><img class="team-slider__image is-active" src="nueva2.jpg" alt="Personal de BIOS en el laboratorio" /><img class="team-slider__image" src="fondo (3).jpg" alt="Instalaciones de BIOS" /><img class="team-slider__image" src="d4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg" alt="Equipo de BIOS" /><img class="team-slider__image" src="IMG_7186.webp" alt="Personal de BIOS trabajando" /><img class="team-slider__image" src="IMG_7254.webp" alt="Personal de BIOS en el laboratorio" /><img class="team-slider__image" src="22.webp" alt="Laboratorio BIOS" /><img class="team-slider__image" src="23.webp" alt="Laboratorio BIOS" /><img class="team-slider__image" src="24.webp" alt="Laboratorio BIOS" /><img class="team-slider__image" src="nueva2.jpg" alt="Personal de BIOS en el laboratorio" aria-hidden="true" /><img class="team-slider__image" src="fondo (3).jpg" alt="Instalaciones de BIOS" aria-hidden="true" /><img class="team-slider__image" src="d4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg" alt="Equipo de BIOS" aria-hidden="true" /><img class="team-slider__image" src="IMG_7186.webp" alt="Personal de BIOS trabajando" aria-hidden="true" /><img class="team-slider__image" src="IMG_7254.webp" alt="Personal de BIOS en el laboratorio" aria-hidden="true" /><img class="team-slider__image" src="22.webp" alt="Laboratorio BIOS" aria-hidden="true" /><img class="team-slider__image" src="23.webp" alt="Laboratorio BIOS" aria-hidden="true" /><img class="team-slider__image" src="24.webp" alt="Laboratorio BIOS" aria-hidden="true" /></div></div></div></section><div class="index-quote-banner__panel"><h2>Cotiza tus análisis con nosotros</h2><p>Recibe orientación para elegir el análisis adecuado para tus alimentos y aguas.</p><a href="cotizar.html">Cotizar</a></div></section>
 
+  <!-- Galería continua de instalaciones y equipo, ubicada encima del pie. -->
   <section class="photo-train-section" aria-label="Galería fotográfica de instalaciones y equipo">
     <div class="photo-train__wrapper">
       <div class="photo-train__track">

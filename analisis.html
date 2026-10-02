@@ -48,6 +48,7 @@
   </style>
 </head>
 <body>
+  <!-- Ficha dinámica: el script carga el análisis indicado por el parámetro item de la URL. -->
   <header class="site-header">
     <div class="top-banner">BIOS, "UNA EMPRESA DONDE LOS SUEÑOS SE VUELVEN REALIDAD"</div>
     <div class="container nav">
@@ -58,6 +59,7 @@
     </div>
   </header>
 
+  <!-- Detalle del análisis: propósito, alcance, nota y acciones para cotizar. -->
   <main class="analysis-detail-page">
     <div class="container">
       <article class="analysis-detail" id="analysisDetail" aria-live="polite">
@@ -76,6 +78,7 @@
 
   <footer class="bios-footer"><div class="container bios-footer__grid"><div class="bios-footer__brand"><video class="site-logo" src="loguito.mp4" autoplay loop muted playsinline preload="auto" aria-label="BIOS Análisis de Aguas y Alimentos"></video></div><div><strong>Ubicación</strong><p>Calle 33 B 36-37, Barzal,<br />Villavicencio - Meta.</p></div><div><strong>Contacto</strong><p>608 660 7400<br />320 251 1640<br />info@biosaguasyalimentos.com</p></div><div class="bios-footer__social"><strong>Síguenos</strong><a href="https://www.instagram.com/bioslaboratorio" aria-label="Instagram BIOS"><img class="bios-footer__social-icon" src="instagram-icon.png" alt="" width="38" height="38" /></a><a href="https://www.facebook.com/profile.php?id=61564469023274">Facebook</a></div></div><div class="bios-footer__legal">© BIOS Análisis de Aguas y Alimentos</div></footer>
   <script>
+    // Fichas disponibles y renderizado del análisis seleccionado.
     const analyses = {
       "analisis-microbiologico-alimentos": { category: "Análisis de alimentos", title: "Análisis microbiológico de alimentos", intro: "Evaluación microbiológica de alimentos para apoyar controles de calidad y decisiones sobre el producto.", purpose: "Permite revisar microorganismos indicadores y patógenos relevantes para la matriz y el uso previsto del alimento.", scope: ["Control microbiológico de materias primas y productos terminados.", "Indicadores de higiene, como coliformes, aerobios mesófilos, mohos y levaduras, según el alcance solicitado.", "Búsqueda de microorganismos de interés como Salmonella spp., Listeria monocytogenes o Escherichia coli, de acuerdo con el producto."] },
       "analisis-fisicoquimico-alimentos": { category: "Análisis de alimentos", title: "Análisis fisicoquímico de alimentos", intro: "Caracterización de propiedades fisicoquímicas del alimento según su tipo, formulación y especificación de calidad.", purpose: "Apoya la verificación de características del producto y el seguimiento de procesos de fabricación o conservación.", scope: ["Los parámetros se definen según el alimento y el objetivo del cliente.", "La ficha técnica del producto orienta la selección de variables y criterios de comparación.", "Consulta con BIOS los requisitos de muestra y el alcance disponible para cada matriz."] },

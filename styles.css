@@ -1,3 +1,13 @@
+/* GUIA DE ESTILOS
+  Colores y tipografia: :root y body. Navegacion/logo: .site-header, .main-nav y .brand.
+  Inicio: .hero-wrap, .index-page y sus secciones. Paginas: .services-page, .analysis-*,
+  .training-*, .quote-page y .about-page. Componentes: modales, .chatbot y .bios-footer.
+  Imagenes de fondo declaradas en CSS: buscar background-image o url(). Las fotos en <img>
+  y los textos/nombres visibles se cambian en el HTML, no aqui. Responsive se divide en @media.
+  Servicios: centros -> detail-page--centers; panificadoras -> detail-page--bakery;
+  plantas y agua/piscinas -> detail-page--water (sus nombres/textos estan en cada HTML).
+*/
+/* Ajustes heredados de prioridad alta para la portada de index.html. */
 .index-page.index-page.index-page .hero-title-frame h1 { width: 400px !important; max-width: 400px !important; font-size: 60px !important; line-height: .82 !important; white-space: normal !important; }
 .index-page.index-page.index-page .hero-title-frame p { width: 300px !important; max-width: 300px !important; font-size: .6rem !important; line-height: 1.25 !important; }
 @media (min-width: 801px) {
@@ -242,6 +252,7 @@
 .index-page.index-page .analysis-preview__grid article.analysis-preview__service::before { background: rgba(45, 43, 109, .28) !important; }
 .index-page .analysis-preview__grid article::before { background: rgba(45, 43, 109, .28) !important; }
 .index-page .hero-copy::before { display: none !important; content: none !important; }
+/* COLORES Y VARIABLES GLOBALES */
 :root {
   --bg: #f3f6f9;
   --surface: #ffffff;
@@ -268,6 +279,7 @@ html {
   scroll-margin-top: 140px;
 }
 
+/* TIPOGRAFIA BASE DEL SITIO: Arial/Helvetica; las reglas de cada pagina ajustan tamanos y pesos. */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -460,6 +472,7 @@ header {
   display: none;
 }
 
+/* LOGOTIPO DE RESPALDO: esta imagen CSS solo aparece si el HTML no aporta un logo/video. */
 .brand::before {
   content: "";
   display: block;
@@ -1086,6 +1099,7 @@ body {
   color: #17242a;
 }
 
+/* ENCABEZADO COMPARTIDO: franja superior, logo, menu y boton de cotizacion. */
 .site-header {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
@@ -1257,6 +1271,7 @@ body {
   to { transform: translateX(-50%); }
 }
 
+/* PORTADA DE INICIO: aqui se declara su fondo; el titulo, tamano y color se ajustan en .hero-copy. */
 .hero-wrap {
   min-height: 0;
   background: none !important;
@@ -1639,6 +1654,7 @@ body {
   .index-page .analysis-preview__grid article::after { display: none !important; }
 }
 
+/* DIRECTORIO DE SERVICIOS: fondo general y tarjetas con enlaces a las paginas detalladas. */
 .services-page--directory {
   background-color: rgba(238, 242, 244, .9);
   background-image: url("assets/servicios-bios-microscopio.webp");
@@ -1651,6 +1667,25 @@ body {
 .services-page--directory > .container {
   padding-top: 42px;
   padding-bottom: 56px;
+}
+
+.services-page--directory .services-page__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  align-items: center;
+  gap: 28px;
+  min-height: 370px;
+  margin-bottom: 42px;
+}
+
+.services-page--directory .services-page__hero-copy { min-width: 0; }
+
+.services-page--directory .services-page__hero-image {
+  display: block;
+  width: min(100%, 430px);
+  height: 370px;
+  justify-self: center;
+  object-fit: contain;
 }
 
 .services-page--directory .section-head {
@@ -1669,21 +1704,44 @@ body {
 
 .services-page--directory .services-page__intro {
   max-width: 620px;
-  margin: 0 0 56px;
+  margin: 0;
   color: #617985;
   font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+  .services-page--directory .services-page__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, .75fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-page--directory .services-page__hero {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    min-height: 0;
+    margin-bottom: 30px;
+  }
+
+  .services-page--directory .services-page__hero-image {
+    width: min(100%, 250px);
+    height: 220px;
+    justify-self: center;
+  }
 }
 
 .services-page--directory .services-directory {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  row-gap: 24px;
   border-bottom: 1px solid #cbd8dc;
 }
 
 .services-page--directory .services-directory__card {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-columns: 275px minmax(0, 1fr);
+  column-gap: 24px;
   width: 100%;
   position: relative;
   min-height: 190px;
@@ -1739,7 +1797,8 @@ body {
 .services-page--directory .services-directory__image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   filter: none;
 }
 
@@ -2814,6 +2873,7 @@ body {
 @media (max-width: 700px) {
   .services-page--directory .services-directory__card {
     grid-template-columns: 112px minmax(0, 1fr);
+    column-gap: 16px;
     min-height: 150px;
   }
 
@@ -3530,7 +3590,7 @@ main .detail-page__intro {
   line-height: 1.6;
 }
 
-/* Service rows inspired by the official BIOS layout. */
+/* INICIO: filas de servicios en la vista previa. Los fondos por nth-child dependen del orden HTML. */
 .index-page .analysis-preview__grid article {
   display: grid;
   grid-template-columns: 310px minmax(230px, .9fr) minmax(320px, 1.35fr) 54px;
@@ -4296,6 +4356,7 @@ body.modal-open {
   cursor: pointer;
 }
 
+/* SERVICIO CENTROS PENITENCIARIOS: estilos de tarjetas y vista movil. */
 .detail-page--centers .service-modern-card {
   position: relative;
   min-height: 240px;
@@ -4316,6 +4377,12 @@ body.modal-open {
   }
 }
 
+/* HERO DE PAGINAS DE SERVICIO: el archivo de imagen se elige en el src del HTML.
+  Agua/piscinas: services-para-plantas-y-piscinas.html -> piscina2.png
+  Centros: services-para-centros.html -> centro2.png
+  Panificadoras: services-para-industriales.html -> pan2.png
+  Plantas envasadoras/beneficio animal: services-para-plantas.html -> pancar2.png
+  Este bloque controla posicion, recorte y capa oscura, no el archivo de imagen. */
 .centers-hero,
 .service-page-hero {
   position: relative;
@@ -4386,6 +4453,7 @@ body.modal-open {
 .centers-hero__shade, .service-page-hero__shade { background: linear-gradient(90deg, rgba(13, 26, 35, .76), rgba(13, 26, 35, .12)); }
 .centers-hero__content, .service-page-hero__content { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0; }
 .centers-hero__content > p, .service-page-hero__content > p { margin: 0 0 18px; color: #fff; font-size: 1rem; font-weight: 700; }
+/* LETRAS DE PORTADA DE SERVICIOS: color, tamano y grosor del titulo h1 sobre la foto. */
 .centers-hero__content h1, .service-page-hero__content h1 { max-width: 840px; margin: 0 0 30px; color: #fff; font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 500; line-height: 1.08; }
 .centers-hero__content a, .service-page-hero__content a { display: inline-flex; align-items: center; gap: 14px; color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; }
 .centers-hero__content a span, .service-page-hero__content a span { color: #20c8c3; font-size: 1.5rem; }
@@ -4410,6 +4478,7 @@ body.modal-open {
   .detail-page--centers .service-modern-hero__image { min-height: 230px; max-height: 260px; }
 }
 
+/* CUERPO DE SERVICIOS: bakery = panificadoras; water = plantas y agua/piscinas. */
 .detail-page--bakery,
 .detail-page--water { min-height: auto; padding: 54px 0; background: #eef5f7; }
 .detail-page--bakery > .container > .section-head,
@@ -4537,6 +4606,7 @@ body.modal-open {
 .detail-page .service-modern-item--plain .service-block__image { width: 280px; height: 190px; }
 .detail-page--bakery .bakery-hero.service-detail--panel .bakery-hero__image { width: 280px; height: 190px; min-height: 190px; }
 
+/* DETALLE DE SERVICIO: columnas para paneles, foto principal y texto del HTML. */
 .detail-page .service-reference-layout {
   display: grid;
   grid-template-columns: 280px 300px minmax(320px, 1fr);
@@ -4574,6 +4644,7 @@ body.modal-open {
   padding: 18px 24px;
 }
 
+/* FOTO PRINCIPAL: normalmente toma src del HTML; panificadoras se reemplaza abajo por pan.jpg. */
 .service-reference__image {
   width: 300px;
   height: 190px;
@@ -5308,17 +5379,26 @@ body {
 
 .index-page .cert-grid--full {
   display: flex;
+  width: min(1280px, calc(100vw - 32px));
+  max-width: none;
   justify-content: space-between;
-  gap: 24px;
+  flex-wrap: nowrap;
+  gap: 9px;
   padding: 0;
   background: transparent;
 }
 
 .index-page .cert-grid--full img {
+  flex: 0 0 auto;
   width: auto;
-  max-width: 120px;
-  height: 58px;
+  max-width: 180px;
+  height: 100px;
   object-fit: contain;
+}
+
+.index-page .cert-grid--full img[src*="meta-cert"] {
+  max-width: 100px;
+  height: 196px;
 }
 
 .index-page .contact {
@@ -5539,8 +5619,13 @@ body {
   }
 
   .index-page .cert-grid--full {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start;
+    gap: 12px;
+    width: calc(100vw - 32px);
+    max-width: none;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
   }
 
   .bios-footer__grid {
@@ -5819,5 +5904,269 @@ body {
     line-height: 1.5 !important;
   }
   .index-page.index-page .hero-copy { height: auto !important; }
+}
+
+/* FICHAS DE SERVICIO | Misma jerarquia visual para agua, centros, panificadoras y plantas. */
+.centers-hero,
+.service-page-hero {
+  min-height: 390px;
+}
+
+.centers-hero__content h1,
+.service-page-hero__content h1 {
+  max-width: 900px;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.04;
+}
+
+.detail-page--centers,
+.detail-page--bakery,
+.detail-page--water {
+  padding: 54px 0 72px;
+  background: #f4f6f8;
+}
+
+.detail-page--centers > .container,
+.detail-page--bakery > .container,
+.detail-page--water > .container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.detail-page .service-reference-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+  gap: 30px 42px;
+  align-items: stretch;
+  max-width: none;
+  margin: 0 auto 44px;
+}
+
+.detail-page .service-reference__panels {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: none !important;
+  gap: 14px;
+}
+
+.detail-page .service-reference__panel,
+.detail-page--water .service-reference__panel--bottom {
+  min-height: 96px;
+  padding: 20px 24px;
+  justify-content: center;
+  border: 1px solid #e0e5eb;
+  border-left: 4px solid var(--accent);
+  background: #fff;
+  color: var(--text);
+}
+
+.detail-page .service-reference__panel--bottom {
+  border-left-color: var(--primary-2);
+}
+
+.detail-page .service-reference__panel strong,
+.detail-page .service-reference__panel p {
+  color: var(--primary);
+}
+
+.detail-page .service-reference__panel strong {
+  font-size: .95rem;
+  line-height: 1.3;
+}
+
+.detail-page .service-reference__panel p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.detail-page .service-reference__image {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  width: 100% !important;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #e9eef2;
+}
+
+.detail-page .service-reference__content {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: stretch;
+  padding: 26px 28px;
+  border-top: 3px solid var(--primary);
+  background: #fff;
+  color: var(--muted);
+}
+
+.detail-page .service-reference__content .section-badge {
+  margin-bottom: 14px;
+}
+
+.detail-page .service-reference__content h2 {
+  margin: 0 0 14px;
+  color: var(--primary);
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.detail-page .service-reference__content > p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.detail-page .service-reference__content h3 {
+  margin: 26px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dce3e8;
+  color: var(--primary);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.detail-page .service-reference__content h4 {
+  margin: 16px 0 0;
+  padding: 11px 14px 5px;
+  border-left: 3px solid var(--accent);
+  background: #f4f7f9;
+  color: var(--primary-2);
+  font-size: .98rem;
+}
+
+.detail-page .service-reference__content ul {
+  margin: 0 0 12px;
+  padding: 8px 16px 14px 34px;
+  border-left: 3px solid var(--accent);
+  background: #f4f7f9;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.detail-page .service-detail--info {
+  max-width: none;
+  margin: 0 auto 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.detail-page .service-detail--info > h2 {
+  margin: 0 0 20px;
+  color: var(--primary);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.detail-page .service-detail--info .service-detail__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.detail-page .service-detail--info .service-detail__grid > div,
+.detail-page--water .service-detail--info .service-detail__grid > div:nth-child(4n + 1),
+.detail-page--water .service-detail--info .service-detail__grid > div:nth-child(4n + 2),
+.detail-page--water .service-detail--info .service-detail__grid > div:nth-child(4n + 3),
+.detail-page--water .service-detail--info .service-detail__grid > div:nth-child(4n + 4) {
+  min-height: 0;
+  padding: 22px 24px;
+  border: 1px solid #e0e5eb;
+  border-top: 3px solid var(--accent);
+  border-radius: 0;
+  background: #fff;
+  color: var(--muted);
+}
+
+.detail-page .service-detail--info .service-detail__grid > div h3 {
+  margin: 0 0 12px;
+  color: var(--primary-2);
+  font-size: 1.06rem;
+}
+
+.detail-page .service-detail--info .service-detail__grid > div ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.detail-page .detail-page__back {
+  margin-top: 12px;
+}
+
+@media (max-width: 800px) {
+  .centers-hero,
+  .service-page-hero {
+    min-height: 330px;
+  }
+
+  .centers-hero__content h1,
+  .service-page-hero__content h1 {
+    font-size: clamp(2.15rem, 8vw, 3.2rem);
+  }
+
+  .detail-page--centers,
+  .detail-page--bakery,
+  .detail-page--water {
+    padding: 34px 0 48px;
+  }
+
+  .detail-page .service-reference-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .detail-page .service-reference__panels {
+    grid-column: 1;
+  }
+
+  .detail-page .service-reference__image {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .detail-page .service-reference__content {
+    grid-column: 1;
+    grid-row: auto;
+    padding: 22px 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .detail-page .service-reference__panels,
+  .detail-page .service-detail--info .service-detail__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-page .service-reference__panel {
+    min-height: 82px;
+  }
+}
+
+.centers-hero,
+.service-page-hero {
+  isolation: isolate;
+}
+
+.centers-hero__image,
+.service-page-hero__image {
+  z-index: 0;
+}
+
+.centers-hero__shade,
+.service-page-hero__shade {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(13, 26, 35, .68), rgba(13, 26, 35, .16)) !important;
+}
+
+.centers-hero__content,
+.service-page-hero__content {
+  z-index: 2;
 }
 
