@@ -192,7 +192,7 @@
   justify-content: center;
   padding: 18px 30px 12px;
   background-color: rgba(255,255,255,.015);
-  background-image: url("fondo2.png");
+  background-image: url("fondo2.webp");
   background-position: center;
   background-size: cover;
   background-blend-mode: screen;
@@ -232,7 +232,7 @@
 }
 .index-page.index-page .hero-copy h1 { color: var(--primary) !important; }
 .index-page.index-page .hero-copy h1 em { color: #d35dde !important; }
-.index-page.index-page .hero-wrap { background-image: url("fondo2.png") !important; background-color: transparent !important; background-position: left center !important; background-size: 45% 100% !important; }
+.index-page.index-page .hero-wrap { background-image: url("fondo2.webp") !important; background-color: transparent !important; background-position: left center !important; background-size: 45% 100% !important; }
 .index-page.index-page .hero-wrap {
   background: #fff !important;
   background-image: none !important;
@@ -245,7 +245,7 @@
   z-index: 0 !important;
   display: block !important;
   width: 45% !important;
-  background: url("fondo2.png") center / cover no-repeat !important;
+  background: url("fondo2.webp") center / cover no-repeat !important;
   opacity: .1 !important;
   pointer-events: none !important;
 }
@@ -1853,7 +1853,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background-image: url("principal.png");
+  background-image: url("principal.webp");
 }
 
 .index-page .contact__layout {
@@ -1941,7 +1941,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background-image: url("principal.png");
+  background-image: url("principal.webp");
 }
 
 .centers-hero__shade,
@@ -1957,8 +1957,8 @@ body {
 
 .index-page .hero-wrap::after {
   width: 53%;
-  background: url("principal.png") center center / cover no-repeat !important;
-  background-image: url("principal.png") !important;
+  background: url("principal.webp") center center / cover no-repeat !important;
+  background-image: url("principal.webp") !important;
   filter: saturate(.9) contrast(1.05);
 }
 
@@ -2356,7 +2356,7 @@ body {
 }
 
 .index-page .hero-wrap::after {
-  background: url("principal.png") center / cover no-repeat !important;
+  background: url("principal.webp") center / cover no-repeat !important;
 }
 
 .index-page .hero,
@@ -4378,10 +4378,10 @@ body.modal-open {
 }
 
 /* HERO DE PAGINAS DE SERVICIO: el archivo de imagen se elige en el src del HTML.
-  Agua/piscinas: services-para-plantas-y-piscinas.html -> piscina2.png
-  Centros: services-para-centros.html -> centro2.png
-  Panificadoras: services-para-industriales.html -> pan2.png
-  Plantas envasadoras/beneficio animal: services-para-plantas.html -> pancar2.png
+  Agua/piscinas: services-para-plantas-y-piscinas.html -> piscina2.webp
+  Centros: services-para-centros.html -> centro2.webp
+  Panificadoras: services-para-industriales.html -> pan2.webp
+  Plantas envasadoras/beneficio animal: services-para-plantas.html -> pancar2.webp
   Este bloque controla posicion, recorte y capa oscura, no el archivo de imagen. */
 .centers-hero,
 .service-page-hero {
@@ -4448,7 +4448,7 @@ body.modal-open {
 
 .bios-footer__social a[href*="facebook"]::before {
   content: "";
-  background-image: url("62c5f7a0-b74d-4b7d-8a29-12c43124af4a.png");
+  background-image: url("62c5f7a0-b74d-4b7d-8a29-12c43124af4a.webp");
 }
 .centers-hero__shade, .service-page-hero__shade { background: linear-gradient(90deg, rgba(13, 26, 35, .76), rgba(13, 26, 35, .12)); }
 .centers-hero__content, .service-page-hero__content { position: relative; z-index: 1; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0; }
@@ -4653,7 +4653,7 @@ body.modal-open {
 }
 
 .detail-page--bakery .service-reference__image {
-  content: url("pan.jpg");
+  content: url("pan-grande.webp");
 }
 
 .service-reference__content {
@@ -5141,7 +5141,7 @@ body {
   right: 0;
   bottom: 0;
   width: 43%;
-  background: url("principal.png") center / cover no-repeat;
+  background: url("principal.webp") center / cover no-repeat;
   filter: saturate(.84) contrast(1.04);
 }
 
@@ -5595,7 +5595,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 42%;
-    background: url("principal.png") center / cover no-repeat;
+    background: url("principal.webp") center / cover no-repeat;
   }
 
   .index-page .hero-copy {
@@ -6170,3 +6170,59 @@ body {
   z-index: 2;
 }
 
+
+/* NAVEGACION ENTRE SERVICIOS | Enlaces a los otros servicios al final de cada ficha (HTML: .service-next). */
+.detail-page .service-next {
+  margin: 8px 0 28px;
+}
+
+.detail-page .service-next h2 {
+  margin: 0 0 14px;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.detail-page .service-next ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-page .service-next a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+  padding: 18px 20px;
+  border: 1px solid #e0e5eb;
+  border-left: 4px solid var(--primary-2);
+  background: #fff;
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.detail-page .service-next a:hover,
+.detail-page .service-next a:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(19, 31, 45, .1);
+}
+
+.detail-page .service-next a span {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 800px) {
+  .detail-page .service-next ul { grid-template-columns: 1fr; }
+}
+
+/* LOGO EN VIDEO | Evita el boton flotante del navegador (pantalla completa/PiP) al pasar el cursor. */
+.site-logo {
+  pointer-events: none;
+}

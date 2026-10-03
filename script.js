@@ -6,6 +6,14 @@ const welcomeAlertClose = document.getElementById('welcomeAlertClose');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+// El logo es un video: se quitan los controles flotantes del navegador (PiP, pantalla completa, descarga).
+document.querySelectorAll('video.site-logo').forEach((video) => {
+  video.disablePictureInPicture = true;
+  video.disableRemotePlayback = true;
+  video.setAttribute('controlslist', 'nofullscreen nodownload noremoteplayback');
+  video.setAttribute('disablepictureinpicture', '');
+});
+
 // Trazos SVG de los iconos de línea usados por las páginas.
 const lineIconPaths = {
   drop: '<path d="M12 3.5S6 10 6 14a6 6 0 0 0 12 0c0-4-6-10.5-6-10.5Z"/><path d="M9.5 15.5a2.8 2.8 0 0 0 2.5 2"/>',
@@ -100,10 +108,11 @@ document.querySelectorAll('.index-page .analysis-preview__grid article').forEach
   });
 });
 
-// Carga prioritaria de imágenes visibles y carga diferida del resto.
+// Carga prioritaria de imágenes visibles y carga diferida del resto (incluidas las ocultas, que no deben competir).
 document.querySelectorAll('img:not(.site-logo):not(.chatbot-bee)').forEach((image) => {
+  const isRendered = image.getClientRects().length > 0;
   const imageBounds = image.getBoundingClientRect();
-  const nearInitialViewport = imageBounds.top < window.innerHeight * 1.25 && imageBounds.bottom > -100;
+  const nearInitialViewport = isRendered && imageBounds.top < window.innerHeight * 1.25 && imageBounds.bottom > -100;
   image.loading = nearInitialViewport ? 'eager' : 'lazy';
   image.decoding = 'async';
   image.fetchPriority = nearInitialViewport ? 'high' : 'low';
@@ -342,7 +351,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const requestedSlides = [
     { src: 'assets/fondo.webp', alt: 'Personal de BIOS realizando un análisis' },
     { src: 'IMG_7258.webp', alt: 'Personal de BIOS en el laboratorio' },
-  { src: 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', alt: 'Personal de BIOS en el laboratorio' },
+  { src: 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva1.jpg', alt: 'Personal de BIOS en el laboratorio' },
     { src: 'nueva2.jpg', alt: 'Personal de BIOS realizando un análisis' },
   ];
@@ -351,13 +360,15 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
     if (track.querySelector(`.team-slider__image[src="${src}"]`)) return;
     const slide = document.createElement('img');
     slide.className = 'team-slider__image';
+    slide.loading = 'lazy';
+    slide.decoding = 'async';
     slide.src = src;
     slide.alt = alt;
     track.prepend(slide);
   });
 
   const excludedSources = document.querySelector('#equipo')
-    ? ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'IMG_7153.webp', 'IMG_7170.webp', 'IMG_7269.webp']
+    ? ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'IMG_7153.webp', 'IMG_7170.webp', 'IMG_7269.webp']
     : ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'IMG_7269.webp'];
   const allTeamSlides = [...track.querySelectorAll('.team-slider__image')];
   allTeamSlides
@@ -366,7 +377,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const teamSlides = allTeamSlides.filter((slide) => !excludedSources.includes(slide.getAttribute('src')));
   if (teamSlides.length < 2) return;
 
-  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.webp', 'IMG_7258.webp', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.jpg', 'nueva1.jpg', 'IMG_7186.webp', 'nueva2.jpg', 'IMG_7182.webp'].includes(slide.getAttribute('src')));
+  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.webp', 'IMG_7258.webp', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'nueva1.jpg', 'IMG_7186.webp', 'nueva2.jpg', 'IMG_7182.webp'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
   orderedSlides.forEach((slide, index) => {
