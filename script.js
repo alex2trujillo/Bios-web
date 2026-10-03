@@ -516,12 +516,12 @@ function handleBotReply(message) {
   }
 
   if (lower.includes('ubic') || lower.includes('direc') || lower.includes('donde')) {
-    pushChatMessage('Estamos en Calle 33 B 36-37, barrio Barzal, Villavicencio - Meta. Puedes llamarnos al 608 660 7400 o al 320 251 1640, escribir a info@biosaguasyalimentos.com y visitarnos de 8:00 a 17:00.', 'bot');
+    pushChatMessage('Estamos en Calle 33 B 36-37, barrio Barzal, Villavicencio - Meta. Puedes llamarnos al 608 660 7400 o al 320 251 1640, escribir a asistentecomercial@biosaguasyalimentos.com y visitarnos de lunes a jueves de 8:00 a 16:30, viernes de 8:00 a 16:00 y sábados de 8:00 a 13:00.', 'bot');
     return;
   }
 
   if (lower.includes('tel') || lower.includes('llamar') || lower.includes('correo') || lower.includes('email') || lower.includes('horario')) {
-    pushChatMessage('Puedes llamarnos al 608 660 7400 o al 320 251 1640. También puedes escribir a info@biosaguasyalimentos.com. Atendemos de 8:00 a 17:00.', 'bot');
+    pushChatMessage('Puedes llamarnos al 608 660 7400 o al 320 251 1640. También puedes escribir a asistentecomercial@biosaguasyalimentos.com. Atendemos de lunes a jueves de 8:00 a 16:30, viernes de 8:00 a 16:00 y sábados de 8:00 a 13:00.', 'bot');
     return;
   }
 
