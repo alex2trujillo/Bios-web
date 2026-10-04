@@ -45,8 +45,26 @@
 
     .analysis-catalog__heading {
       margin: 0 0 24px;
-      color: var(--primary);
+      color: #416a82;
       font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .analysis-catalog-page :is(h1, h2, h3) em {
+      color: #7b0881 !important;
+      -webkit-text-fill-color: #7b0881;
+      font-style: normal;
+    }
+
+    .analysis-catalog-page .section-head h1,
+    .analysis-catalog__heading,
+    .analysis-catalog__group h3 {
+      color: #416a82 !important;
+      -webkit-text-fill-color: #416a82;
+    }
+
+    .analysis-catalog-page__intro {
+      color: #666 !important;
+      -webkit-text-fill-color: #666;
     }
 
     .analysis-catalog__grid {
@@ -66,7 +84,7 @@
 
     .analysis-catalog__group h3 {
       margin: 0 0 12px;
-      color: var(--primary);
+      color: #416a82;
       font-size: 1.15rem;
     }
 
@@ -79,7 +97,7 @@
     .analysis-catalog__group li {
       padding: 9px 0;
       border-bottom: 1px solid rgba(29, 42, 92, .1);
-      color: var(--text);
+      color: #666;
       line-height: 1.45;
       transition: background-color .18s ease, color .18s ease, padding .18s ease;
     }
@@ -87,7 +105,7 @@
     .analysis-catalog__group li:hover {
       padding-left: 10px;
       background: rgba(123, 8, 129, .08);
-      color: var(--primary);
+      color: #7b0881;
     }
 
     .analysis-catalog-page__back {
@@ -131,24 +149,24 @@
   <!-- Cada enlace abre la ficha correspondiente en analisis.html. -->
   <main class="analysis-catalog-page">
     <div class="container">
-      <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Catálogo de análisis</h1></div>
+      <div class="section-head"><span class="section-badge">Servicios BIOS</span><h1>Catálogo de <em>análisis</em></h1></div>
       <p class="analysis-catalog-page__intro">Consulta los análisis de alimentos, aguas y otras pruebas disponibles. Selecciona uno para ver su alcance.</p>
       <section aria-labelledby="analysis-catalog-heading">
-        <h2 class="analysis-catalog__heading" id="analysis-catalog-heading">Análisis disponibles</h2>
+        <h2 class="analysis-catalog__heading" id="analysis-catalog-heading">Análisis <em>disponibles</em></h2>
         <div class="analysis-catalog__grid">
           <section class="analysis-catalog__group" aria-labelledby="analysis-food-heading">
-            <h3 id="analysis-food-heading">Análisis de alimentos</h3>
+            <h3 id="analysis-food-heading">Análisis de <em>alimentos</em></h3>
             <ul>
               <li><a href="analisis.html?item=analisis-microbiologico-alimentos">Análisis microbiológico de alimentos</a></li>
               <li><a href="analisis.html?item=analisis-fisicoquimico-alimentos">Análisis fisicoquímico de alimentos</a></li>
-              <li><a href="analisis.html?item=ambientes-areas">Análisis de ambientes de áreas</a></li>
+              <li><a href="analisis.html?item=ambientes-ambientes">Análisis de ambientes</a></li>
               <li><a href="analisis.html?item=frotis-manos">Frotis de manos</a></li>
               <li><a href="analisis.html?item=frotis-superficies">Frotis de superficies</a></li>
               <li><a href="analisis.html?item=vida-util-alimentos">Estudio de vida útil de alimentos</a></li>
             </ul>
           </section>
           <section class="analysis-catalog__group" aria-labelledby="analysis-water-heading">
-            <h3 id="analysis-water-heading">Análisis de aguas</h3>
+            <h3 id="analysis-water-heading">Análisis de <em>aguas</em></h3>
             <ul>
               <li><a href="analisis.html?item=analisis-microbiologico-aguas">Análisis microbiológico de aguas</a></li>
               <li><a href="analisis.html?item=aguas-suministro">Análisis de aguas de suministro</a></li>
@@ -160,7 +178,7 @@
             </ul>
           </section>
           <section class="analysis-catalog__group" aria-labelledby="analysis-other-heading">
-            <h3 id="analysis-other-heading">Otros análisis</h3>
+            <h3 id="analysis-other-heading">Otros <em>análisis</em></h3>
             <ul>
               <li><a href="analisis.html?item=toma-item-ensayo">Toma de ítem de ensayo y muestreo</a></li>
               <li><a href="analisis.html?item=esterilidad-comercial">Esterilidad comercial</a></li>

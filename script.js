@@ -389,6 +389,7 @@ if (contactForm) {
 // Orden, duplicación y avance automático de las galerías del equipo.
 document.querySelectorAll('main .team-slider__track').forEach((track) => {
   if (track.hasAttribute('data-manual-train')) return;
+  const curatedSlides = track.hasAttribute('data-curated-slides');
 
   const requestedSlides = [
     { src: 'assets/fondo.webp', alt: 'Personal de BIOS realizando un análisis' },
@@ -398,7 +399,7 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
     { src: 'nueva2.jpg', alt: 'Personal de BIOS realizando un análisis' },
   ];
 
-  [...requestedSlides].reverse().forEach(({ src, alt }) => {
+  (curatedSlides ? [] : [...requestedSlides].reverse()).forEach(({ src, alt }) => {
     if (track.querySelector(`.team-slider__image[src="${src}"]`)) return;
     const slide = document.createElement('img');
     slide.className = 'team-slider__image';
@@ -409,9 +410,11 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
     track.prepend(slide);
   });
 
-  const excludedSources = document.querySelector('#equipo')
-    ? ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'IMG_7153.webp', 'IMG_7170.webp', 'IMG_7269.webp']
-    : ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'IMG_7269.webp'];
+  const excludedSources = curatedSlides
+    ? []
+    : document.querySelector('#equipo')
+      ? ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'IMG_7153.webp', 'IMG_7170.webp', 'IMG_7269.webp']
+      : ['fondo%20(3).jpg', 'IMG_7182.webp', 'nueva1.jpg', 'IMG_7269.webp'];
   const allTeamSlides = [...track.querySelectorAll('.team-slider__image')];
   allTeamSlides
     .filter((slide) => excludedSources.includes(slide.getAttribute('src')))
@@ -419,7 +422,9 @@ document.querySelectorAll('main .team-slider__track').forEach((track) => {
   const teamSlides = allTeamSlides.filter((slide) => !excludedSources.includes(slide.getAttribute('src')));
   if (teamSlides.length < 2) return;
 
-  const preferredSlides = teamSlides.filter((slide) => ['assets/fondo.webp', 'IMG_7258.webp', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'nueva1.jpg', 'IMG_7186.webp', 'nueva2.jpg', 'IMG_7182.webp'].includes(slide.getAttribute('src')));
+  const preferredSlides = curatedSlides
+    ? []
+    : teamSlides.filter((slide) => ['assets/fondo.webp', 'IMG_7258.webp', 'd4cb3e2d-de51-416a-9eef-e53cda7818f0.webp', 'nueva1.jpg', 'IMG_7186.webp', 'nueva2.jpg', 'IMG_7182.webp'].includes(slide.getAttribute('src')));
   const orderedSlides = [...preferredSlides, ...teamSlides.filter((slide) => !preferredSlides.includes(slide))];
   orderedSlides.forEach((slide) => track.appendChild(slide));
   orderedSlides.forEach((slide, index) => {

@@ -17,7 +17,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: url("todox.webp") center center / cover no-repeat;
+      background: url("fondo2.webp") center center / cover no-repeat;
       opacity: 0.18;
       pointer-events: none;
       z-index: 0;
@@ -28,19 +28,21 @@
     }
     .analysis-detail { max-width: 880px; margin: 0 auto; padding: 34px 38px; background: rgba(255, 255, 255, 0.92); border-top: 4px solid var(--primary); border-radius: 12px; box-shadow: 0 10px 30px rgba(19, 31, 45, 0.08); backdrop-filter: blur(6px); }
     .analysis-detail__back { display: inline-block; margin-bottom: 30px; color: var(--primary); font-weight: 700; text-decoration: none; }
-    .analysis-detail__category { margin: 0 0 10px; color: var(--primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .analysis-detail h1 { margin: 0; color: #263a46; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; }
-    .analysis-detail__intro { margin: 20px 0 30px; color: #536c78; font-size: 1.08rem; line-height: 1.7; }
+    .analysis-detail__category { margin: 0 0 10px; color: #7b0881; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .analysis-detail h1 { margin: 0; color: #416a82; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; }
+    .analysis-detail h1 em,
+    .analysis-detail__section h2 em { color: #7b0881; font-style: normal; }
+    .analysis-detail__intro { margin: 20px 0 30px; color: #666; font-size: 1.08rem; line-height: 1.7; }
     .analysis-detail__section { margin-top: 28px; }
-    .analysis-detail__section h2 { margin: 0 0 10px; color: var(--primary); font-size: 1.25rem; }
-    .analysis-detail__section p { margin: 0; color: #536c78; line-height: 1.7; }
-    .analysis-detail__section ul { margin: 0; padding-left: 22px; color: #536c78; line-height: 1.8; }
-    .analysis-detail__note { margin-top: 32px; padding: 14px 16px; border-left: 3px solid #2aa8b5; background: #f0f7f8; color: #405c68; line-height: 1.55; }
+    .analysis-detail__section h2 { margin: 0 0 10px; color: #416a82; font-size: 1.25rem; }
+    .analysis-detail__section p { margin: 0; color: #666; line-height: 1.7; }
+    .analysis-detail__section ul { margin: 0; padding-left: 22px; color: #666; line-height: 1.8; }
+    .analysis-detail__note { margin-top: 32px; padding: 14px 16px; border-left: 3px solid #2aa8b5; background: #f0f7f8; color: #666; line-height: 1.55; }
     .analysis-detail__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .analysis-detail__actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 6px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; }
     .analysis-detail__actions a:last-child { border: 1px solid #d5dfe2; background: #fff; color: var(--primary); }
-    .analysis-detail__source { margin-top: 28px; color: #72838a; font-size: .82rem; }
-    .analysis-detail__source a { color: var(--primary); }
+    .analysis-detail__source { margin-top: 28px; color: #666; font-size: .82rem; }
+    .analysis-detail__source a { color: #7b0881; }
     @media (max-width: 600px) {
       .analysis-detail-page { padding: 34px 0 48px; }
       .analysis-detail { padding: 26px 20px; }
@@ -67,8 +69,8 @@
         <p class="analysis-detail__category" id="analysisCategory"></p>
         <h1 id="analysisTitle">Análisis de laboratorio</h1>
         <p class="analysis-detail__intro" id="analysisIntro"></p>
-        <section class="analysis-detail__section"><h2>¿Qué evalúa?</h2><p id="analysisPurpose"></p></section>
-        <section class="analysis-detail__section"><h2>Alcance de la ficha</h2><ul id="analysisScope"></ul></section>
+        <section class="analysis-detail__section"><h2>¿Qué <em>evalúa?</em></h2><p id="analysisPurpose"></p></section>
+        <section class="analysis-detail__section"><h2>Alcance de la <em>ficha</em></h2><ul id="analysisScope"></ul></section>
         <p class="analysis-detail__note">La matriz, los parámetros, la cantidad de muestra, el método y los tiempos se confirman con BIOS al solicitar la cotización.</p>
         <div class="analysis-detail__actions"><a href="cotizar.html">Solicitar cotización</a><a href="catalogo-analisis.html">Ver todos los análisis</a></div>
         <p class="analysis-detail__source">Ficha informativa basada en la clasificación pública de <a href="https://calidadmicrobiologica.com.co/analisis-microbiologico" target="_blank" rel="noopener noreferrer">Calidad Microbiológica</a> y adaptada para consulta con BIOS.</p>
@@ -82,7 +84,7 @@
     const analyses = {
       "analisis-microbiologico-alimentos": { category: "Análisis de alimentos", title: "Análisis microbiológico de alimentos", intro: "Evaluación microbiológica de alimentos para apoyar controles de calidad y decisiones sobre el producto.", purpose: "Permite revisar microorganismos indicadores y patógenos relevantes para la matriz y el uso previsto del alimento.", scope: ["Control microbiológico de materias primas y productos terminados.", "Indicadores de higiene, como coliformes, aerobios mesófilos, mohos y levaduras, según el alcance solicitado.", "Búsqueda de microorganismos de interés como Salmonella spp., Listeria monocytogenes o Escherichia coli, de acuerdo con el producto."] },
       "analisis-fisicoquimico-alimentos": { category: "Análisis de alimentos", title: "Análisis fisicoquímico de alimentos", intro: "Caracterización de propiedades fisicoquímicas del alimento según su tipo, formulación y especificación de calidad.", purpose: "Apoya la verificación de características del producto y el seguimiento de procesos de fabricación o conservación.", scope: ["Los parámetros se definen según el alimento y el objetivo del cliente.", "La ficha técnica del producto orienta la selección de variables y criterios de comparación.", "Consulta con BIOS los requisitos de muestra y el alcance disponible para cada matriz."] },
-      "ambientes-areas": { category: "Análisis de alimentos", title: "Análisis de ambientes de áreas", intro: "Monitoreo microbiológico de ambientes en áreas donde se elaboran, manipulan o almacenan alimentos.", purpose: "Ayuda a observar la carga microbiana ambiental y a revisar las condiciones de higiene del área como parte de un plan de control.", scope: ["Identificación de puntos de muestreo según áreas y proceso.", "Evaluación de microorganismos ambientales definidos para el plan.", "Interpretación de resultados dentro del programa de limpieza y desinfección del establecimiento."] },
+      "ambientes-areas": { category: "Análisis de alimentos", title: "Análisis de ambientes", intro: "Monitoreo microbiológico de ambientes en áreas donde se elaboran, manipulan o almacenan alimentos.", purpose: "Ayuda a observar la carga microbiana ambiental y a revisar las condiciones de higiene del área como parte de un plan de control.", scope: ["Identificación de puntos de muestreo según áreas y proceso.", "Evaluación de microorganismos ambientales definidos para el plan.", "Interpretación de resultados dentro del programa de limpieza y desinfección del establecimiento."] },
       "frotis-manos": { category: "Análisis de alimentos", title: "Frotis de manos", intro: "Muestreo microbiológico de manos de manipuladores para revisar prácticas de higiene relacionadas con el manejo de alimentos.", purpose: "Permite identificar señales de contaminación en manos y orientar acciones de higiene y capacitación.", scope: ["Muestreo de manos y zonas definidas en el protocolo acordado.", "Evaluación de microorganismos indicadores según el análisis solicitado.", "Los resultados se interpretan junto con las prácticas de lavado y desinfección del establecimiento."] },
       "frotis-superficies": { category: "Análisis de alimentos", title: "Frotis de superficies", intro: "Muestreo microbiológico de superficies, utensilios o equipos que entran en contacto con alimentos.", purpose: "Ayuda a verificar condiciones de limpieza y desinfección y a detectar posibles reservorios de contaminación.", scope: ["Selección de superficies de acuerdo con el proceso y el plan de muestreo.", "Evaluación de microorganismos indicadores definidos para el control.", "Los resultados pueden apoyar ajustes a las rutinas de higiene."] },
       "vida-util-alimentos": { category: "Análisis de alimentos", title: "Estudio de vida útil de alimentos", intro: "Seguimiento de la estabilidad de un alimento durante el periodo de almacenamiento definido para el estudio.", purpose: "Busca estimar cuánto tiempo el producto conserva condiciones aceptables de calidad e inocuidad bajo condiciones acordadas.", scope: ["Muestras evaluadas en puntos de tiempo definidos.", "Combinación de análisis microbiológicos y fisicoquímicos de acuerdo con el producto.", "El diseño requiere información de formulación, empaque y condiciones de almacenamiento."] },
@@ -106,21 +108,82 @@
     };
 
     const itemId = new URLSearchParams(window.location.search).get('item');
-    const analysis = analyses[itemId];
+    const analysis = analyses[itemId === 'ambientes-ambientes' ? 'ambientes-areas' : itemId];
     const detail = document.getElementById('analysisDetail');
+
+    const scientificNames = [
+      'Staphylococcus aureus',
+      'Listeria monocytogenes',
+      'Pseudomonas aeruginosa',
+      'Escherichia coli',
+      'Campylobacter spp.',
+      'Salmonella spp.',
+      'E. coli',
+      'Campylobacter',
+      'Listeria',
+      'Pseudomonas',
+      'Salmonella'
+    ];
+    const scientificNamePattern = new RegExp(`(${scientificNames.sort((a, b) => b.length - a.length).map((name) => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+
+    function renderFormattedText(element, text) {
+      let lastIndex = 0;
+      scientificNamePattern.lastIndex = 0;
+      for (const match of text.matchAll(scientificNamePattern)) {
+        element.append(document.createTextNode(text.slice(lastIndex, match.index)));
+        const italic = document.createElement('i');
+        italic.textContent = match[0];
+        element.append(italic);
+        lastIndex = match.index + match[0].length;
+      }
+      element.append(document.createTextNode(text.slice(lastIndex)));
+    }
+
+    function renderTitle(element, title, italicAccent = false) {
+      element.replaceChildren();
+      const scientificTitle = title.match(/^(Campylobacter|Salmonella)\s+(spp\.)$/i)
+        || title.match(/^(Listeria)\s+(monocytogenes)$/i);
+      if (scientificTitle) {
+        const genus = document.createElement('i');
+        genus.textContent = scientificTitle[1];
+        element.append(genus, document.createTextNode(' '));
+        const accent = document.createElement('em');
+        const epithet = document.createElement('i');
+        epithet.textContent = scientificTitle[2];
+        accent.append(epithet);
+        element.append(accent);
+        return;
+      }
+
+      const lastSpace = title.lastIndexOf(' ');
+      if (lastSpace < 0) {
+        renderFormattedText(element, title);
+        return;
+      }
+      renderFormattedText(element, title.slice(0, lastSpace + 1));
+      const accent = document.createElement('em');
+      if (italicAccent) {
+        const italic = document.createElement('i');
+        italic.textContent = title.slice(lastSpace + 1);
+        accent.append(italic);
+      } else {
+        renderFormattedText(accent, title.slice(lastSpace + 1));
+      }
+      element.append(accent);
+    }
 
     if (!analysis) {
       detail.innerHTML = '<a class="analysis-detail__back" href="catalogo-analisis.html">&larr; Volver al catálogo</a><h1>Análisis no encontrado</h1><p class="analysis-detail__intro">Selecciona un análisis del catálogo.</p><div class="analysis-detail__actions"><a href="catalogo-analisis.html">Ver catálogo</a></div>';
     } else {
       document.title = `BIOS | ${analysis.title}`;
-      document.getElementById('analysisCategory').textContent = analysis.category;
-      document.getElementById('analysisTitle').textContent = analysis.title;
-      document.getElementById('analysisIntro').textContent = analysis.intro;
-      document.getElementById('analysisPurpose').textContent = analysis.purpose;
+      renderFormattedText(document.getElementById('analysisCategory'), analysis.category);
+      renderTitle(document.getElementById('analysisTitle'), analysis.title, analysis.italicAccent);
+      renderFormattedText(document.getElementById('analysisIntro'), analysis.intro);
+      renderFormattedText(document.getElementById('analysisPurpose'), analysis.purpose);
       const scope = document.getElementById('analysisScope');
       analysis.scope.forEach((item) => {
         const entry = document.createElement('li');
-        entry.textContent = item;
+        renderFormattedText(entry, item);
         scope.append(entry);
       });
     }

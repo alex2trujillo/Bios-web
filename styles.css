@@ -1960,6 +1960,14 @@ body {
   filter: saturate(.9) contrast(1.05);
 }
 
+@media (min-width: 801px) {
+  .index-page.index-page.index-page .hero-copy .hero-title-frame {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: center !important;
+  }
+}
+
 .index-page .hero-layout {
   min-height: 470px;
 }
@@ -2292,7 +2300,7 @@ body {
     width: 100%;
   }
 
-  .index-page .hero-copy {
+  .index-page.index-page.index-page.index-page .hero-copy {
     padding: 48px 0 0;
   }
 
@@ -6348,9 +6356,54 @@ body {
   color: var(--primary-2);
 }
 
-.detail-page--plants .service-reference__image {
-  align-self: center;
+.detail-page--plants .service-reference-layout--plants {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+
+.detail-page--plants .service-reference__item {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(0, 1.1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.detail-page--plants .service-reference__item .service-reference__image {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  width: 100% !important;
+  height: 460px !important;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
   object-position: center;
+  object-fit: contain;
+  background: transparent;
+}
+
+.detail-page--plants .service-reference__item .service-reference__content {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+}
+
+@media (max-width: 800px) {
+  .detail-page--plants .service-reference__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .detail-page--plants .service-reference__item .service-reference__image {
+    grid-column: 1;
+    grid-row: 1;
+    height: 300px !important;
+  }
+
+  .detail-page--plants .service-reference__item .service-reference__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 .detail-page--food .service-reference__image {
@@ -6484,6 +6537,11 @@ body {
   display: flex !important;
   align-items: center;
   gap: 7px;
+}
+
+.bios-footer .bios-footer__heading,
+.bios-footer .bios-footer__contact > strong {
+  color: #7b0881;
 }
 
 .bios-footer__icon {
@@ -6634,4 +6692,153 @@ body main:is(.services-page, .detail-page, .general-page) :is(p, li, blockquote,
 .index-page .bios-about-section__features p,
 .index-page .bios-process__steps li span {
   text-align: center !important;
+}
+
+@media (min-width: 801px) {
+  .index-page .hero-wrap,
+  .index-page .hero-layout {
+    min-height: 470px !important;
+    height: 470px !important;
+  }
+
+  .index-page .hero-wrap::after {
+    width: 55% !important;
+  }
+
+  .index-page .hero-grid {
+    width: 45% !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-copy {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    padding: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame {
+    width: 100% !important;
+    max-width: 560px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: auto !important;
+    padding: 28px 20px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame h1 {
+    width: 100% !important;
+    max-width: 420px !important;
+    font-size: clamp(2.5rem, 5vw, 4.25rem) !important;
+    line-height: .9 !important;
+    text-align: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame p {
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 18px auto 0 !important;
+    font-size: clamp(.78rem, 1vw, .9rem) !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame .hero-quote-button {
+    align-self: center !important;
+    margin: 20px auto 0 !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .index-page .hero-wrap,
+  .index-page .hero-layout {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .index-page .hero-grid,
+  .index-page.index-page.index-page.index-page .hero-copy {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-copy {
+    padding: 28px 16px 22px !important;
+    max-width: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame {
+    width: 100% !important;
+    max-width: 560px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 8px 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame h1 {
+    width: 100% !important;
+    max-width: 500px !important;
+    font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+    line-height: 1 !important;
+    text-align: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame p {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 16px auto 0 !important;
+    font-size: clamp(.9rem, 2.6vw, 1.05rem) !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-title-frame .hero-quote-button {
+    align-self: center !important;
+    margin: 20px auto 0 !important;
+  }
+
+  .index-page .hero-wrap::after {
+    width: 100% !important;
+    height: clamp(210px, 48vw, 320px) !important;
+    margin: 12px 0 0 !important;
+  }
+}
+
+@media (min-width: 801px) {
+  .index-page.index-page.index-page.index-page .hero-wrap::before {
+    width: 45% !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-grid {
+    width: 45% !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-copy {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 24px 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .index-page.index-page.index-page.index-page .hero-copy .hero-title-frame {
+    width: calc(100% - 48px) !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding: 0 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
