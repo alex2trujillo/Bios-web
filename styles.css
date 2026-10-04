@@ -2820,6 +2820,7 @@ body {
 .services-page--directory .services-directory__content p {
   max-width: 560px;
   margin: 10px 0 16px;
+  text-align: center;
   color: #617985;
 }
 
@@ -6676,6 +6677,19 @@ body main:is(.services-page, .detail-page, .general-page) :is(p, li, blockquote,
   margin-top: 0;
 }
 
+.detail-page--water:not(.detail-page--plants) .service-reference__image {
+  align-self: center;
+}
+
+.detail-page--water:not(.detail-page--plants) .service-detail--info > .service-detail__note {
+  margin: 32px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid #2aa8b5;
+  background: #f0f7f8;
+  color: #666;
+  line-height: 1.55;
+}
+
 .detail-page--food .service-reference__image {
   width: min(100%, 420px) !important;
   height: auto !important;
@@ -6841,4 +6855,12 @@ body main:is(.services-page, .detail-page, .general-page) :is(p, li, blockquote,
     align-items: center !important;
     justify-content: center !important;
   }
+}
+
+body main.services-page.services-page--directory .services-directory__content p {
+  text-align: center !important;
+}
+
+.index-page.index-page.index-page.index-page .hero-wrap::after {
+  background-position: 50% 12% !important;
 }
