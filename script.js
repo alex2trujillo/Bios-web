@@ -14,6 +14,24 @@ document.querySelectorAll('video.site-logo').forEach((video) => {
   video.setAttribute('disablepictureinpicture', '');
 });
 
+// El video del pie solo se descarga y reproduce cuando entra en pantalla.
+const lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+if ('IntersectionObserver' in window) {
+  const lazyVideoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.preload = 'auto';
+        entry.target.play().catch(() => {});
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+  lazyVideos.forEach((video) => lazyVideoObserver.observe(video));
+} else {
+  lazyVideos.forEach((video) => { video.preload = 'auto'; video.play().catch(() => {}); });
+}
+
 // Trazos SVG de los iconos de línea usados por las páginas.
 const lineIconPaths = {
   drop: '<path d="M12 3.5S6 10 6 14a6 6 0 0 0 12 0c0-4-6-10.5-6-10.5Z"/><path d="M9.5 15.5a2.8 2.8 0 0 0 2.5 2"/>',
@@ -33,6 +51,38 @@ document.querySelectorAll('.bios-line-icon').forEach((icon) => {
   icon.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${lineIconPaths[iconName]}</svg>`;
 });
 
+const serviceHeadingSelector = [
+  '.services-page',
+  '.detail-page',
+  '.general-page',
+  '.about-page',
+  '.service-page-hero',
+  '.centers-hero',
+].map((selector) => `${selector} :is(h1, h2, h3, h4, h5, h6)`).join(', ');
+
+document.querySelectorAll(serviceHeadingSelector).forEach((heading) => {
+  const existingAccent = heading.querySelector('em');
+  if (existingAccent) {
+    heading.querySelectorAll('em').forEach((accent) => accent.classList.add('service-heading__accent'));
+    return;
+  }
+
+  const textWalker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+  let lastTextNode;
+  while (textWalker.nextNode()) lastTextNode = textWalker.currentNode;
+  if (!lastTextNode) return;
+
+  const text = lastTextNode.textContent;
+  const lastWord = /(\S+)(\s*)$/.exec(text);
+  if (!lastWord || !/\s/.test(text.trim())) return;
+
+  const prefix = text.slice(0, lastWord.index);
+  const accent = document.createElement('span');
+  accent.className = 'service-heading__accent';
+  accent.textContent = lastWord[1];
+  lastTextNode.replaceWith(document.createTextNode(prefix), accent, document.createTextNode(lastWord[2]));
+});
+
 // Reactiva los GIF del logotipo al volver a la pestaña.
 function resumeLogoAnimation() {
   if (document.visibilityState !== 'visible') return;
@@ -45,49 +95,6 @@ function resumeLogoAnimation() {
 
 window.addEventListener('pageshow', resumeLogoAnimation);
 document.addEventListener('visibilitychange', resumeLogoAnimation);
-
-// Navegación por clic y teclado en las tarjetas del directorio de servicios.
-document.querySelectorAll('.services-directory__card').forEach((card) => {
-  const link = card.querySelector('.services-directory__link');
-  if (!link) return;
-  card.setAttribute('role', 'link');
-  card.setAttribute('tabindex', '0');
-  const openService = () => { window.location.href = link.href; };
-  card.addEventListener('click', (event) => { if (!event.target.closest('a')) openService(); });
-  card.addEventListener('keydown', (event) => {
-  const chatbotKnowledge = [
-    { keywords: ['analisis microbiologico de alimentos', 'microbiologico de alimentos'], answer: 'El análisis microbiológico de alimentos apoya la liberación de lotes, el control interno, la verificación de limpieza y la evaluación de vida útil. Según el producto puede incluir coliformes, aerobios mesófilos, mohos, levaduras y búsqueda de patógenos como Salmonella, Listeria o Escherichia coli.' },
-    { keywords: ['analisis fisicoquimico de alimentos', 'fisicoquimico de alimentos'], answer: 'El análisis fisicoquímico de alimentos caracteriza propiedades del producto según su tipo, formulación y especificaciones. Los parámetros se definen con la ficha técnica y el objetivo del cliente; consulta con BIOS el alcance disponible para cada matriz.' },
-    { keywords: ['ambientes por impacto', 'muestreo por impacto', 'impacto de ambientes'], answer: 'El análisis de ambientes por impacto es un monitoreo microbiológico del aire mediante captura activa en puntos seleccionados. Ayuda a estimar microorganismos suspendidos y revisar zonas que puedan requerir controles de higiene o ventilación.' },
-    { keywords: ['ambientes de areas', 'analisis de ambientes', 'ambientes de produccion'], answer: 'El monitoreo de ambientes de áreas observa la carga microbiana en espacios de elaboración, manipulación o almacenamiento. Se describe sedimentación con cajas de Petri expuestas durante 20 minutos, seguida de incubación y evaluación.' },
-    { keywords: ['frotis de manos', 'frotis manos', 'hisopado de manos'], answer: 'El frotis de manos ayuda a revisar la higiene de manipuladores. La toma considera palmas, espacios entre los dedos y uñas con un escobillón estéril humedecido en solución salina con Tween 80; luego se analiza la muestra para evaluar indicadores de higiene.' },
-    { keywords: ['frotis de superficies', 'frotis superficies', 'hisopado de superficies'], answer: 'El frotis de superficies evalúa utensilios, equipos o superficies en contacto con alimentos para verificar limpieza y desinfección y detectar posibles reservorios de contaminación. Los puntos y microorganismos dependen del proceso y del plan de muestreo.' },
-    { keywords: ['vida util', 'fecha de vencimiento', 'fecha vencimiento', 'estudio de vida util'], answer: 'El estudio de vida útil estima durante cuánto tiempo un alimento conserva condiciones aceptables bajo condiciones acordadas. Se toman muestras en distintos momentos del almacenamiento y se combinan análisis microbiológicos y fisicoquímicos. Se requiere definir producto, formulación, empaque y almacenamiento.' },
-    { keywords: ['analisis microbiologico de aguas', 'microbiologico de aguas'], answer: 'El análisis microbiológico de aguas evalúa indicadores según la fuente y el uso final. Puede incluir coliformes totales y fecales, Escherichia coli, Pseudomonas aeruginosa y aerobios mesófilos. Aplica, según alcance, a agua potable, embotellada, agrícola, recreativa y de piscinas.' },
-    { keywords: ['aguas de suministro', 'agua de suministro', 'agua de red', 'agua de pozo'], answer: 'El análisis de aguas de suministro aplica a agua de redes, pozos u otras fuentes para consumo, uso doméstico o procesos. El alcance puede integrar parámetros físicos, químicos y microbiológicos, definidos según la fuente y el uso previsto.' },
-    { keywords: ['aguas de piscinas', 'agua de piscina', 'analisis de piscina', 'piscina'], answer: 'El análisis de agua de piscinas puede incluir parámetros fisicoquímicos como pH, turbidez y desinfectante residual, además de indicadores microbiológicos como heterótrofos, Escherichia coli, Pseudomonas y coliformes. El panel depende del tipo de piscina y los requisitos aplicables.' },
-    { keywords: ['agua para uso agricola', 'agua agricola', 'agua de riego', 'riego'], answer: 'El análisis de agua para uso agrícola considera el origen del agua, el cultivo y el sistema de riego. Puede incluir indicadores microbiológicos como coliformes totales y fecales y parámetros fisicoquímicos seleccionados para el uso.' },
-    { keywords: ['agua para uso recreativo', 'agua recreativa', 'uso recreativo'], answer: 'El análisis de agua para uso recreativo se define según el cuerpo de agua, el tipo de contacto y la frecuencia de exposición. El alcance puede integrar parámetros microbiológicos y fisicoquímicos de acuerdo con los requisitos aplicables.' },
-    { keywords: ['aguas embotelladas', 'agua embotellada', 'agua envasada'], answer: 'El análisis de aguas embotelladas revisa características del producto tratado y envasado. Puede incluir parámetros microbiológicos y fisicoquímicos; el panel se determina según el tipo de agua, el tratamiento y la normativa vigente aplicable.' },
-    { keywords: ['analisis fisicoquimico de aguas', 'fisicoquimico de aguas'], answer: 'El análisis fisicoquímico de aguas caracteriza el agua según su procedencia y uso: suministro, piscinas, agua embotellada o riego. Los parámetros y criterios de aceptación se definen para cada matriz y regulación aplicable.' },
-    { keywords: ['toma de item', 'item de ensayo', 'toma de muestra', 'muestreo'], answer: 'La toma de ítem de ensayo y muestreo organiza el punto de toma y los datos para identificar la muestra. El recipiente, la conservación, el transporte y la disponibilidad de toma en sitio se confirman con BIOS para cada análisis.' },
-    { keywords: ['esterilidad comercial'], answer: 'La esterilidad comercial evalúa productos procesados y envasados para verificar su estabilidad bajo las condiciones previstas de conservación. La muestra, el plan y los microorganismos se definen según el alimento y el envase.' },
-    { keywords: ['kelsey maurer', 'kelsey-maurer'], answer: 'La prueba de Kelsey-Maurer evalúa la actividad bactericida y fungicida de un desinfectante bajo condiciones controladas. El ensayo considera el producto, su concentración y el tiempo de contacto definidos.' },
-    { keywords: ['reaccion en cadena de la polimerasa', 'analisis pcr', 'pcr'], answer: 'La PCR es una técnica molecular que detecta secuencias genéticas específicas. El microorganismo objetivo, la matriz compatible, el método y el tiempo se confirman con BIOS antes de enviar la muestra.' },
-    { keywords: ['e coli stec', 'escherichia coli stec', 'coli stec', 'o157'], answer: 'El análisis de E. coli STEC busca cepas productoras de toxina Shiga, incluido el serotipo O157:H7. La matriz y el método se definen según el alimento y el alcance solicitado.' },
-    { keywords: ['campylobacter'], answer: 'El análisis de Campylobacter spp. detecta bacterias de ese género en matrices definidas. Puede ser pertinente en aves, carnes, leche no pasteurizada o agua; BIOS confirma muestra, conservación y método disponible.' },
-    { keywords: ['listeria monocytogenes', 'listeria'], answer: 'El análisis de Listeria monocytogenes busca este patógeno en alimentos o ambientes asociados a la producción, especialmente productos listos para consumo y áreas de proceso. La matriz define el método y la toma.' },
-    { keywords: ['salmonella'], answer: 'El análisis de Salmonella spp. detecta este género en alimentos y otras matrices de interés. La técnica, el tamaño de muestra y los criterios dependen del producto y del objetivo del análisis.' },
-    { keywords: ['analisis de cosmeticos', 'analisis microbiologico de cosmeticos', 'cosmeticos'], answer: 'El análisis microbiológico de cosméticos puede incluir recuentos de aerobios, mohos y levaduras y microorganismos de interés como E. coli, Staphylococcus aureus, Pseudomonas aeruginosa y Candida albicans. El plan depende del producto y su uso.' },
-    { keywords: ['servicios para agua y piscina', 'analisis de aguas y piscinas'], answer: 'BIOS realiza análisis microbiológicos y físicos para agua potable y piscinas. Según el alcance, se revisan indicadores como coliformes, Escherichia coli, Pseudomonas y aerobios mesófilos; también pueden solicitarse parámetros como pH e índice de Langelier.' },
-    { keywords: ['servicios para centros', 'centros penitenciarios', 'centros carcelarios', 'centro penitenciario'], answer: 'Para centros penitenciarios y carcelarios se ofrecen análisis microbiológicos de alimentos preparados, ensaladas, jugos, quesos y leche en polvo, además de análisis microbiológicos, físicos y químicos de agua potable. También se revisa higiene con frotis de manos y superficies y monitoreo de ambientes.' },
-    { keywords: ['servicios para industrias', 'industria panificadora', 'industrias panificadoras', 'galletas y bizcochos', 'panaderia', 'analisis de pan', 'pan'], answer: 'Para pan, galletas y bizcochos se ofrecen análisis microbiológicos y físicos; para galletas y bizcochos también análisis de empaque y migración global y específica. Se puede estudiar la vida útil según producto, empaque y condiciones de almacenamiento.' },
-    { keywords: ['servicios para plantas', 'plantas envasadoras', 'planta envasadora', 'beneficio animal', 'plantas de beneficio', 'planta'], answer: 'Para plantas envasadoras y de beneficio animal se ofrecen verificaciones de higiene con frotis de manos y superficies, monitoreo de ambientes y análisis de empaque. Se evalúan mesófilos, coliformes totales, Staphylococcus aureus, mohos y levaduras; para beneficio animal se consideran bovinos, porcinos, bufalinos y aves.' },
-  ];
-
-    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openService(); }
-  });
-});
 
 // Navegación por teclado y clic en las tarjetas de vistas previas.
 const servicePreviewLinks = [
@@ -315,7 +322,42 @@ if (contactForm) {
   formStatus.setAttribute('aria-live', 'polite');
   contactForm.append(formStatus);
 
+  const requesterType = contactForm.querySelector('[name="requester_type"]');
+  const companyField = contactForm.querySelector('[data-company-field]');
+  const companyName = contactForm.querySelector('[name="company_name"]');
+  const taxId = contactForm.querySelector('[name="tax_id"]');
+  const attachmentInput = contactForm.querySelector('[name="attachment"]');
+
+  if (requesterType && companyField && companyName && taxId) {
+    const updateCompanyField = () => {
+      const isCompany = requesterType.value === 'Empresa';
+      companyField.hidden = !isCompany;
+      companyName.required = isCompany;
+      taxId.required = isCompany;
+    };
+
+    requesterType.addEventListener('change', updateCompanyField);
+  }
+
   contactForm.addEventListener('submit', async (event) => {
+    const attachments = attachmentInput ? [...attachmentInput.files] : [];
+    const attachmentSize = attachments.reduce((total, file) => total + file.size, 0);
+    const maxAttachmentSize = 10 * 1024 * 1024;
+
+    if (attachmentSize > maxAttachmentSize) {
+      event.preventDefault();
+      formStatus.textContent = 'Los archivos adjuntos superan el límite total de 10 MB. Reduce su tamaño e inténtalo de nuevo.';
+      formStatus.className = 'contact-form-status is-error';
+      return;
+    }
+
+    if (attachments.length) {
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+      return;
+    }
+
     event.preventDefault();
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const originalLabel = submitButton.textContent;
@@ -466,14 +508,13 @@ function normalizeChatText(message) {
 
 // Respuestas construidas con los alcances publicados en el catálogo y las páginas de servicio.
 const chatbotKnowledge = [
-  { keywords: ['servicios para agua y piscina', 'analisis de aguas y piscinas'], answer: 'BIOS realiza análisis microbiológicos y físicos para agua potable y piscinas. Según el alcance, se revisan indicadores como coliformes, Escherichia coli, Pseudomonas y aerobios mesófilos; también pueden solicitarse parámetros fisicoquímicos como pH e índice de Langelier. El panel y los criterios dependen del uso y la normativa aplicable.' },
-  { keywords: ['servicios para centros', 'centros penitenciarios', 'centros carcelarios', 'centro penitenciario'], answer: 'Para centros penitenciarios y carcelarios se ofrecen análisis microbiológicos de alimentos preparados, ensaladas, jugos, quesos y leche en polvo, además de análisis microbiológicos, físicos y químicos de agua potable. También se puede revisar higiene con frotis de manos y superficies y monitoreo de ambientes.' },
-  { keywords: ['servicios para industrias', 'industria panificadora', 'industrias panificadoras', 'galletas y bizcochos', 'panaderia'], answer: 'Para pan, galletas y bizcochos se ofrecen análisis microbiológicos y físicos; para galletas y bizcochos también análisis de empaque y migración global y específica. El catálogo incluye estudios de vida útil; el plan se define según producto, empaque y condiciones de almacenamiento.' },
-  { keywords: ['servicios para plantas', 'plantas envasadoras', 'planta envasadora', 'beneficio animal', 'plantas de beneficio'], answer: 'Para plantas envasadoras y de beneficio animal se ofrecen verificaciones de higiene con frotis de manos y superficies, monitoreo de ambientes y análisis de empaque. En empaques se listan mesófilos, coliformes totales, Staphylococcus aureus, mohos y levaduras. Para beneficio animal se consideran bovinos, porcinos, bufalinos y aves.' },
+  { keywords: ['servicios para agua y piscina', 'analisis de aguas y piscinas'], answer: 'BIOS realiza análisis microbiológicos y fisicoquímicos de agua potable y piscinas. El alcance puede incluir coliformes, Legionella spp., Cryptosporidium parvum y Giardia lamblia, además de parámetros como pH e índice de Langelier. También calculamos índices como IRAPI e IRCA según el servicio solicitado.' },
+  { keywords: ['servicios para centros', 'control de calidad en la produccion de alimentos'], answer: 'BIOS ofrece análisis microbiológicos de alimentos preparados, materias primas e insumos, además de estudios de vida útil. También realiza análisis microbiológicos, físicos y químicos de agua potable y verifica la higiene de manipuladores y superficies.' },
+  { keywords: ['servicios para industrias', 'analisis fisicoquimicos de alimentos', 'analisis bromatologicos', 'tabla nutricional'], answer: 'Los análisis fisicoquímicos de alimentos incluyen análisis bromatológicos y elaboración de tablas nutricionales. El alcance se define según el alimento, su formulación y las necesidades del cliente; también se ofrecen estudios de vida útil.' },
+  { keywords: ['servicios para plantas', 'plantas envasadoras', 'planta envasadora', 'beneficio animal', 'plantas de beneficio'], answer: 'Para plantas envasadoras y de beneficio animal se ofrecen verificaciones de higiene con frotis de manos y superficies, monitoreo de ambientes y análisis microbiológicos. La evaluación de patógenos puede realizarse mediante metodología tradicional, PCR en tiempo real o MDS, según la necesidad de cada cliente.' },
   { keywords: ['vida util', 'fecha de vencimiento', 'fecha vencimiento', 'estudio de vida util'], answer: 'El estudio de vida útil estima durante cuánto tiempo un alimento conserva condiciones aceptables bajo condiciones acordadas. Se toman muestras en distintos momentos del almacenamiento y se combinan análisis microbiológicos y fisicoquímicos. Se requiere definir producto, formulación, empaque y almacenamiento.' },
   { keywords: ['frotis de manos', 'frotis manos', 'hisopado de manos'], answer: 'El frotis de manos ayuda a revisar la higiene de manipuladores. La toma considera palmas, espacios entre los dedos y uñas con un escobillón estéril humedecido en solución salina con Tween 80; luego se analiza la muestra para evaluar indicadores de higiene.' },
   { keywords: ['frotis de superficies', 'frotis superficies', 'hisopado de superficies'], answer: 'El frotis de superficies evalúa utensilios, equipos o superficies en contacto con alimentos para verificar limpieza y desinfección y detectar posibles reservorios de contaminación. Los puntos y microorganismos a evaluar dependen del proceso y del plan de muestreo.' },
-  { keywords: ['ambientes por impacto', 'muestreo por impacto', 'impacto de ambientes'], answer: 'El análisis de ambientes por impacto es un monitoreo microbiológico del aire mediante captura activa en puntos seleccionados. Ayuda a estimar microorganismos suspendidos y revisar zonas que puedan requerir controles de higiene o ventilación.' },
   { keywords: ['ambientes de areas', 'analisis de ambientes', 'ambientes de produccion'], answer: 'El monitoreo de ambientes de áreas observa la carga microbiana en espacios de elaboración, manipulación o almacenamiento. En las páginas de servicio se describe sedimentación con cajas de Petri expuestas durante 20 minutos, seguida de incubación y evaluación.' },
   { keywords: ['analisis microbiologico de alimentos', 'microbiologico de alimentos'], answer: 'El análisis microbiológico de alimentos apoya la liberación de lotes, el control interno, la verificación de limpieza y la evaluación de vida útil. Según el producto puede incluir coliformes, aerobios mesófilos, mohos, levaduras y búsqueda de patógenos como Salmonella, Listeria o Escherichia coli.' },
   { keywords: ['analisis fisicoquimico de alimentos', 'fisicoquimico de alimentos'], answer: 'El análisis fisicoquímico de alimentos caracteriza propiedades del producto según su tipo, formulación y especificaciones. Los parámetros se definen con la ficha técnica y el objetivo del cliente; consulta con BIOS el alcance disponible para cada matriz.' },
@@ -482,17 +523,15 @@ const chatbotKnowledge = [
   { keywords: ['aguas de piscinas', 'agua de piscina', 'analisis de piscina', 'piscina'], answer: 'El análisis de agua de piscinas puede incluir parámetros fisicoquímicos como pH, turbidez y desinfectante residual, además de indicadores microbiológicos como heterótrofos, Escherichia coli, Pseudomonas y coliformes. El panel depende del tipo de piscina y los requisitos aplicables.' },
   { keywords: ['agua para uso agricola', 'agua agricola', 'agua de riego', 'riego'], answer: 'El análisis de agua para uso agrícola considera el origen del agua, el cultivo y el sistema de riego. Puede incluir indicadores microbiológicos como coliformes totales y fecales y parámetros fisicoquímicos seleccionados para el uso.' },
   { keywords: ['agua para uso recreativo', 'agua recreativa', 'uso recreativo'], answer: 'El análisis de agua para uso recreativo se define según el cuerpo de agua, el tipo de contacto y la frecuencia de exposición. El alcance puede integrar parámetros microbiológicos y fisicoquímicos de acuerdo con los requisitos aplicables.' },
-  { keywords: ['aguas embotelladas', 'agua embotellada', 'agua envasada'], answer: 'El análisis de aguas embotelladas revisa características del producto tratado y envasado. Puede incluir parámetros microbiológicos y fisicoquímicos; el panel se determina según el tipo de agua, el tratamiento y la normativa vigente aplicable.' },
+  { keywords: ['agua potable tratada envasada', 'aguas embotelladas', 'agua embotellada', 'agua envasada'], answer: 'El análisis de agua potable tratada envasada revisa características del producto final y puede incluir parámetros microbiológicos y fisicoquímicos, según el tratamiento y la normativa aplicable.' },
   { keywords: ['analisis fisicoquimico de aguas', 'fisicoquimico de aguas'], answer: 'El análisis fisicoquímico de aguas caracteriza el agua según su procedencia y uso, por ejemplo suministro, piscinas, agua embotellada o riego. Los parámetros y criterios de aceptación se definen para cada matriz y regulación aplicable.' },
   { keywords: ['toma de item', 'item de ensayo', 'toma de muestra', 'muestreo'], answer: 'La toma de ítem de ensayo y muestreo organiza el punto de toma y los datos para identificar la muestra. El recipiente, la conservación, el transporte y la disponibilidad de toma en sitio se confirman con BIOS para cada análisis.' },
   { keywords: ['esterilidad comercial', 'esterilidad'], answer: 'La esterilidad comercial evalúa productos procesados y envasados para verificar su estabilidad bajo las condiciones previstas de conservación. La muestra, el plan y los microorganismos se definen según el alimento y el envase.' },
-  { keywords: ['kelsey maurer', 'kelsey-maurer'], answer: 'La prueba de Kelsey-Maurer evalúa la actividad bactericida y fungicida de un desinfectante bajo condiciones controladas. El ensayo considera el producto, su concentración y el tiempo de contacto definidos.' },
   { keywords: ['reaccion en cadena de la polimerasa', 'pcr', 'analisis pcr'], answer: 'La PCR es una técnica molecular que detecta secuencias genéticas específicas. El microorganismo objetivo, la matriz compatible, el método y el tiempo se confirman con BIOS antes de enviar la muestra.' },
   { keywords: ['e coli stec', 'escherichia coli stec', 'coli stec', 'o157'], answer: 'El análisis de E. coli STEC busca cepas productoras de toxina Shiga, incluido el serotipo O157:H7. La matriz y el método se definen según el alimento y el alcance solicitado.' },
   { keywords: ['campylobacter'], answer: 'El análisis de Campylobacter spp. detecta bacterias de ese género en matrices definidas. Puede ser pertinente en aves, carnes, leche no pasteurizada o agua; BIOS confirma muestra, conservación y método disponible.' },
   { keywords: ['listeria monocytogenes', 'listeria'], answer: 'El análisis de Listeria monocytogenes busca este patógeno en alimentos o ambientes asociados a la producción, especialmente productos listos para consumo y áreas de proceso. La matriz define el método y la toma.' },
   { keywords: ['salmonella'], answer: 'El análisis de Salmonella spp. detecta este género en alimentos y otras matrices de interés. La técnica, tamaño de muestra y criterios dependen del producto y del objetivo del análisis.' },
-  { keywords: ['analisis de cosmeticos', 'analisis microbiologico de cosmeticos', 'cosmeticos'], answer: 'El análisis microbiológico de cosméticos puede incluir recuentos de aerobios, mohos y levaduras y microorganismos de interés como E. coli, Staphylococcus aureus, Pseudomonas aeruginosa y Candida albicans. El plan depende del producto y su uso.' },
 ];
 
 function handleBotReply(message) {
@@ -526,22 +565,22 @@ function handleBotReply(message) {
   }
 
   if (lower.includes('catalogo') || lower.includes('analisis disponibles') || lower.includes('pruebas disponibles') || lower.includes('que analisis ofrecen') || lower.includes('que analisis hacen') || lower.includes('que pruebas ofrecen')) {
-    pushChatMessage('El catálogo incluye análisis de alimentos (microbiológicos, fisicoquímicos, ambientes, frotis de manos y superficies y vida útil); análisis de aguas (microbiológicos, fisicoquímicos, suministro, piscinas, uso agrícola, recreativo y embotellada); y otros análisis como muestreo, esterilidad comercial, ambientes por impacto, Kelsey-Maurer, PCR, patógenos y cosméticos. Pregúntame por uno para darte su alcance.', 'bot');
+    pushChatMessage('El catálogo incluye análisis microbiológicos y fisicoquímicos de alimentos y aguas, análisis de materias primas e insumos, estudios de vida útil, análisis bromatológicos y tablas nutricionales. También ofrece análisis de piscinas, toma de muestras, esterilidad comercial, PCR y análisis de patógenos. Pregúntame por uno para darte su alcance.', 'bot');
     return;
   }
 
   if (lower.includes('agua')) {
-    pushChatMessage('El catálogo de aguas incluye análisis microbiológicos y fisicoquímicos, agua de suministro, piscinas, uso agrícola, uso recreativo y aguas embotelladas. El alcance depende de la fuente y el uso previsto.', 'bot');
+    pushChatMessage('El catálogo de aguas incluye análisis microbiológicos y fisicoquímicos, agua de suministro, piscinas, uso agrícola, uso recreativo y agua potable tratada envasada. El alcance depende de la fuente y el uso previsto.', 'bot');
     return;
   }
 
   if (lower.includes('alimento')) {
-    pushChatMessage('El catálogo de alimentos incluye análisis microbiológicos y fisicoquímicos, ambientes de áreas, frotis de manos y superficies y estudios de vida útil. Para pan, galletas y bizcochos también se describen análisis físicos, de empaque y migración.', 'bot');
+    pushChatMessage('El catálogo de alimentos incluye análisis microbiológicos y fisicoquímicos, análisis bromatológicos, tablas nutricionales, materias primas e insumos y estudios de vida útil.', 'bot');
     return;
   }
 
   if (lower.includes('servicio') || lower.includes('hacen') || lower.includes('ofrecen') || lower.includes('que hace') || lower.includes('quienes son') || lower.includes('informacion')) {
-    pushChatMessage('BIOS ofrece análisis microbiológicos y fisicoquímicos para alimentos y aguas; atiende agua y piscinas, centros penitenciarios y carcelarios, industrias panificadoras y plantas envasadoras y de beneficio animal. También ofrece análisis de higiene, empaques, ambientes y estudios de vida útil. Pregúntame por un servicio o revisa el catálogo de análisis.', 'bot');
+    pushChatMessage('BIOS ofrece análisis microbiológicos y fisicoquímicos para alimentos y aguas, análisis bromatológicos, tablas nutricionales y estudios de vida útil. Atiende plantas envasadoras y de beneficio animal, centros de producción de alimentos y servicios de agua y piscinas. Pregúntame por un servicio o revisa el catálogo de análisis.', 'bot');
     return;
   }
 
