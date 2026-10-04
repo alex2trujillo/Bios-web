@@ -6864,3 +6864,15 @@ body main.services-page.services-page--directory .services-directory__content p 
 .index-page.index-page.index-page.index-page .hero-wrap::after {
   background-position: 50% 12% !important;
 }
+
+@media (min-width: 901px) {
+  .bios-footer .bios-footer__grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) max-content minmax(0, .5fr);
+    gap: 24px;
+  }
+
+  .bios-footer .bios-footer__contact a {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+}
