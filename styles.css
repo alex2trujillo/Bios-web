@@ -6876,3 +6876,17 @@ body main.services-page.services-page--directory .services-directory__content p 
     overflow-wrap: normal;
   }
 }
+
+@media (min-width:901px) {
+  .main-nav .menu { flex-wrap: nowrap; gap: 0; letter-spacing: .06em; font-size: .8rem; }
+  .main-nav .menu a { padding: 10px 7px; white-space: nowrap; }
+  .site-header .brand { width: 200px; }
+  .site-header .brand > .site-logo { width: 170px; }
+}
+@media (min-width:901px) and (max-width:1100px) {
+  .main-nav .menu { letter-spacing: .03em; font-size: .72rem; }
+  .main-nav .menu a { padding: 10px 5px; }
+  .site-header .brand { width: 170px; }
+  .site-header .brand > .site-logo { width: 150px; }
+  .site-header .nav { gap: 12px; }
+}
